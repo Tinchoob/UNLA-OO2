@@ -21,7 +21,7 @@ public class ZonaDao {
 		throw new HibernateException("ERROR en la capa de acceso a datos", he);
 	}
 
- int agregar(Zona objeto) {
+ public int agregar(Zona objeto) {
 		int id = 0;
 		try {
 			iniciaOperacion();

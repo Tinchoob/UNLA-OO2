@@ -12,7 +12,6 @@ public class Medidor {
 	}
 
 	public Medidor(int nroSerie, Cliente cliente, String domicilioMedidor, Zona zona) {
-		super();
 		this.nroSerie = nroSerie;
 		this.cliente = cliente;
 		this.domicilioMedidor = domicilioMedidor;

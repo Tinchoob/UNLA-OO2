@@ -11,9 +11,9 @@ public class Zona {
 	public Zona() {
 	}
 
-	public Zona(String nombre) {
-		super();
+	public Zona(String nombre,Inspector inspector) {
 		this.nombre = nombre;
+		this.inspector=inspector;
 	}
 
 	public long getIdZona() {
