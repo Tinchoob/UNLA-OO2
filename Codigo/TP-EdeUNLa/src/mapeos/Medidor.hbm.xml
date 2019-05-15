@@ -9,8 +9,15 @@
 		
 		
 		<property name="nroSerie" column="nroSerie" type="int"/>
+		<property name="domicilioMedidor" column="domicilioMedidor" type="string"/>
+		<property name="esBaja" column="esBaja" type="boolean"/>
+		
 		
 		<many-to-one name="cliente" class="datos.Cliente" column="idCliente" not-null="true"/>
+		
+		
+		<many-to-one name="zona" class="datos.Cliente" column="idZona" not-null="true"/>
+		
 		
 		
 	
