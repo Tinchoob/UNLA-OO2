@@ -6,7 +6,7 @@ public class Tarifario {
 	private long idTarifario;
 	private double montoFijo;
 	private double montoVariable;
-	private LocalDate fechaActualizcion;
+	private LocalDate fechaActualizacion;
 	private boolean estaActivo;
 	// private Set<Factura> facturas;		Tincho: Agrega esto cuando mapees Factura, ademas del getter y setter correspondiente
 	
@@ -14,16 +14,12 @@ public class Tarifario {
 	public Tarifario() {}
 
 
-	public Tarifario(double montoFijo, double montoVariable, LocalDate fechaActualizcion, boolean estaActivo) {
+	public Tarifario(double montoFijo, double montoVariable, LocalDate fechaActualizacion, boolean estaActivo) {
 		this.montoFijo = montoFijo;
 		this.montoVariable = montoVariable;
-		this.fechaActualizcion = fechaActualizcion;
+		this.fechaActualizacion = fechaActualizacion;
 		this.estaActivo = estaActivo;
 	}
-
-
-	
-
 
 	public long getIdTarifario() {
 		return idTarifario;
@@ -55,13 +51,13 @@ public class Tarifario {
 	}
 
 
-	public LocalDate getFechaActualizcion() {
-		return fechaActualizcion;
+	public LocalDate getFechaActualizacion() {
+		return fechaActualizacion;
 	}
 
 
-	public void setFechaActualizcion(LocalDate fechaActualizcion) {
-		this.fechaActualizcion = fechaActualizcion;
+	public void setFechaActualizacion(LocalDate fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
 	}
 
 
@@ -78,7 +74,7 @@ public class Tarifario {
 	@Override
 	public String toString() {
 		return "Tarifario [idTarifario=" + idTarifario + ", montoFijo=" + montoFijo + ", montoVariable=" + montoVariable
-				+ ", fechaActualizcion=" + fechaActualizcion + ", estaActivo=" + estaActivo + "]";
+				+ ", fechaActualizcion=" + fechaActualizacion + ", estaActivo=" + estaActivo + "]";
 	}
 	
 	

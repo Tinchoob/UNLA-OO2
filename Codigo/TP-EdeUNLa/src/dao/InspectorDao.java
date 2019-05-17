@@ -1,11 +1,11 @@
 package dao;
 
-import datos.Inspector;
-
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import datos.Inspector;
 
 public class InspectorDao {
 		private static Session session;
