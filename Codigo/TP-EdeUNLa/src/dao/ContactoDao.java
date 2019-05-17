@@ -44,7 +44,7 @@ public class ContactoDao {
 		return id;
 	}
 	
-	public Contacto traerContacto(long idContacto) throws HibernateException {
+	public Contacto traer(long idContacto) throws HibernateException {
 		Contacto objeto = null;
 		try {
 		iniciaOperacion();

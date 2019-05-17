@@ -8,7 +8,8 @@ public class Zona {
 	private Inspector inspector;
 	private Set<Medidor> medidores;
 	
-	public Zona() {}
+	public Zona() {
+	}
 
 	public Zona(String nombre,Inspector inspector) {
 		this.nombre = nombre;
@@ -19,7 +20,7 @@ public class Zona {
 		return idZona;
 	}
 
-	protected void setIdZona(long idZona) {
+	public void setIdZona(long idZona) {
 		this.idZona = idZona;
 	}
 

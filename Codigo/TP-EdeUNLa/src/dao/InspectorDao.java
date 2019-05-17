@@ -1,11 +1,12 @@
 package dao;
 
+import datos.Cliente;
+import datos.Inspector;
+
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
-import datos.Inspector;
 
 public class InspectorDao {
 		private static Session session;
@@ -63,8 +64,9 @@ public class InspectorDao {
 			Inspector objeto = null;
 			try {
 				iniciaOperacion();
-				String hql = "from Inspector as c where c.idCliente="+idInspector;
-				objeto = (Inspector) session.createQuery(hql).uniqueResult();
+				objeto= (Inspector) session.get(Inspector.class, idInspector);
+				//String hql = "from Inspector as c where c.idCliente="+idInspector;
+				//objeto = (Inspector) session.createQuery(hql).uniqueResult();
 		//		Hibernate.initialize(objeto.getMedidores());					//poner esto en caso de que se pida traerClienteYMedidores
 			}finally {
 				session.close();

@@ -21,8 +21,8 @@ public class ContactoABM {
 		return ContactoDao.getInstancia().agregar(objeto);
 	}
 	
-	public Contacto traerContacto(long idContacto) {
-		return ContactoDao.getInstancia().traerContacto(idContacto);
+	public Contacto traer(long idContacto) {
+		return ContactoDao.getInstancia().traer(idContacto);
 	}
 	
 	

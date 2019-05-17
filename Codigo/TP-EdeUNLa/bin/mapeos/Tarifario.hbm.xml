@@ -2,19 +2,18 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-configuration">
 <hibernate-mapping>
-	<class name="datos.Tarifario" table="tarifario">
+<class name="datos.Tarifario" table="tarifario">
 		<id column="idTarifario" name="idTarifario">
 			<generator class="identity" />
 		</id>
-
+		
 		<property name="montoFijo" column="montoFijo" type="double" />
 		<property name="montoVariable" column="montoVariable" type="double" />
-		<property name="fechaActualizacion"	column="fechaActualizacion" type="LocalDate" />
-		<property name="estaActivo" column="estaActivo"
-			type="boolean" />
-
-		<!-- aca va el set de la relacion con Factura, ponerlo cuando se mapee 
-			esa clase -->
-
-	</class>
+		<property name="estaActivo" column="estaActivo" type="boolean" />
+		
+		
+		
+		<!-- aca va el set de la relacion con Factura, ponerlo cuando se mapee esa clase -->
+		
+</class>
 </hibernate-mapping>
