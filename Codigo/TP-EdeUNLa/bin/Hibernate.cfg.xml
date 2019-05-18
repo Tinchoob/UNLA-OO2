@@ -21,6 +21,8 @@
 		<mapping resource="mapeos/Inspector.hbm.xml" />
 		<mapping resource="mapeos/Tarifario.hbm.xml" />
 		<mapping resource="mapeos/Lectura.hbm.xml" />
+		<mapping resource="mapeos/Factura.hbm.xml" />
+		<mapping resource="mapeos/ItemFactura.hbm.xml" />
 
 
 	</session-factory>

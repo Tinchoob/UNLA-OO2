@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration">
+<hibernate-mapping>
+	<class name="datos.Factura" table="factura">
+		<id column="idFactura" name="idFactura">
+			<generator class="identity" />
+		</id>
+		<property column="cliente" name="cliente" type="string" />
+		<one-to-one name="lectura" class="datos.Lectura"></one-to-one>
+		<property column="fecha" name="fecha" type="string" />
+		<property column="nroMedidor" name="nroMedidor" type="int" />
+		<property column="observaciones" name="observaciones" type="string" />
+
+
+		<set name="medidores" table="medidor" order-by="idMedidor asc"
+			inverse="true" lazy="true" fetch="select">
+			<key column="idCliente" not-null="true" />
+			<one-to-many class="datos.Medidor" />
+		</set>
+
+		<!-- EL SET VA DESPUES DE LAS PROPERTIES Y ANTES DEL JOINED SUBCLASS PORQUE 
+			SINO NO ANDA!! -->
+
+
+
+	</class>
+</hibernate-mapping>
