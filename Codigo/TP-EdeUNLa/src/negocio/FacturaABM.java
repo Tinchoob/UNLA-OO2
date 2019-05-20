@@ -30,7 +30,7 @@ public class FacturaABM {
 		facturaDao.eliminar(objeto);
 	}
 
-	public Factura traerInspector(long idFactura) {
-		return facturaDao.traerInspector(idFactura);
+	public Factura traerFactura(long idFactura) {
+		return facturaDao.traerFactura(idFactura);
 	}
 }

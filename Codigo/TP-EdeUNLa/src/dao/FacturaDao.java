@@ -58,7 +58,7 @@ public class FacturaDao {
 		}
 	}
 
-	public Factura traerInspector(long idFactura) {
+	public Factura traerFactura(long idFactura) {
 		Factura objeto = null;
 		try {
 			iniciaOperacion();
