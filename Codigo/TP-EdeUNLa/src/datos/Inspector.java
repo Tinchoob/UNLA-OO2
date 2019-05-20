@@ -8,6 +8,7 @@ public class Inspector {
 	private String apellido;
 	private int dni;
 	private Set<Zona> zonas;
+	private Set<Lectura> lecturas;
 
 	public Inspector() {
 	}
@@ -53,6 +54,14 @@ public class Inspector {
 
 	public Set<Zona> getZonas() {
 		return zonas;
+	}
+
+	public Set<Lectura> getLecturas() {
+		return lecturas;
+	}
+
+	public void setLecturas(Set<Lectura> lecturas) {
+		this.lecturas = lecturas;
 	}
 
 	public void setZonas(Set<Zona> zonas) {

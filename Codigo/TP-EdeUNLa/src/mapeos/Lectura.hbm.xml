@@ -6,19 +6,21 @@
 		<id column="idLectura" name="idLectura">
 			<generator class="identity" />
 		</id>
-		<property column="fechaHoraLectura" name="fechaHoraLectura" type="string" />
+		<property column="fechaHoraLectura" name="fechaHoraLectura" type="LocalDateTime" />
 
 
-		<one-to-one name="inspector" class="datos.Inspector"></one-to-one>
+		<many-to-one name="inspector" class="datos.Inspector"></many-to-one>
 
 		<many-to-one name="medidor" class="datos.Medidor"></many-to-one>
+		
+		<one-to-one name="factura" class="datos.Factura"></one-to-one>
 
 		<joined-subclass name="datos.LecturaAltaDemanda" table="lecturaaltademanda">
 			<key column="idLecturaAltaDemanda" />
 			<property column="tipoTension" name="tipoTension" type="string" />
-			<property column="consumoHorasPico" name="consumoHorasPico" type="float" />
-			<property column="consumoHorasValle" name="consumoHorasValle" type="float" />
-			<property column="consumoHorasResto" name="consumoHorasResto" type="float" />
+			<property column="consumoHorasPico" name="consumoHorasPico" type="double" />
+			<property column="consumoHorasValle" name="consumoHorasValle" type="double" />
+			<property column="consumoHorasResto" name="consumoHorasResto" type="double" />
 		</joined-subclass>
 		
 		<joined-subclass name="datos.LecturaBajaDemanda" table="lecturabajademanda">

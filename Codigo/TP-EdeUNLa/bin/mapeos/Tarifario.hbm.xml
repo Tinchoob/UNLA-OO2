@@ -12,8 +12,12 @@
 		<property name="estaActivo" column="estaActivo" type="boolean" />
 		
 		
+		<set name="facturas" table="factura" inverse="true" lazy="true" fetch="select">
+			<key column="idTarifario" not-null="true" />
+			<one-to-many class="datos.ItemFactura" />
+		</set>
 		
-		<!-- aca va el set de la relacion con Factura, ponerlo cuando se mapee esa clase -->
+	
 		
 </class>
 </hibernate-mapping>

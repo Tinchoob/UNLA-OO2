@@ -1,6 +1,6 @@
 package datos;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class LecturaBajaDemanda extends Lectura {
 	private double consumo;
@@ -8,8 +8,8 @@ public class LecturaBajaDemanda extends Lectura {
 	public LecturaBajaDemanda() {
 	}
 
-	public LecturaBajaDemanda(LocalDate fechaHoraLectura, Inspector inspector, Medidor medidor, double consummo) {
-		super(fechaHoraLectura, inspector, medidor);
+	public LecturaBajaDemanda(LocalDateTime fechaHoraLectura, Inspector inspector, Medidor medidor,Factura factura, double consummo) {
+		super(fechaHoraLectura, inspector, medidor,factura);
 		this.consumo = consummo;
 	}
 

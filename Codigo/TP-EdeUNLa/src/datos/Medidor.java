@@ -1,5 +1,7 @@
 package datos;
 
+import java.util.Set;
+
 public class Medidor {
 	private long idMedidor;
 	private int nroSerie;
@@ -7,6 +9,7 @@ public class Medidor {
 	private String domicilioMedidor;
 	private Zona zona;
 	private boolean esBaja;
+	private Set<Lectura> lecturas;
 
 	public Medidor() {
 	}
@@ -65,6 +68,14 @@ public class Medidor {
 
 	public void setEsBaja(boolean esBaja) {
 		this.esBaja = esBaja;
+	}
+
+	public Set<Lectura> getLecturas() {
+		return lecturas;
+	}
+
+	public void setLecturas(Set<Lectura> lecturas) {
+		this.lecturas = lecturas;
 	}
 
 	@Override

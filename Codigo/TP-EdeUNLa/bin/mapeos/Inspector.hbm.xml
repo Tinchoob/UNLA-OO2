@@ -11,11 +11,19 @@
 		<property column="apellido" name="apellido" type="string" />
 		<property column="dni" name="dni" type="int" />
 		
-		<set name="zonas" table="zona" order-by="idZona asc"
+		<set name="zonas" table="inspectorxzona" outer-join="true">
+			<key column="idInspector" not-null="true" />
+			<many-to-many column="idZona" class="datos.Zona" />
+		</set>
+		
+		
+		<set name="lecturas" table="lectura" order-by="idLectura asc"
 			inverse="true" lazy="true" fetch="select">
 			<key column="idInspector" not-null="true" />
-			<one-to-many class="datos.Zona" />
+			<one-to-many class="datos.Lectura" />
 		</set>
+		
+		
 		
 	</class>
 </hibernate-mapping>

@@ -1,19 +1,20 @@
 package datos;
 
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
 
 public class LecturaAltaDemanda extends Lectura {
 	private String tipoTension;
-	private float consumoHorasPico;
-	private float consumoHorasValle;
-	private float consumoHorasResto;
+	private double consumoHorasPico;
+	private double consumoHorasValle;
+	private double consumoHorasResto;
 
 	public LecturaAltaDemanda() {
 	}
 
-	public LecturaAltaDemanda(LocalDate fechaHoraLectura, Inspector inspector, Medidor medidor, String tipoTension,
-			float consumoHorasPico, float consumoHorasValle, float consumoHorasResto) {
-		super(fechaHoraLectura, inspector, medidor);
+	public LecturaAltaDemanda(LocalDateTime fechaHoraLectura, Inspector inspector, Medidor medidor,Factura factura, String tipoTension,
+			double consumoHorasPico, double consumoHorasValle, double consumoHorasResto) {
+		super(fechaHoraLectura, inspector, medidor,factura);
 		this.tipoTension = tipoTension;
 		this.consumoHorasPico = consumoHorasPico;
 		this.consumoHorasValle = consumoHorasValle;
@@ -28,27 +29,27 @@ public class LecturaAltaDemanda extends Lectura {
 		this.tipoTension = tipoTension;
 	}
 
-	public float getConsumoHorasPico() {
+	public double getConsumoHorasPico() {
 		return consumoHorasPico;
 	}
 
-	public void setConsumoHorasPico(float consumoHorasPico) {
+	public void setConsumoHorasPico(double consumoHorasPico) {
 		this.consumoHorasPico = consumoHorasPico;
 	}
 
-	public float getConsumoHorasValle() {
+	public double getConsumoHorasValle() {
 		return consumoHorasValle;
 	}
 
-	public void setConsumoHorasValle(float consumoHorasValle) {
+	public void setConsumoHorasValle(double consumoHorasValle) {
 		this.consumoHorasValle = consumoHorasValle;
 	}
 
-	public float getConsumoHorasResto() {
+	public double getConsumoHorasResto() {
 		return consumoHorasResto;
 	}
 
-	public void setConsumoHorasResto(float consumoHorasResto) {
+	public void setConsumoHorasResto(double consumoHorasResto) {
 		this.consumoHorasResto = consumoHorasResto;
 	}
 

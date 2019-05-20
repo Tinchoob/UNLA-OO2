@@ -20,7 +20,7 @@ public class Factura {
 	public Factura(String cliente, Lectura lectura, LocalDate fecha, int nroMedidor, String observaciones,
 			Tarifario tarifario) {
 		this.cliente = cliente;
-		this.lectura = lectura;
+		this.lectura=lectura;
 		this.fecha = fecha;
 		this.nroMedidor = nroMedidor;
 		this.observaciones = observaciones;
@@ -90,5 +90,16 @@ public class Factura {
 	public void setTarifario(Tarifario tarifario) {
 		this.tarifario = tarifario;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Factura [idFactura=" + idFactura + ", cliente=" + cliente + ", lectura=" + lectura + ", fecha=" + fecha
+				+ ", nroMedidor=" + nroMedidor + ", observaciones=" + observaciones + ", tarifario=" + tarifario + "]";
+	}
+	
+	
+	
 
 }

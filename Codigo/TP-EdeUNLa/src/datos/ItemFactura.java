@@ -6,17 +6,20 @@ public class ItemFactura {
 	private double precioUnitario;
 	private int cantidad;
 	private String unidad;
+	private Factura factura;
 
 	public ItemFactura() {
 	}
 
-	public ItemFactura(String detalle, double precioUnitario, int cantidad, String unidad) {
+	public ItemFactura(String detalle, double precioUnitario, int cantidad, String unidad,Factura factura) {
 
 		this.detalle = detalle;
 		this.precioUnitario = precioUnitario;
 		this.cantidad = cantidad;
 		this.unidad = unidad;
+		this.factura=factura;
 	}
+	
 
 	public int getIdItemFactura() {
 		return idItemFactura;
@@ -57,5 +60,22 @@ public class ItemFactura {
 	public void setUnidad(String unidad) {
 		this.unidad = unidad;
 	}
+
+	public Factura getFactura() {
+		return factura;
+	}
+
+	public void setFactura(Factura factura) {
+		this.factura = factura;
+	}
+
+	@Override
+	public String toString() {
+		return "ItemFactura [idItemFactura=" + idItemFactura + ", detalle=" + detalle + ", precioUnitario="
+				+ precioUnitario + ", cantidad=" + cantidad + ", unidad=" + unidad + ", factura=" + factura + "]";
+	}
+	
+	
+	
 
 }

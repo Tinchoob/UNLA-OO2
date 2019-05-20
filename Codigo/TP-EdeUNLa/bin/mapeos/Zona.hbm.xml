@@ -12,9 +12,10 @@
 		<property column="nombre" name="nombre" type="string" />
 		
 		
-		
-		<many-to-one name="inspector" class="datos.Inspector"
-			column="idInspector" not-null="true" />
+		<set name="inspectores" table="inspectorxzona" outer-join="true">
+			<key column="idZona" not-null="true" />
+			<many-to-many column="idInspector" class="datos.Inspector" />
+		</set>
 		
 		
 		<set name="medidores" table="medidor" order-by="idMedidor asc"

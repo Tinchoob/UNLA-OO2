@@ -1,6 +1,7 @@
 package datos;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 public class Tarifario {
 	private long idTarifario;
@@ -8,7 +9,7 @@ public class Tarifario {
 	private double montoVariable;
 	private LocalDate fechaActualizcion;
 	private boolean estaActivo;
-	// private Set<Factura> facturas;		Tincho: Agrega esto cuando mapees Factura, ademas del getter y setter correspondiente
+	 private Set<Factura> facturas;		// Tincho: Agrega esto cuando mapees Factura, ademas del getter y setter correspondiente
 	
 	
 	public Tarifario() {}
@@ -72,6 +73,18 @@ public class Tarifario {
 
 	public void setEstaActivo(boolean estaActivo) {
 		this.estaActivo = estaActivo;
+	}
+	
+	
+
+
+	public Set<Factura> getFacturas() {
+		return facturas;
+	}
+
+
+	public void setFacturas(Set<Factura> facturas) {
+		this.facturas = facturas;
 	}
 
 

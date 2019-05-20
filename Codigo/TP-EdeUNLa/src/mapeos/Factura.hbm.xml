@@ -6,16 +6,20 @@
 		<id column="idFactura" name="idFactura">
 			<generator class="identity" />
 		</id>
+		
+		
 		<property column="cliente" name="cliente" type="string" />
-		<one-to-one name="lectura" class="datos.Lectura"></one-to-one>
-		<property column="fecha" name="fecha" type="string" />
+		<property column="fecha" name="fecha" type="LocalDate" />
 		<property column="nroMedidor" name="nroMedidor" type="int" />
-		<property column="observaciones" name="observaciones"
-			type="string" />
-		<one-to-one name="tarifario" class="datos.Tarifario"></one-to-one>
+		<property column="observaciones" name="observaciones" type="string" />
+		
+		
+		<many-to-one name="tarifario" class="datos.Tarifario"></many-to-one>
+		
+		<one-to-one name="lectura" class="datos.Lectura"></one-to-one>
 
 
-		<set name="lstItem" table="itemFactura"
+		<set name="lstItem" table="itemfactura"
 			inverse="true" lazy="true" fetch="select">
 			<key column="idFactura" not-null="true" />
 			<one-to-many class="datos.ItemFactura" />

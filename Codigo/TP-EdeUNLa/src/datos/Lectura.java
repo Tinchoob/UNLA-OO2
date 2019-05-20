@@ -1,36 +1,40 @@
 package datos;
 
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
 
 public class Lectura {
 	protected long idLectura;
-	protected LocalDate fechaHoraLectura;
+	protected LocalDateTime fechaHoraLectura;
 	protected Inspector inspector;
 	protected Medidor medidor;
+	protected Factura factura;
 
 	public Lectura() {
 	}
 
-	public Lectura(LocalDate fechaHoraLectura, Inspector inspector, Medidor medidor) {
+	public Lectura(LocalDateTime fechaHoraLectura, Inspector inspector, Medidor medidor,Factura factura) {
 		super();
 		this.fechaHoraLectura = fechaHoraLectura;
 		this.inspector = inspector;
 		this.medidor = medidor;
+		this.setFactura(factura);
+		
 	}
 
 	public long getIdLectura() {
 		return idLectura;
 	}
 
-	public void setIdLectura(long idLectura) {
+	protected void setIdLectura(long idLectura) {
 		this.idLectura = idLectura;
 	}
 
-	public LocalDate getFechaHoraLectura() {
+	public LocalDateTime getFechaHoraLectura() {
 		return fechaHoraLectura;
 	}
 
-	public void setFechaHoraLectura(LocalDate fechaHoraLectura) {
+	public void setFechaHoraLectura(LocalDateTime fechaHoraLectura) {
 		this.fechaHoraLectura = fechaHoraLectura;
 	}
 
@@ -48,6 +52,16 @@ public class Lectura {
 
 	public void setMedidor(Medidor medidor) {
 		this.medidor = medidor;
+	}
+	
+	
+
+	public Factura getFactura() {
+		return factura;
+	}
+
+	public void setFactura(Factura factura) {
+		this.factura = factura;
 	}
 
 	@Override

@@ -18,6 +18,12 @@
 		
 		<many-to-one name="zona" class="datos.Cliente" column="idZona" not-null="true"/>
 		
+		<set name="lecturas" table="lectura" order-by="idLectura asc"
+			inverse="true" lazy="true" fetch="select">
+			<key column="idMedidor" not-null="true" />
+			<one-to-many class="datos.Lectura" />
+		</set>
+		
 		
 		
 	
