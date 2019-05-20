@@ -1,7 +1,8 @@
 package datos;
 
 import java.time.LocalDate;
-import java.util.List;
+
+import java.util.Set;
 
 public class Factura {
 	private long idFactura;
@@ -10,7 +11,7 @@ public class Factura {
 	private LocalDate fecha;
 	private int nroMedidor;
 	private String observaciones;
-	private List<ItemFactura> lstItem;
+	private Set<ItemFactura> lstItem;
 	private Tarifario tarifario;
 
 	public Factura() {
@@ -74,11 +75,11 @@ public class Factura {
 		this.observaciones = observaciones;
 	}
 
-	public List<ItemFactura> getLstItem() {
+	public Set<ItemFactura> getLstItem() {
 		return lstItem;
 	}
 
-	public void setLstItem(List<ItemFactura> lstItem) {
+	public void setLstItem(Set<ItemFactura> lstItem) {
 		this.lstItem = lstItem;
 	}
 

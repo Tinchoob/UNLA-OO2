@@ -14,19 +14,13 @@
 			type="string" />
 		<one-to-one name="tarifario" class="datos.Tarifario"></one-to-one>
 
-		<set name="medidores" table="medidor" order-by="idMedidor asc"
+
+		<set name="lstItem" table="itemFactura"
 			inverse="true" lazy="true" fetch="select">
-			<key column="idCliente" not-null="true" />
-			<one-to-many class="datos.Medidor" />
+			<key column="idFactura" not-null="true" />
+			<one-to-many class="datos.ItemFactura" />
 		</set>
 
-		<list name=lstItem inverse="true" cascade="all">
-			<key>
-				<column name="idItemFactura" />
-			</key>
-
-			<one-to-many class="datos.ItemFactura" />
-		</list>
 
 		<!-- EL SET VA DESPUES DE LAS PROPERTIES Y ANTES DEL JOINED SUBCLASS PORQUE 
 			SINO NO ANDA!! -->
