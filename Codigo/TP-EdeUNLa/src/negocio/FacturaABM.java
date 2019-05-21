@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import dao.FacturaDao;
 import datos.Factura;
+import datos.LecturaBajaDemanda;
 
 public class FacturaABM {
 	private static FacturaABM instancia = null;
@@ -40,6 +41,12 @@ public class FacturaABM {
 	public Factura traerFacturaPeriodoAnterior(LocalDate fecha) {
 		return FacturaDao.getInstancia().traerFacturaPeriodoAnterior(fecha);
 	}
+	
+	public double traerConsumoAnteriorBajaDemanda(LocalDate fecha) {
+		return ((LecturaBajaDemanda) traerFacturaPeriodoAnterior(fecha).getLectura()).getConsumo();
+	}
+	
+	
 	
 	/*METODOS*/
 	
