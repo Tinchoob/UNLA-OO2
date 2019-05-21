@@ -26,7 +26,7 @@ public class Medidor {
 		return idMedidor;
 	}
 
-	public void setIdMedidor(long idMedidor) {
+	protected void setIdMedidor(long idMedidor) {
 		this.idMedidor = idMedidor;
 	}
 

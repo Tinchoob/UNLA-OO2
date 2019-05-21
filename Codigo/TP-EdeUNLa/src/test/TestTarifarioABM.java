@@ -9,7 +9,7 @@ public class TestTarifarioABM {
 		
 		
 		//agregar un tarifario
-		Tarifario tarifario1 = new Tarifario(400,500,null,true);
+	//	Tarifario tarifario1 = new Tarifario(400,500,null,true);
 	//	long id = TarifarioABM.getInstancia().agregar(tarifario1);
 		
 		

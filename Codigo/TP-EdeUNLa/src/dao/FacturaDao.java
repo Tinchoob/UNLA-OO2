@@ -3,6 +3,8 @@ package dao;
 import datos.Cliente;
 import datos.Factura;
 
+import java.time.LocalDate;
+
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -11,6 +13,16 @@ import org.hibernate.Transaction;
 public class FacturaDao {
 	private static Session session;
 	private Transaction tx;
+	private static FacturaDao instancia=null;
+	
+	protected FacturaDao() {}
+	
+	public static FacturaDao getInstancia() {
+		if (instancia == null) {
+			instancia = new FacturaDao();
+		}
+		return instancia;
+	}
 
 	protected void iniciaOperacion() throws HibernateException {
 		session = HibernateUtil.getSessionFactory().openSession();
@@ -70,5 +82,21 @@ public class FacturaDao {
 
 		return objeto;
 	}
+	
+	
+	public Factura traerFacturaPeriodoAnterior(LocalDate fecha) {
+		Factura objeto = null;
+		fecha = fecha.minusMonths(2);
+		try {
+			iniciaOperacion();
+			String hQL="from Factura as f where f.fecha="+fecha;
+			objeto = (Factura) session.createQuery(hQL).uniqueResult();
+		}finally {
+			session.close();
+			}
+		return objeto;
+		
+	}
+	
 
 }

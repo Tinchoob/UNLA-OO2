@@ -19,7 +19,7 @@ public class Zona {
 		return idZona;
 	}
 
-	public void setIdZona(long idZona) {
+	protected void setIdZona(long idZona) {
 		this.idZona = idZona;
 	}
 

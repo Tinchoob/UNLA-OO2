@@ -1,5 +1,7 @@
 package negocio;
 
+import java.time.LocalDate;
+
 import dao.FacturaDao;
 import datos.Factura;
 
@@ -16,21 +18,42 @@ public class FacturaABM {
 		return instancia;
 	}
 
-	FacturaDao facturaDao = new FacturaDao();
+	
 
 	public int agregar(Factura objeto) {
-		return facturaDao.agregar(objeto);
+		return FacturaDao.getInstancia().agregar(objeto);
 	}
 
 	public void actualizar(Factura objeto) {
-		facturaDao.actualizar(objeto);
+		FacturaDao.getInstancia().actualizar(objeto);
 	}
 
 	public void eliminar(Factura objeto) {
-		facturaDao.eliminar(objeto);
+		FacturaDao.getInstancia().eliminar(objeto);
 	}
 
 	public Factura traerFactura(long idFactura) {
-		return facturaDao.traerFactura(idFactura);
+		return FacturaDao.getInstancia().traerFactura(idFactura);
 	}
+	
+	
+	public Factura traerFacturaPeriodoAnterior(LocalDate fecha) {
+		return FacturaDao.getInstancia().traerFacturaPeriodoAnterior(fecha);
+	}
+	
+	/*METODOS*/
+	
+	
+	//public Factura generarFactura(Medidor medidor, int mes, int anio){}
+	
+	
+	
+	
+	//public Pago pagarFactura(Factura f,Localdate fechaPago, double interes){}
+	
+	
+	
+	
+	
+	
 }

@@ -23,7 +23,7 @@ public class Cliente {
 	}
 
 
-	public void setIdCliente(long idCliente) {
+	protected void setIdCliente(long idCliente) {
 		this.idCliente = idCliente;
 	}
 

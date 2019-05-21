@@ -24,7 +24,7 @@ public class Contacto {
 	}
 
 
-	public void setIdContacto(long idContacto) {
+	protected void setIdContacto(long idContacto) {
 		this.idContacto = idContacto;
 	}
 

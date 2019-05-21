@@ -1,8 +1,11 @@
 package datos;
 
 import java.time.LocalDate;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
+
+import negocio.FacturaABM;
 
 public class Factura {
 	private long idFactura;
@@ -18,20 +21,22 @@ public class Factura {
 	}
 
 	public Factura(String cliente, Lectura lectura, LocalDate fecha, int nroMedidor, String observaciones,
-			Tarifario tarifario) {
+			Tarifario tarifario) throws Exception {
 		this.cliente = cliente;
 		this.lectura=lectura;
 		this.fecha = fecha;
 		this.nroMedidor = nroMedidor;
 		this.observaciones = observaciones;
 		this.tarifario = tarifario;
+		this.generarDetalle();
+		
 	}
 
 	public long getIdFactura() {
 		return idFactura;
 	}
 
-	public void setIdFactura(long idFactura) {
+	protected void setIdFactura(long idFactura) {
 		this.idFactura = idFactura;
 	}
 
@@ -91,13 +96,43 @@ public class Factura {
 		this.tarifario = tarifario;
 	}
 	
-	
-
 	@Override
 	public String toString() {
 		return "Factura [idFactura=" + idFactura + ", cliente=" + cliente + ", lectura=" + lectura + ", fecha=" + fecha
 				+ ", nroMedidor=" + nroMedidor + ", observaciones=" + observaciones + ", tarifario=" + tarifario + "]";
 	}
+	
+	
+	public void generarDetalle() throws Exception{
+		double consumo=0;
+		double consumoPeriodoAnterior = ((LecturaBajaDemanda) FacturaABM.getInstancia().traerFacturaPeriodoAnterior(fecha).getLectura()).getConsumo();
+		
+		if (!tarifario.estaActivo) {
+			throw new Exception("ERROR: El tarifario esta desactualizado.");
+		}
+		
+		if (lectura instanceof LecturaBajaDemanda) {
+			consumo = ((LecturaBajaDemanda) lectura).getConsumo();
+			consumo = consumo - consumoPeriodoAnterior;
+		}
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	/*
+	 * public double calcularTotal(){ List<ItemFactura> detalle = new
+	 * ArrayList<ItemFactura>(lstItem); double totalFactura = 0; }
+	 */
+	
+	//public LocalDate calcularVencimiento(){}
 	
 	
 	

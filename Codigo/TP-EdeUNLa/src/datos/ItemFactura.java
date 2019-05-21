@@ -25,7 +25,7 @@ public class ItemFactura {
 		return idItemFactura;
 	}
 
-	public void setIdItemFactura(int idItemFactura) {
+	protected void setIdItemFactura(int idItemFactura) {
 		this.idItemFactura = idItemFactura;
 	}
 
@@ -73,6 +73,11 @@ public class ItemFactura {
 	public String toString() {
 		return "ItemFactura [idItemFactura=" + idItemFactura + ", detalle=" + detalle + ", precioUnitario="
 				+ precioUnitario + ", cantidad=" + cantidad + ", unidad=" + unidad + ", factura=" + factura + "]";
+	}
+	
+	
+	public double calcularSubTotal() {
+		return cantidad * precioUnitario;
 	}
 	
 	
