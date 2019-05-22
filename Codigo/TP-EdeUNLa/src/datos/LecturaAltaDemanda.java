@@ -13,9 +13,9 @@ public class LecturaAltaDemanda extends Lectura {
 	public LecturaAltaDemanda() {
 	}
 
-	public LecturaAltaDemanda(LocalDateTime fechaHoraLectura, Inspector inspector, Medidor medidor,Factura factura,int potenciaContratada, String tipoTension,
+	public LecturaAltaDemanda(LocalDateTime fechaHoraLectura, Inspector inspector, Medidor medidor,int potenciaContratada, String tipoTension,
 			double consumoHorasPico, double consumoHorasValle, double consumoHorasResto) {
-		super(fechaHoraLectura, inspector, medidor,factura);
+		super(fechaHoraLectura, inspector, medidor);
 		this.tipoTension = tipoTension;
 		this.potenciaContratada=potenciaContratada;
 		this.consumoHorasPico = consumoHorasPico;

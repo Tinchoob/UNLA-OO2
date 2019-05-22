@@ -19,7 +19,7 @@
 		<one-to-one name="lectura" class="datos.Lectura"></one-to-one>
 
 
-		<set name="lstItem" table="itemfactura"
+		<set name="lstItem" cascade="save-update" table="itemfactura"
 			inverse="true" lazy="true" fetch="select">
 			<key column="idFactura" not-null="true" />
 			<one-to-many class="datos.ItemFactura" />

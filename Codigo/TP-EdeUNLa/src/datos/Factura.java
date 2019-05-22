@@ -2,6 +2,7 @@ package datos;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -104,13 +105,21 @@ public class Factura {
 				+ ", nroMedidor=" + nroMedidor + ", observaciones=" + observaciones + ", tarifa=" + tarifa + "]";
 	}
 
-	public void generarDetalle() throws Exception {
+	public void generarDetalle() {
 		double consumo = 0, consumoPeriodoAnterior = 0;
-		ItemFactura item1 = null;
-		ItemFactura item2 = null;
-		ItemFactura item3 = null;
-		ItemFactura item4 = null;
 		int i = 0;
+		
+		//datos ItemFactura
+		String detalle="";
+		double precioUnitario=0;
+		int cantidad=0;
+		String unidad="";
+		// la factura es this
+		
+		this.lstItem = new HashSet<ItemFactura>();		
+		
+		
+		
 
 //		if (!tarifa.) {
 //			throw new Exception("ERROR: El tarifario esta desactualizado.");
@@ -121,23 +130,29 @@ public class Factura {
 				for (i = 0; i < 2; i++) {
 					switch (i) {
 					case 0:
-						item1.setDetalle("Cargo Fijo:");
-						item1.setPrecioUnitario(tarifa.getMontoFijo());
-						item1.setCantidad(1);
-						item1.setUnidad("$/mes");
+						detalle="Cargo Fijo";
+						precioUnitario=0; //valor placeholder falta metodo
+						cantidad=1;
+						unidad="$/mes";
 						break;
 
 					case 1:
-						item2.setDetalle("Cargo Variable:");
-						// item2.setPrecioUnitario(((TarifaBaja) tarifa).getMontoVariable());
-						item2.setCantidad(1);
-						item2.setUnidad("$/kWh");
+						detalle="Cargo Variable";
+						precioUnitario=0; //valor placeholder falta metodo
+						cantidad=1;
+						unidad="$/kWh";
 						break;
 					}
+					//aca poner el create item + add del tp de cuotas
+					ItemFactura item = new ItemFactura(detalle,precioUnitario,cantidad,unidad,this);
+					lstItem.add(item);
+					
+					
 				}
 			}
+			
 		}
-		if (lectura instanceof LecturaAltaDemanda) {
+	/*	if (lectura instanceof LecturaAltaDemanda) {
 			for (i = 0; i < 4; i++) {
 				switch (i) {
 
@@ -166,11 +181,11 @@ public class Factura {
 					item2.setUnidad("$/kWh");
 				}
 			}
-		}
+		}*/
 
 	}
 
-	public double calcularMontoFijoBajaDemanda() {
+/*	public double calcularMontoFijoBajaDemanda() {
 
 		TarifaBaja tarifa = (TarifaBaja) this.tarifa;
 		List<DetalleBaja> detallesTarifa = new ArrayList<DetalleBaja>(tarifa.getDetalles());
@@ -186,11 +201,9 @@ public class Factura {
 			}
 		}
 		return montoFijo;
-	}
-	
-	public double calcularMontoVariableBajaDemanda() {
-		
-	}
+	}*/
+
+ //	public double calcularMontoVariableBajaDemanda() {}
 
 	public double calcularConsumoBajaDemanda() {
 		double consumo = 0, consumoPeriodoAnterior = 0;

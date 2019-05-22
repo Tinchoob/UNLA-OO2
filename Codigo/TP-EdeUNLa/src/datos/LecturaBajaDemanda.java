@@ -8,8 +8,8 @@ public class LecturaBajaDemanda extends Lectura {
 	public LecturaBajaDemanda() {
 	}
 
-	public LecturaBajaDemanda(LocalDateTime fechaHoraLectura, Inspector inspector, Medidor medidor,Factura factura, double consummo) {
-		super(fechaHoraLectura, inspector, medidor,factura);
+	public LecturaBajaDemanda(LocalDateTime fechaHoraLectura, Inspector inspector, Medidor medidor, double consummo) {
+		super(fechaHoraLectura, inspector, medidor);
 		this.consumo = consummo;
 	}
 

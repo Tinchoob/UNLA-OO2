@@ -1,6 +1,5 @@
 package datos;
 
-
 import java.time.LocalDateTime;
 
 public class Lectura {
@@ -8,18 +7,16 @@ public class Lectura {
 	protected LocalDateTime fechaHoraLectura;
 	protected Inspector inspector;
 	protected Medidor medidor;
-	protected Factura factura;
 
 	public Lectura() {
 	}
 
-	public Lectura(LocalDateTime fechaHoraLectura, Inspector inspector, Medidor medidor,Factura factura) {
+	public Lectura(LocalDateTime fechaHoraLectura, Inspector inspector, Medidor medidor) {
 		super();
 		this.fechaHoraLectura = fechaHoraLectura;
 		this.inspector = inspector;
 		this.medidor = medidor;
-		this.setFactura(factura);
-		
+
 	}
 
 	public long getIdLectura() {
@@ -52,16 +49,6 @@ public class Lectura {
 
 	public void setMedidor(Medidor medidor) {
 		this.medidor = medidor;
-	}
-	
-	
-
-	public Factura getFactura() {
-		return factura;
-	}
-
-	public void setFactura(Factura factura) {
-		this.factura = factura;
 	}
 
 	@Override

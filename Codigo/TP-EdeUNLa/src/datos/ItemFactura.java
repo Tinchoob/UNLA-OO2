@@ -11,15 +11,14 @@ public class ItemFactura {
 	public ItemFactura() {
 	}
 
-	public ItemFactura(String detalle, double precioUnitario, int cantidad, String unidad,Factura factura) {
+	public ItemFactura(String detalle, double precioUnitario, int cantidad, String unidad, Factura factura) {
 
 		this.detalle = detalle;
 		this.precioUnitario = precioUnitario;
 		this.cantidad = cantidad;
 		this.unidad = unidad;
-		this.factura=factura;
+		this.factura = factura;
 	}
-	
 
 	public long getIdItemFactura() {
 		return idItemFactura;
@@ -74,13 +73,9 @@ public class ItemFactura {
 		return "ItemFactura [idItemFactura=" + idItemFactura + ", detalle=" + detalle + ", precioUnitario="
 				+ precioUnitario + ", cantidad=" + cantidad + ", unidad=" + unidad + ", factura=" + factura + "]";
 	}
-	
-	
+
 	public double calcularSubTotal() {
 		return cantidad * precioUnitario;
 	}
-	
-	
-	
 
 }

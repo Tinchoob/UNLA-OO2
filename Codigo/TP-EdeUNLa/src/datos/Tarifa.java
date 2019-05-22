@@ -12,7 +12,7 @@ public class Tarifa {
 	public Tarifa() {
 	}
 
-	public Tarifa(String servicio,LocalDate fechaActualizacion) {
+	public Tarifa(String servicio, LocalDate fechaActualizacion) {
 		this.servicio = servicio;
 		this.fechaActualizacion = fechaActualizacion;
 	}
