@@ -18,6 +18,7 @@
 		<joined-subclass name="datos.LecturaAltaDemanda" table="lecturaaltademanda">
 			<key column="idLecturaAltaDemanda" />
 			<property column="tipoTension" name="tipoTension" type="string" />
+			<property column="potenciaContratada" name="potenciaContratada" type="int" />
 			<property column="consumoHorasPico" name="consumoHorasPico" type="double" />
 			<property column="consumoHorasValle" name="consumoHorasValle" type="double" />
 			<property column="consumoHorasResto" name="consumoHorasResto" type="double" />

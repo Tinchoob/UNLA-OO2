@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 public class LecturaAltaDemanda extends Lectura {
 	private String tipoTension;
+	private int potenciaContratada;
 	private double consumoHorasPico;
 	private double consumoHorasValle;
 	private double consumoHorasResto;
@@ -12,10 +13,11 @@ public class LecturaAltaDemanda extends Lectura {
 	public LecturaAltaDemanda() {
 	}
 
-	public LecturaAltaDemanda(LocalDateTime fechaHoraLectura, Inspector inspector, Medidor medidor,Factura factura, String tipoTension,
+	public LecturaAltaDemanda(LocalDateTime fechaHoraLectura, Inspector inspector, Medidor medidor,Factura factura,int potenciaContratada, String tipoTension,
 			double consumoHorasPico, double consumoHorasValle, double consumoHorasResto) {
 		super(fechaHoraLectura, inspector, medidor,factura);
 		this.tipoTension = tipoTension;
+		this.potenciaContratada=potenciaContratada;
 		this.consumoHorasPico = consumoHorasPico;
 		this.consumoHorasValle = consumoHorasValle;
 		this.consumoHorasResto = consumoHorasResto;
@@ -27,6 +29,14 @@ public class LecturaAltaDemanda extends Lectura {
 
 	public void setTipoTension(String tipoTension) {
 		this.tipoTension = tipoTension;
+	}
+
+	public int getPotenciaContratada() {
+		return potenciaContratada;
+	}
+
+	public void setPotenciaContratada(int potenciaContratada) {
+		this.potenciaContratada = potenciaContratada;
 	}
 
 	public double getConsumoHorasPico() {
@@ -55,7 +65,7 @@ public class LecturaAltaDemanda extends Lectura {
 
 	@Override
 	public String toString() {
-		return "LecturaAltaDemanda [tipoTension=" + tipoTension + ", consumoHorasPico=" + consumoHorasPico
+		return "LecturaAltaDemanda [tipoTension=" + tipoTension +" potenciaContratada="+potenciaContratada+ ", consumoHorasPico=" + consumoHorasPico
 				+ ", consumoHorasValle=" + consumoHorasValle + ", consumoHorasResto=" + consumoHorasResto
 				+ "fechaHoraLectura:" + this.getFechaHoraLectura() + "Inspector:" + this.getInspector() + "Medidor:"
 				+ this.getMedidor() + "]";
