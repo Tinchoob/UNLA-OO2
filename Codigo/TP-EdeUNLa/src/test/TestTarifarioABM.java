@@ -1,6 +1,6 @@
 package test;
 
-import datos.Tarifario;
+import datos.Tarifa;
 import negocio.TarifarioABM;
 
 public class TestTarifarioABM {
@@ -14,7 +14,7 @@ public class TestTarifarioABM {
 		
 		
 		//traerTarifario
-		Tarifario t1BD = TarifarioABM.getInstancia().traerTarifario(1);
+		Tarifa t1BD = TarifarioABM.getInstancia().traerTarifario(1);
 		
 		//actualizar tarifario
 	//	t1BD.setMontoFijo(1000);

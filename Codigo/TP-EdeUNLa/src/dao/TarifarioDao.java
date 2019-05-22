@@ -5,7 +5,7 @@ import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import datos.Tarifario;
+import datos.Tarifa;
 import datos.Zona;
 
 public class TarifarioDao {
@@ -23,7 +23,7 @@ public class TarifarioDao {
 		throw new HibernateException("ERROR en la capa de acceso a datos", he);
 	}
 	
-	 public int agregar(Tarifario objeto) {
+	 public int agregar(Tarifa objeto) {
 			int id = 0;
 			try {
 				iniciaOperacion();
@@ -40,7 +40,7 @@ public class TarifarioDao {
 	 
 	 
 	 
-	 public void actualizar(Tarifario objeto) throws HibernateException {
+	 public void actualizar(Tarifa objeto) throws HibernateException {
 			try {
 				iniciaOperacion();
 				session.update(objeto);
@@ -53,7 +53,7 @@ public class TarifarioDao {
 			}
 		}
 	 
-	 public void eliminar(Tarifario objeto) throws HibernateException {
+	 public void eliminar(Tarifa objeto) throws HibernateException {
 			try {
 				iniciaOperacion();
 				session.delete(objeto);
@@ -70,11 +70,11 @@ public class TarifarioDao {
 	 
 	 
 	 
-	 public Tarifario traerTarifario(long idTarifario) throws HibernateException {
-			Tarifario objeto = null;
+	 public Tarifa traerTarifario(long idTarifario) throws HibernateException {
+			Tarifa objeto = null;
 			try {
 				iniciaOperacion();
-				objeto = (Tarifario) session.get(Tarifario.class, idTarifario);
+				objeto = (Tarifa) session.get(Tarifa.class, idTarifario);
 			} finally {
 				session.close();
 			}

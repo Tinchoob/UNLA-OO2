@@ -1,7 +1,7 @@
 package negocio;
 
 import dao.ZonaDao;
-import datos.Tarifario;
+import datos.Tarifa;
 import datos.Zona;
 
 public class ZonaABM {

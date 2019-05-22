@@ -13,13 +13,13 @@ public class Factura {
 	private int nroMedidor;
 	private String observaciones;
 	private Set<ItemFactura> lstItem;
-	private Tarifario tarifario;
+	private Tarifa tarifa;
 
 	public Factura() {
 	}
 
 	public Factura(String cliente, Lectura lectura, LocalDate fecha, int nroMedidor, String observaciones,
-			Tarifario tarifario) throws Exception {
+			Tarifa tarifa) throws Exception {
 		this.cliente = cliente;
 		this.lectura = lectura;
 		this.fecha = fecha;
@@ -28,7 +28,7 @@ public class Factura {
 		// el nroMedidor sin tener que agregarlo nosotros)
 		this.observaciones = observaciones;
 		this.generarDetalle();
-		this.tarifario = tarifario;
+		this.tarifa = tarifa;
 
 	}
 
@@ -88,18 +88,18 @@ public class Factura {
 		this.lstItem = lstItem;
 	}
 
-	public Tarifario getTarifario() {
-		return tarifario;
+	public Tarifa getTarifario() {
+		return tarifa;
 	}
 
-	public void setTarifario(Tarifario tarifario) {
-		this.tarifario = tarifario;
+	public void setTarifario(Tarifa tarifa) {
+		this.tarifa = tarifa;
 	}
 
 	@Override
 	public String toString() {
 		return "Factura [idFactura=" + idFactura + ", cliente=" + cliente + ", lectura=" + lectura + ", fecha=" + fecha
-				+ ", nroMedidor=" + nroMedidor + ", observaciones=" + observaciones + ", tarifario=" + tarifario + "]";
+				+ ", nroMedidor=" + nroMedidor + ", observaciones=" + observaciones + ", tarifario=" + tarifa + "]";
 	}
 
 	public void generarDetalle() throws Exception {
@@ -109,24 +109,24 @@ public class Factura {
 		ItemFactura item3 = null;
 		ItemFactura item4 = null;
 		int i = 0;
-		if (!tarifario.estaActivo) {
+		if (!tarifa.estaActivo) {
 			throw new Exception("ERROR: El tarifario esta desactualizado.");
 		}
 
 		if (lectura instanceof LecturaBajaDemanda) {
-			if (tarifario instanceof TarifarioBajaDemanda) {
+			if (tarifa instanceof TarifaBaja) {
 				for (i = 0; i < 2; i++) {
 					switch (i) {
 					case 1:
 						item1.setDetalle("Cargo Fijo:");
-						item1.setPrecioUnitario(tarifario.getMontoFijo());
+						item1.setPrecioUnitario(tarifa.getMontoFijo());
 						item1.setCantidad(1);
 						item1.setUnidad("$/mes");
 						break;
 
 					case 2:
 						item2.setDetalle("Cargo Variable:");
-						item2.setPrecioUnitario(((TarifarioBajaDemanda) tarifario).getMontoVariable());
+						item2.setPrecioUnitario(((TarifaBaja) tarifa).getMontoVariable());
 						item2.setCantidad(1);
 						item2.setUnidad("$/kWh");
 						break;
@@ -140,7 +140,7 @@ public class Factura {
 
 				case 1:
 					item1.setDetalle("Cargo Fijo:");
-					item1.setPrecioUnitario(tarifario.getMontoFijo());
+					item1.setPrecioUnitario(tarifa.getMontoFijo());
 
 				}
 			}

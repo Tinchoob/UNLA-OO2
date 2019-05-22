@@ -1,7 +1,7 @@
 package negocio;
 
 import dao.TarifarioDao;
-import datos.Tarifario;
+import datos.Tarifa;
 
 public class TarifarioABM {
 	private static TarifarioABM instancia=null;
@@ -20,21 +20,21 @@ public class TarifarioABM {
 	TarifarioDao tarifarioDao = new TarifarioDao();
 	
 	
-	public int agregar(Tarifario objeto) {
+	public int agregar(Tarifa objeto) {
 		return tarifarioDao.agregar(objeto);
 	}
 	
 	
-	public void actualizar(Tarifario objeto) {
+	public void actualizar(Tarifa objeto) {
 		tarifarioDao.actualizar(objeto);
 	}
 	
-	public void eliminar(Tarifario objeto) {
+	public void eliminar(Tarifa objeto) {
 		tarifarioDao.eliminar(objeto);
 	}
 	
 	
-	public Tarifario traerTarifario(long idTarifario) {
+	public Tarifa traerTarifario(long idTarifario) {
 		return tarifarioDao.traerTarifario(idTarifario);
 	}
 	
