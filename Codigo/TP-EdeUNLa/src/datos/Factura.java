@@ -27,7 +27,7 @@ public class Factura {
 		// this.getLectura().getMedidor().getNroSerie(); (la forma automatica de tomar
 		// el nroMedidor sin tener que agregarlo nosotros)
 		this.observaciones = observaciones;
-	//	this.generarDetalle();
+		this.generarDetalle();
 		this.tarifa = tarifa;
 
 	}
@@ -109,7 +109,7 @@ public class Factura {
 		ItemFactura item3 = null;
 		ItemFactura item4 = null;
 		int i = 0;
-		if (!tarifa.estaActivo) {
+		if (!tarifa.) {
 			throw new Exception("ERROR: El tarifario esta desactualizado.");
 		}
 
@@ -117,16 +117,16 @@ public class Factura {
 			if (tarifa instanceof TarifaBaja) {
 				for (i = 0; i < 2; i++) {
 					switch (i) {
-					case 1:
+					case 0:
 						item1.setDetalle("Cargo Fijo:");
-						item1.setPrecioUnitario(tarifa.getMontoFijo());
+						//item1.setPrecioUnitario(tarifa.getMontoFijo());
 						item1.setCantidad(1);
 						item1.setUnidad("$/mes");
 						break;
 
-					case 2:
+					case 1:
 						item2.setDetalle("Cargo Variable:");
-						item2.setPrecioUnitario(((TarifaBaja) tarifa).getMontoVariable());
+						//item2.setPrecioUnitario(((TarifaBaja) tarifa).getMontoVariable());
 						item2.setCantidad(1);
 						item2.setUnidad("$/kWh");
 						break;
@@ -138,10 +138,29 @@ public class Factura {
 			for (i = 0; i < 4; i++) {
 				switch (i) {
 
-				case 1:
+				case 0:
 					item1.setDetalle("Cargo Fijo:");
-					item1.setPrecioUnitario(tarifa.getMontoFijo());
-
+					//item1.setPrecioUnitario(tarifa.getMontoFijo());
+					item1.setCantidad(1);
+					item1.setUnidad("$/mes");
+				
+				case 1:
+					item2.setDetalle("Cargo Variable Pico:");
+					//item2.setPrecioUnitario();
+					item2.setCantidad(1);
+					item2.setUnidad("$/kWh");
+				
+				case 2:
+					item2.setDetalle("Cargo Variable Resto:");
+					//item2.setPrecioUnitario();
+					item2.setCantidad(1);
+					item2.setUnidad("$/kWh");
+					
+				case 3:
+					item2.setDetalle("Cargo Variable Valle:");
+					//item2.setPrecioUnitario();
+					item2.setCantidad(1);
+					item2.setUnidad("$/kWh");
 				}
 			}
 		}

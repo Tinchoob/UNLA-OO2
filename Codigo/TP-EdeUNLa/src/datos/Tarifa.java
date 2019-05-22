@@ -1,16 +1,20 @@
 package datos;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 public class Tarifa {
 	protected long idTarifa;
 	protected String servicio;
 	protected Set<Factura> facturas;
-	
-	public Tarifa() {}
+	protected LocalDate fechaActualizacion;
 
-	public Tarifa(String servicio) {
+	public Tarifa() {
+	}
+
+	public Tarifa(String servicio,LocalDate fechaActualizacion) {
 		this.servicio = servicio;
+		this.fechaActualizacion = fechaActualizacion;
 	}
 
 	public long getIdTarifa() {
@@ -28,7 +32,6 @@ public class Tarifa {
 	public void setServicio(String servicio) {
 		this.servicio = servicio;
 	}
-	
 
 	public Set<Factura> getFacturas() {
 		return facturas;
@@ -36,6 +39,14 @@ public class Tarifa {
 
 	public void setFacturas(Set<Factura> facturas) {
 		this.facturas = facturas;
+	}
+
+	public LocalDate getFechaActualizacion() {
+		return fechaActualizacion;
+	}
+
+	public void setFechaActualizacion(LocalDate fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
 	}
 
 	@Override

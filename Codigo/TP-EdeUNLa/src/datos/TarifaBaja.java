@@ -1,15 +1,17 @@
 package datos;
 
+import java.time.LocalDate;
 import java.util.Set;;
 
 public class TarifaBaja extends Tarifa {
 
 	private Set<DetalleBaja> detalles;
 
-	public TarifaBaja() {}
+	public TarifaBaja() {
+	}
 
-	public TarifaBaja(String servicio) {
-		super(servicio);
+	public TarifaBaja(String servicio, LocalDate fechaActualizacion) {
+		super(servicio, fechaActualizacion);
 	}
 
 	public Set<DetalleBaja> getDetalles() {
@@ -25,6 +27,4 @@ public class TarifaBaja extends Tarifa {
 		return "TarifaBaja [idTarifa=" + idTarifa + ", servicio=" + servicio + "]";
 	}
 
-	
-	
 }

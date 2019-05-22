@@ -1,5 +1,6 @@
 package datos;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 public class TarifaAlta extends Tarifa {
@@ -11,8 +12,8 @@ public class TarifaAlta extends Tarifa {
 	public TarifaAlta() {
 	}
 
-	public TarifaAlta(String servicio, String tensionContratada, int limite) {
-		super(servicio);
+	public TarifaAlta(String servicio, LocalDate fechaActualizacion,String tensionContratada, int limite) {
+		super(servicio,fechaActualizacion);
 		this.tensionContratada = tensionContratada;
 		this.limite = limite;
 	}

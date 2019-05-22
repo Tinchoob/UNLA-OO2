@@ -1,6 +1,6 @@
 package negocio;
 
-import dao.TarifarioDao;
+import dao.TarifaDao;
 import datos.Tarifa;
 
 public class TarifarioABM {
@@ -17,7 +17,7 @@ public class TarifarioABM {
 		return instancia;
 	}
 	
-	TarifarioDao tarifarioDao = new TarifarioDao();
+	TarifaDao tarifarioDao = new TarifaDao();
 	
 	
 	public int agregar(Tarifa objeto) {
