@@ -14,7 +14,7 @@
 		<property column="observaciones" name="observaciones" type="string" />
 		
 		
-		<many-to-one name="tarifario" class="datos.Tarifario"></many-to-one>
+		<many-to-one name="tarifa" class="datos.Tarifa"></many-to-one>
 		
 		<one-to-one name="lectura" class="datos.Lectura"></one-to-one>
 

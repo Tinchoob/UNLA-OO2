@@ -1,7 +1,7 @@
 package datos;
 
 public class ItemFactura {
-	private int idItemFactura;
+	private long idItemFactura;
 	private String detalle;
 	private double precioUnitario;
 	private int cantidad;
@@ -21,11 +21,11 @@ public class ItemFactura {
 	}
 	
 
-	public int getIdItemFactura() {
+	public long getIdItemFactura() {
 		return idItemFactura;
 	}
 
-	protected void setIdItemFactura(int idItemFactura) {
+	protected void setIdItemFactura(long idItemFactura) {
 		this.idItemFactura = idItemFactura;
 	}
 

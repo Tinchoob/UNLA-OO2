@@ -3,6 +3,7 @@ package datos;
 import java.util.Set;
 
 public class TarifaAlta extends Tarifa {
+	
 	private String tensionContratada;
 	private int limite;
 	private Set<DetalleAlta> detalles;
@@ -42,7 +43,10 @@ public class TarifaAlta extends Tarifa {
 
 	@Override
 	public String toString() {
-		return "TarifaAlta [tensionContratada=" + tensionContratada + ", limite=" + limite + "]";
+		return "TarifaAlta [tensionContratada=" + tensionContratada + ", limite=" + limite + ", detalles=" + detalles
+				+ ", idTarifa=" + idTarifa + ", servicio=" + servicio + "]";
 	}
+
+	
 
 }

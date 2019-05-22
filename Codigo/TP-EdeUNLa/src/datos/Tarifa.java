@@ -1,14 +1,15 @@
 package datos;
 
-import java.time.LocalDate;
 import java.util.Set;
 
 public class Tarifa {
 	protected long idTarifa;
 	protected String servicio;
+	protected Set<Factura> facturas;
+	
+	public Tarifa() {}
 
 	public Tarifa(String servicio) {
-		super();
 		this.servicio = servicio;
 	}
 
@@ -26,6 +27,15 @@ public class Tarifa {
 
 	public void setServicio(String servicio) {
 		this.servicio = servicio;
+	}
+	
+
+	public Set<Factura> getFacturas() {
+		return facturas;
+	}
+
+	public void setFacturas(Set<Factura> facturas) {
+		this.facturas = facturas;
 	}
 
 	@Override

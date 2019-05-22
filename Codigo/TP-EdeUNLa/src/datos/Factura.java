@@ -27,7 +27,7 @@ public class Factura {
 		// this.getLectura().getMedidor().getNroSerie(); (la forma automatica de tomar
 		// el nroMedidor sin tener que agregarlo nosotros)
 		this.observaciones = observaciones;
-		this.generarDetalle();
+	//	this.generarDetalle();
 		this.tarifa = tarifa;
 
 	}
@@ -88,21 +88,21 @@ public class Factura {
 		this.lstItem = lstItem;
 	}
 
-	public Tarifa getTarifario() {
+	public Tarifa getTarifa() {
 		return tarifa;
 	}
 
-	public void setTarifario(Tarifa tarifa) {
+	public void setTarifa(Tarifa tarifa) {
 		this.tarifa = tarifa;
 	}
 
 	@Override
 	public String toString() {
 		return "Factura [idFactura=" + idFactura + ", cliente=" + cliente + ", lectura=" + lectura + ", fecha=" + fecha
-				+ ", nroMedidor=" + nroMedidor + ", observaciones=" + observaciones + ", tarifario=" + tarifa + "]";
+				+ ", nroMedidor=" + nroMedidor + ", observaciones=" + observaciones + ", tarifa=" + tarifa + "]";
 	}
 
-	public void generarDetalle() throws Exception {
+	/*public void generarDetalle() throws Exception {
 		double consumo = 0, consumoPeriodoAnterior = 0;
 		ItemFactura item1 = null;
 		ItemFactura item2 = null;
@@ -156,7 +156,7 @@ public class Factura {
 		return consumo;
 	}
 
-	public double calcularConsumoAltaDemanda() {
+	public double calcularConsumoAltaDemanda() {*/
 
 	}
 
@@ -169,4 +169,4 @@ public class Factura {
 
 	// }
 
-}
+

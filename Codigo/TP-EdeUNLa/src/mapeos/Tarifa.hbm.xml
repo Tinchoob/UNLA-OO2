@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration">
+
+<hibernate-mapping>
+	<class name="datos.Tarifa" table="tarifa">
+		<id column="idTarifa" name="idTarifa">
+			<generator class="identity" />
+		</id>
+
+
+		<property column="servicio" name="servicio" type="string" />
+
+		<set name="facturas" table="factura" inverse="true" lazy="true"
+			fetch="select">
+			<key column="idTarifa" not-null="true" />
+			<one-to-many class="datos.Tarifa" />
+		</set>
+
+
+
+
+			<joined-subclass name="datos.TarifaAlta"
+				table="tarifaalta">
+				<key column="idTarifaAlta" />
+				
+				<property column="tensionContratada" name="tensionContratada" type="string" />
+				<property column="limite" name="limite" type="int" />
+				
+				<set name="detalles" table="detallealta" inverse="true"
+					lazy="true" fetch="select">
+					<key column="idTarifaAlta" not-null="true" />
+					<one-to-many class="datos.DetalleAlta" />
+				</set>
+			</joined-subclass>
+
+
+			<joined-subclass name="datos.TarifaBaja"
+				table="tarifabaja">
+				<key column="idTarifaBaja" />
+			
+				<set name="detalles" table="detallebaja" inverse="true"
+					lazy="true" fetch="select">
+					<key column="idTarifaBaja" not-null="true" />
+					<one-to-many class="datos.DetalleBaja" />
+				</set>
+
+
+			</joined-subclass>
+
+
+	</class>
+</hibernate-mapping>
