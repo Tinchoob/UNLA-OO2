@@ -87,7 +87,19 @@ public class TarifaDao {
 		 Tarifa objeto = null;
 			try {
 				iniciaOperacion();
-				String hql = "from tarifa ORDER BY id DESC" ;
+				String hql = "from tarifa INNER JOIN tarifabaja ORDER BY fechaActualizacion DESC" ;
+				objeto = (Tarifa) session.createQuery(hql).setMaxResults(1).uniqueResult();
+			}finally {
+		session.close();
+		}
+		return objeto;
+		}
+	 
+	 public Tarifa traerUltimaTarifaAltaDemanda() {
+		 Tarifa objeto = null;
+			try {
+				iniciaOperacion();
+				String hql = "from tarifa INNER JOIN tarifaalta ORDER BY fechaActualizacion DESC" ;
 				objeto = (Tarifa) session.createQuery(hql).setMaxResults(1).uniqueResult();
 			}finally {
 		session.close();

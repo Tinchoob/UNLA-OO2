@@ -1,6 +1,8 @@
 package datos;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import negocio.FacturaABM;
@@ -102,16 +104,17 @@ public class Factura {
 				+ ", nroMedidor=" + nroMedidor + ", observaciones=" + observaciones + ", tarifa=" + tarifa + "]";
 	}
 
-	/*public void generarDetalle() throws Exception {
+	public void generarDetalle() throws Exception {
 		double consumo = 0, consumoPeriodoAnterior = 0;
 		ItemFactura item1 = null;
 		ItemFactura item2 = null;
 		ItemFactura item3 = null;
 		ItemFactura item4 = null;
 		int i = 0;
-		if (!tarifa.) {
-			throw new Exception("ERROR: El tarifario esta desactualizado.");
-		}
+
+//		if (!tarifa.) {
+//			throw new Exception("ERROR: El tarifario esta desactualizado.");
+//		}
 
 		if (lectura instanceof LecturaBajaDemanda) {
 			if (tarifa instanceof TarifaBaja) {
@@ -119,14 +122,14 @@ public class Factura {
 					switch (i) {
 					case 0:
 						item1.setDetalle("Cargo Fijo:");
-						//item1.setPrecioUnitario(tarifa.getMontoFijo());
+						item1.setPrecioUnitario(tarifa.getMontoFijo());
 						item1.setCantidad(1);
 						item1.setUnidad("$/mes");
 						break;
 
 					case 1:
 						item2.setDetalle("Cargo Variable:");
-						//item2.setPrecioUnitario(((TarifaBaja) tarifa).getMontoVariable());
+						// item2.setPrecioUnitario(((TarifaBaja) tarifa).getMontoVariable());
 						item2.setCantidad(1);
 						item2.setUnidad("$/kWh");
 						break;
@@ -140,31 +143,53 @@ public class Factura {
 
 				case 0:
 					item1.setDetalle("Cargo Fijo:");
-					//item1.setPrecioUnitario(tarifa.getMontoFijo());
+					// item1.setPrecioUnitario(tarifa.getMontoFijo());
 					item1.setCantidad(1);
 					item1.setUnidad("$/mes");
-				
+
 				case 1:
 					item2.setDetalle("Cargo Variable Pico:");
-					//item2.setPrecioUnitario();
+					// item2.setPrecioUnitario();
 					item2.setCantidad(1);
 					item2.setUnidad("$/kWh");
-				
+
 				case 2:
 					item2.setDetalle("Cargo Variable Resto:");
-					//item2.setPrecioUnitario();
+					// item2.setPrecioUnitario();
 					item2.setCantidad(1);
 					item2.setUnidad("$/kWh");
-					
+
 				case 3:
 					item2.setDetalle("Cargo Variable Valle:");
-					//item2.setPrecioUnitario();
+					// item2.setPrecioUnitario();
 					item2.setCantidad(1);
 					item2.setUnidad("$/kWh");
 				}
 			}
 		}
 
+	}
+
+	public double calcularMontoFijoBajaDemanda() {
+
+		TarifaBaja tarifa = (TarifaBaja) this.tarifa;
+		List<DetalleBaja> detallesTarifa = new ArrayList<DetalleBaja>(tarifa.getDetalles());
+		double consumo = this.calcularConsumoBajaDemanda();
+		double montoFijo = 0;
+
+		for (DetalleBaja detalle : detallesTarifa) {
+
+			if (detalle.getUnidad() == 'Cargo fijo' && consumo >= detalle.getDesde() && consumo <= detalle.getHasta()) {
+				montoFijo = detalle.getValor();
+				continue;
+				//TODO: cambiar foreach
+			}
+		}
+		return montoFijo;
+	}
+	
+	public double calcularMontoVariableBajaDemanda() {
+		
 	}
 
 	public double calcularConsumoBajaDemanda() {
@@ -175,17 +200,16 @@ public class Factura {
 		return consumo;
 	}
 
-	public double calcularConsumoAltaDemanda() {*/
+//	public double calcularConsumoAltaDemanda() {
+//
+//	}
+}
 
-	}
+/*
+ * public double calcularTotal(){ List<ItemFactura> detalle = new
+ * ArrayList<ItemFactura>(lstItem); double totalFactura = 0; }
+ */
 
-	/*
-	 * public double calcularTotal(){ List<ItemFactura> detalle = new
-	 * ArrayList<ItemFactura>(lstItem); double totalFactura = 0; }
-	 */
+// public LocalDate calcularVencimiento() {
 
-	// public LocalDate calcularVencimiento() {
-
-	// }
-
-
+// }
