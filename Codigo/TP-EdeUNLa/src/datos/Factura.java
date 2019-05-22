@@ -30,8 +30,9 @@ public class Factura {
 		// this.getLectura().getMedidor().getNroSerie(); (la forma automatica de tomar
 		// el nroMedidor sin tener que agregarlo nosotros)
 		this.observaciones = observaciones;
-		this.generarDetalle();
 		this.tarifa = tarifa;
+		this.generarDetalle();
+		
 
 	}
 

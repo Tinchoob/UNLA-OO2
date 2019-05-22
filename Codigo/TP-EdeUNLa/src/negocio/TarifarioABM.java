@@ -17,25 +17,25 @@ public class TarifarioABM {
 		return instancia;
 	}
 	
-	TarifaDao tarifarioDao = new TarifaDao();
+	TarifaDao tarifaDao = new TarifaDao();
 	
 	
 	public int agregar(Tarifa objeto) {
-		return tarifarioDao.agregar(objeto);
+		return tarifaDao.agregar(objeto);
 	}
 	
 	
 	public void actualizar(Tarifa objeto) {
-		tarifarioDao.actualizar(objeto);
+		tarifaDao.actualizar(objeto);
 	}
 	
 	public void eliminar(Tarifa objeto) {
-		tarifarioDao.eliminar(objeto);
+		tarifaDao.eliminar(objeto);
 	}
 	
 	
-	public Tarifa traerTarifario(long idTarifario) {
-		return tarifarioDao.traerTarifario(idTarifario);
+	public Tarifa traerTarifa(long idTarifa) {
+		return tarifaDao.traerTarifa(idTarifa);
 	}
 	
 	

@@ -6,7 +6,6 @@ import java.util.Set;
 public class Tarifa {
 	protected long idTarifa;
 	protected String servicio;
-	protected Set<Factura> facturas;
 	protected LocalDate fechaActualizacion;
 
 	public Tarifa() {
@@ -33,13 +32,7 @@ public class Tarifa {
 		this.servicio = servicio;
 	}
 
-	public Set<Factura> getFacturas() {
-		return facturas;
-	}
 
-	public void setFacturas(Set<Factura> facturas) {
-		this.facturas = facturas;
-	}
 
 	public LocalDate getFechaActualizacion() {
 		return fechaActualizacion;

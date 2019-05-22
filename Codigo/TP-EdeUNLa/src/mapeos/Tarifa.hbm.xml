@@ -12,11 +12,6 @@
 		<property column="servicio" name="servicio" type="string" />
 		<property column="fechaActualizacion" name="fechaActualizacion" type="LocalDate"/>
 
-		<set name="facturas" table="factura" inverse="true" lazy="true"
-			fetch="select">
-			<key column="idTarifa" not-null="true" />
-			<one-to-many class="datos.Tarifa" />
-		</set>
 
 
 
