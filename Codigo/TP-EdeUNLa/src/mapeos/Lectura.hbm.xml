@@ -10,9 +10,9 @@
 			type="LocalDateTime" />
 
 
-		<many-to-one name="inspector" class="datos.Inspector"></many-to-one>
+		<many-to-one name="inspector" class="datos.Inspector" column="idInspector" not-null="true"/>
 
-		<many-to-one name="medidor" class="datos.Medidor"></many-to-one>
+		<many-to-one name="medidor" class="datos.Medidor" column="idMedidor" not-null="true"/>
 
 
 		<joined-subclass name="datos.LecturaAltaDemanda"
