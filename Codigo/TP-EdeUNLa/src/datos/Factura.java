@@ -22,7 +22,7 @@ public class Factura {
 	}
 
 	public Factura(String cliente, Lectura lectura, LocalDate fecha, int nroMedidor, String observaciones,
-			Tarifa tarifa) throws Exception {
+			Tarifa tarifa)  {
 		this.cliente = cliente;
 		this.lectura = lectura;
 		this.fecha = fecha;

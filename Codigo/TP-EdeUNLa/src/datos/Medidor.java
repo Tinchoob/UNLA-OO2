@@ -80,8 +80,8 @@ public class Medidor {
 
 	@Override
 	public String toString() {
-		return "Medidor [idMedidor=" + idMedidor + ", nroSerie=" + nroSerie + ", cliente=" + cliente
-				+ ", domicilioMedidor=" + domicilioMedidor + ", zona=" + zona + ", esBaja=" + esBaja + "]";
+		return "Medidor [idMedidor=" + idMedidor + ", nroSerie=" + nroSerie + ", cliente=" + cliente.getIdCliente()
+				+ ", domicilioMedidor=" + domicilioMedidor + ", zona=" + zona.getIdZona() + ", esBaja=" + esBaja + "]";
 	}
 
 }

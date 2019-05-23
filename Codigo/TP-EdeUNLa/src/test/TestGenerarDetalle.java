@@ -19,8 +19,16 @@ public class TestGenerarDetalle {
 
 	public static void main(String[] args) {
 		
+		//NO USAR ESTE, USAR "GENERARDETALLEYFACTURA"!!!!!!!!!!!!!!!!!!!!
+//		!!!!!!!!!!!!!!!!!!!
+//		!!!!!!!!!!!!!!!!!!!
+//		!!!!!!!!!!!!!!!!!!!
+//		!!!!!!!!!!!!!!!!!!!
+		
 		Inspector inspectorRandom = new Inspector("Hector","Carballo",332211);
+		
 		Zona zonaRandom = new Zona("ZONA22");
+		
 		Cliente personaRandom = new PersonaFisica("922",null,"Ignacio","Montana",4105567);
 		
 		Medidor medidorRandom = new Medidor(123, personaRandom, "33221", zonaRandom);
@@ -30,6 +38,12 @@ public class TestGenerarDetalle {
 		Lectura lecturaRandom = new LecturaBajaDemanda(date,inspectorRandom,medidorRandom,235.5);
 		
 		LocalDate dateFactura = LocalDate.now();
+		
+		//NO USAR ESTE, USAR "GENERARDETALLEYFACTURA"!!!!!!!!!!!!!!!!!!!!
+//		!!!!!!!!!!!!!!!!!!!
+//		!!!!!!!!!!!!!!!!!!!
+//		!!!!!!!!!!!!!!!!!!!
+//		!!!!!!!!!!!!!!!!!!!
 		
 		Tarifa tarifaBaja = new TarifaBaja("Luz",dateFactura);
 		

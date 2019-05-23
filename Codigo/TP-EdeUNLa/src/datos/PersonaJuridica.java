@@ -43,7 +43,7 @@ public class PersonaJuridica extends Cliente{
 		}
 		else {
 			return "PersonaJuridica [razonSocial=" + razonSocial + ", cuit=" + cuit + ", idCliente=" + idCliente
-					+ ", nroCliente=" + nroCliente + "Contacto= "+this.getContacto() +"]";
+					+ ", nroCliente=" + nroCliente + ", Contacto= "+contacto +"]";
 		}
 		
 	}

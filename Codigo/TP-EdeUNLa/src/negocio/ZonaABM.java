@@ -7,8 +7,10 @@ import datos.Zona;
 public class ZonaABM {
 
 	private static ZonaABM instancia = null;
+	
+	protected ZonaABM() {}
 
-	protected ZonaABM getInstancia() {
+	public static ZonaABM getInstancia() {
 		if (instancia == null) {
 			instancia = new ZonaABM();
 		}
@@ -29,7 +31,7 @@ public class ZonaABM {
 		zonaDao.eliminar(objeto);
 	}
 
-	public Zona traerTarifario(long idZona) {
+	public Zona traerZona(long idZona) {
 		return zonaDao.traerZona(idZona);
 	}
 }

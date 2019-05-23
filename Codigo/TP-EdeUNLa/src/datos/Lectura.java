@@ -53,8 +53,8 @@ public class Lectura {
 
 	@Override
 	public String toString() {
-		return "Lectura [idLectura=" + idLectura + ", fechaHoraLectura=" + fechaHoraLectura + ", inspector=" + inspector
-				+ ", medidor=" + medidor + "]";
+		return "Lectura [idLectura=" + idLectura + ", fechaHoraLectura=" + fechaHoraLectura + ", inspector=" + inspector.getIdInspector()
+				+ ", medidor=" + medidor.getIdMedidor() + "]";
 	}
 
 }

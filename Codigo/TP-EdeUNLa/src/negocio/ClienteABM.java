@@ -35,8 +35,8 @@ public class ClienteABM {
 		return ClienteDao.getInstancia().traerCliente(idCliente);
 	}
 	
-	public Cliente traerCliente(int dni) {
-		return ClienteDao.getInstancia().traerCliente(dni);
+	public Cliente traerClientePorDni(int dni) {
+		return ClienteDao.getInstancia().traerClientePorDni(dni);
 	}
 	
 	public Cliente traerClienteYContacto(long idCliente) {

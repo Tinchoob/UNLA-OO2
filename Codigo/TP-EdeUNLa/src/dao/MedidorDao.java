@@ -4,20 +4,20 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import datos.Cliente;
-import datos.Lectura;
+import datos.Medidor;
 
-public class LecturaDao {
+public class MedidorDao {
+	
 	private static Session session;
 	private Transaction tx;
-	private static LecturaDao instancia = null; // implementacion singleton
+	private static MedidorDao instancia = null; // implementacion singleton
 
-	protected LecturaDao() {
-	}
+	protected MedidorDao() {
+	} // implementacion singleton
 
-	public static LecturaDao getInstancia() { // implementancion singleton
+	public static MedidorDao getInstancia() { // implementancion singleton
 		if (instancia == null) {
-			instancia = new LecturaDao();
+			instancia = new MedidorDao();
 		}
 		return instancia;
 	}
@@ -32,7 +32,7 @@ public class LecturaDao {
 		throw new HibernateException("ERROR en la capa de acceso a datos", he);
 	}
 
-	public int agregar(Lectura objeto) {
+	public int agregar(Medidor objeto) {
 		int id = 0;
 		try {
 
@@ -45,7 +45,7 @@ public class LecturaDao {
 		return id;
 	}
 
-	public void actualizar(Lectura objeto) {
+	public void actualizar(Medidor objeto) {
 		try {
 			iniciaOperacion();
 			session.update(objeto);
@@ -55,7 +55,7 @@ public class LecturaDao {
 		}
 	}
 
-	public void eliminar(Lectura objeto) throws HibernateException {
+	public void eliminar(Medidor objeto) throws HibernateException {
 		try {
 			iniciaOperacion();
 			session.delete(objeto);
@@ -68,12 +68,11 @@ public class LecturaDao {
 		}
 	}
 
-	public Lectura traerLectura(long idLectura) {
-		Lectura objeto = null;
+	public Medidor traerMedidor(long idMedidor) {
+		Medidor objeto = null;
 		try {
 			iniciaOperacion();
-			objeto= (Lectura) session.get(Lectura.class, idLectura);
-			
+			objeto= (Medidor) session.get(Medidor.class, idMedidor);
 		} finally {
 			session.close();
 		}
@@ -81,15 +80,4 @@ public class LecturaDao {
 		return objeto;
 	}
 
-	public Lectura traerLecturaEInspector(long idLectura) throws HibernateException {
-		Lectura objeto = null;
-		try {
-			iniciaOperacion();
-			String hql = "from Lectura as l inner join fetch l.inspector where l.idLectura=" + idLectura;
-			objeto = (Lectura) session.createQuery(hql).uniqueResult();
-		} finally {
-			session.close();
-		}
-		return objeto;
-	}
 }

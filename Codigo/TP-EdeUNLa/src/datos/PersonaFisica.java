@@ -50,7 +50,7 @@ public class PersonaFisica extends Cliente{
 	@Override
 	public String toString() {
 		return "PersonaFisica [nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", idCliente="
-				+ idCliente + ", nroCliente=" + nroCliente + " ] ";
+				+ idCliente + ", nroCliente=" + nroCliente +", contacto="+contacto +" ] ";
 	}
 
 

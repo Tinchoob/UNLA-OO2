@@ -74,10 +74,8 @@ public class ClienteDao {
 		try {
 			iniciaOperacion();
 			objeto= (Cliente) session.get(Cliente.class, idCliente);
-			//String hql = "from Cliente as c where c.idCliente=" + idCliente;
-			//objeto = (Cliente) session.createQuery(hql).uniqueResult();
-			// Hibernate.initialize(objeto.getMedidores()); //poner esto en caso de que se
-			// pida traerClienteYMedidores
+			Hibernate.initialize(objeto.getMedidores()); //poner esto en caso de que se pida traer medidores
+
 		} finally {
 			session.close();
 		}
@@ -85,7 +83,7 @@ public class ClienteDao {
 		return objeto;
 	}
 
-	public Cliente traerCliente(int dni) {
+	public Cliente traerClientePorDni(int dni) {
 		Cliente objeto = null;
 		try {
 			iniciaOperacion();
