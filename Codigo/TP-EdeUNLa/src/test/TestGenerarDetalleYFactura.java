@@ -8,8 +8,10 @@ import negocio.ClienteABM;
 import negocio.InspectorABM;
 import negocio.LecturaABM;
 import negocio.MedidorABM;
+import negocio.TarifaABM;
 import negocio.ZonaABM;
 import datos.Medidor;
+import datos.Tarifa;
 
 public class TestGenerarDetalleYFactura {
 	public static void main(String[]args ) {
@@ -35,17 +37,11 @@ public class TestGenerarDetalleYFactura {
 		
 		System.out.println(lectura);
 		
+		Tarifa tarifa= TarifaABM.getInstancia().traerTarifa(1);
 		
+		System.out.println(tarifa);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		System.out.println(""+TarifaABM.getInstancia().traerDetallesBajaDemanda(1));
 		
 	}
 	
