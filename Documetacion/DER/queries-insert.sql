@@ -67,7 +67,9 @@ select * from lectura;
 
 /*TARIFA*/ -- ingresar primero la superclase y luego la subclase
 insert into tarifa values(1,"Luz",'2019-1-1');
+insert into tarifa values(2,"Luz",'2019-1-1');
 insert into tarifabaja values(1);
+-- insert into tarifaalta values(2);			//no se que van en esos campos
 
 /*tarifabaja*/
 insert into detallebaja values(1,"Cargo fijo","$/mes",0,150,32.82,1);
@@ -99,7 +101,7 @@ insert into detallebaja values(18,"Cargo variable","$/kWh",1400,99999,3.437,1);
 
 
 
-/*traer la tarifa y sus detalles*/
+/*traer la tarifa de baja y sus detalles*/
 select * from tarifabaja as t
 inner join detallebaja as d on 
 t.idTarifaBaja=d.idTarifaBaja;

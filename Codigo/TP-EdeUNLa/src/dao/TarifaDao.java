@@ -7,6 +7,7 @@ import org.hibernate.Transaction;
 
 import datos.Cliente;
 import datos.Tarifa;
+import datos.TarifaAlta;
 import datos.TarifaBaja;
 import datos.Zona;
 
@@ -124,5 +125,21 @@ public class TarifaDao {
 		}
 		return objeto;
 	}
+	
+	public Tarifa traerDetallesAltaDemanda(long idTarifa) {
+		Tarifa objeto = null;
+		try {
+			iniciaOperacion();
+			String hql = "from Tarifa t where t.idTarifa=" + idTarifa;
+			objeto = (TarifaBaja) session.createQuery(hql).uniqueResult();
+			Hibernate.initialize(((TarifaAlta) objeto).getDetalles());
+		} finally {
+			session.close();
+		}
+		return objeto;
+	}
+	
+	
+	
 	
 }

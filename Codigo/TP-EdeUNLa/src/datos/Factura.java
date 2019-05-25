@@ -115,15 +115,9 @@ public class Factura {
 		double precioUnitario=0;
 		int cantidad=0;
 		String unidad="";
-		// la factura es this
+		// this para la factura
 		lstItem = new HashSet<ItemFactura>();		
 		
-		
-		
-
-//		if (!tarifa.) {
-//			throw new Exception("ERROR: El tarifario esta desactualizado.");
-//		}
 
 		if (lectura instanceof LecturaBajaDemanda) {
 			if (tarifa instanceof TarifaBaja) {
@@ -149,38 +143,48 @@ public class Factura {
 				}
 			
 			}
-			
 		}
-	/*	if (lectura instanceof LecturaAltaDemanda) {
-			for (i = 0; i < 4; i++) {
-				switch (i) {
+		
+		if (lectura instanceof LecturaAltaDemanda) {
+			if (tarifa instanceof TarifaAlta) {
 
-				case 0:
-					item1.setDetalle("Cargo Fijo:");
-					// item1.setPrecioUnitario(tarifa.getMontoFijo());
-					item1.setCantidad(1);
-					item1.setUnidad("$/mes");
+				for (i = 0; i < 4; i++) {
+					switch (i) {
 
-				case 1:
-					item2.setDetalle("Cargo Variable Pico:");
-					// item2.setPrecioUnitario();
-					item2.setCantidad(1);
-					item2.setUnidad("$/kWh");
+					case 0:
+						detalle = "Cargo Fijo";
+						precioUnitario = 0; // valor placeholder falta metodo
+						cantidad = 1;
+						unidad = "$/mes";
+						break;
 
-				case 2:
-					item2.setDetalle("Cargo Variable Resto:");
-					// item2.setPrecioUnitario();
-					item2.setCantidad(1);
-					item2.setUnidad("$/kWh");
+					case 1:
+						detalle = "Cargo Variable Pico";
+						precioUnitario = 0; // valor placeholder falta metodo
+						cantidad = 1;
+						unidad = "$/mes";
+						break;
 
-				case 3:
-					item2.setDetalle("Cargo Variable Valle:");
-					// item2.setPrecioUnitario();
-					item2.setCantidad(1);
-					item2.setUnidad("$/kWh");
+					case 2:
+						detalle = "Cargo Variable Resto";
+						precioUnitario = 0;
+						cantidad = 1;
+						unidad = "$/kWh";
+						break;
+
+					case 3:
+						detalle = "Cargo Variable Valle";
+						precioUnitario = 0;
+						cantidad = 1;
+						unidad = "$/kWh";
+						break;
+					}
+					
+					ItemFactura item = new ItemFactura(detalle, precioUnitario, cantidad, unidad, this);
+					lstItem.add(item);
 				}
 			}
-		}*/
+		}
 
 	}
 

@@ -18,6 +18,7 @@ import negocio.TarifaABM;
 import negocio.ZonaABM;
 import datos.Medidor;
 import datos.PersonaFisica;
+import datos.PersonaJuridica;
 import datos.Tarifa;
 import datos.TarifaBaja;
 
@@ -25,16 +26,16 @@ public class TestGenerarDetalleYFactura {
 	public static void main(String[]args ) {
 		
 		
-		Inspector inspector = InspectorABM.getInstancia().traerInspector(1);
+	//	Inspector inspector = InspectorABM.getInstancia().traerInspector(1);
 		
 		
-		Zona zona= ZonaABM.getInstancia().traerZona(1);
+	//	Zona zona= ZonaABM.getInstancia().traerZona(1);
 		
 		LocalDate fecha = LocalDate.now();
 		
 		
 		PersonaFisica cliente = (PersonaFisica) ClienteABM.getInstancia().traerCliente(1);
-
+		
 		
 		Medidor medidor = MedidorABM.getInstancia().traer(1);
 		
@@ -43,13 +44,28 @@ public class TestGenerarDetalleYFactura {
 		System.out.println(lectura);
 		
 		
-	//	TarifaBaja tarifa1YDetalles = (TarifaBaja) TarifaABM.getInstancia().traerDetallesBajaDemanda(1);
+		TarifaBaja tarifa1YDetalles = (TarifaBaja) TarifaABM.getInstancia().traerDetallesBajaDemanda(1);
 		
-	//	Factura facturaTest = new Factura(cliente.getNombre()+" "+cliente.getApellido(), lectura, fecha, medidor.getNroSerie(), "no se que va aca", tarifa1YDetalles);
+		Factura facturaTest = new Factura(cliente.getNombre()+" "+cliente.getApellido(), lectura, fecha, medidor.getNroSerie(), "no se que va aca", tarifa1YDetalles);
 		
-		//		FacturaABM.getInstancia().agregar(facturaTest);
+		Factura facturaAltaTest = new Factura();
+		
+	//	FacturaABM.getInstancia().agregar(facturaTest);
+		
+		PersonaJuridica clienteJuridico = (PersonaJuridica) ClienteABM.getInstancia().traerCliente(3);	//universidad de lanus
+		
+		Lectura lecturaAlta = LecturaABM.getInstancia().traerLectura(3);
+		
+		Medidor medidorAlta= lecturaAlta.getMedidor();
+		
+		TarifaAlta tarifaAltaConDetalle = (TarifaAlta) TarifaABM.getInstancia().traer
 		
 		
+		
+		
+		
+		
+		//foreach que imprime la tarifa + su detalle
 //		for (DetalleBaja detalle : tarifa1YDetalles.getDetalles()) {
 //			System.out.println(detalle);
 //		}

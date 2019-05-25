@@ -46,4 +46,9 @@ public class TarifaABM {
 	public Tarifa traerDetallesBajaDemanda(long idTarifa){
 		return TarifaDao.getInstancia().traerDetallesBajaDemanda(idTarifa);
 	}
+	
+	public Tarifa traerDetallesAltaDemanda(long idTarifa){
+		return TarifaDao.getInstancia().traerDetallesAltaDemanda(idTarifa);
+	}
+	
 }
