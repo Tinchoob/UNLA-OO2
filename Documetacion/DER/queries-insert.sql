@@ -47,7 +47,6 @@ select * from cliente,personajuridica where cliente.idCliente=personajuridica.id
 /*MEDIDOR*/ -- unicos clientes con medidores son 1 y 3
 insert into medidor values(1,123,"Quintana 312",0,1,1); -- el cliente 1 tiene 2 medidores, uno en la zona 1, el otro en la zona 2
 insert into medidor values(2,231,"25 de mayo 122",0,2,1);
-
 insert into medidor values(3,222,"Avenida Avellaneda 2377",0,3,3);
 insert into medidor values(4,226,"Avenida Corrientes 112",0,2,3);
 
@@ -56,6 +55,11 @@ select * from medidor;
 /*LECTURAS*/
 insert into lectura values(1,now(),1,1);
 insert into lectura values(2,'2019-05-20 09:22:12',2,2);
+insert into lectura values(3,now(),1,3);
+insert into lecturaaltademanda values(3,"AT",150,100,200,300);
+
+insert into lecturabajademanda values(1,560);
+insert into lecturabajademanda values(2,900);
 
 select * from lectura;
 

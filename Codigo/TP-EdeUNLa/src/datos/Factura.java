@@ -102,8 +102,8 @@ public class Factura {
 
 	@Override
 	public String toString() {
-		return "Factura [idFactura=" + idFactura + ", cliente=" + cliente + ", lectura=" + lectura + ", fecha=" + fecha
-				+ ", nroMedidor=" + nroMedidor + ", observaciones=" + observaciones + ", tarifa=" + tarifa + "]";
+		return "Factura [idFactura=" + idFactura + ", cliente=" + cliente + ", lectura=" + lectura.getIdLectura() + ", fecha=" + fecha
+				+ ", nroMedidor=" + nroMedidor + ", observaciones=" + observaciones + ", tarifa=" + tarifa.getIdTarifa() + "]";
 	}
 
 	public void generarDetalle() {
@@ -116,8 +116,7 @@ public class Factura {
 		int cantidad=0;
 		String unidad="";
 		// la factura es this
-		
-		this.lstItem = new HashSet<ItemFactura>();		
+		lstItem = new HashSet<ItemFactura>();		
 		
 		
 		
@@ -147,9 +146,8 @@ public class Factura {
 					//aca poner el create item + add del tp de cuotas
 					ItemFactura item = new ItemFactura(detalle,precioUnitario,cantidad,unidad,this);
 					lstItem.add(item);
-					
-					
 				}
+			
 			}
 			
 		}

@@ -71,7 +71,7 @@ public class ItemFactura {
 	@Override
 	public String toString() {
 		return "ItemFactura [idItemFactura=" + idItemFactura + ", detalle=" + detalle + ", precioUnitario="
-				+ precioUnitario + ", cantidad=" + cantidad + ", unidad=" + unidad + ", factura=" + factura + "]";
+				+ precioUnitario + ", cantidad=" + cantidad + ", unidad=" + unidad + ", factura=" + factura.getIdFactura() + "]";
 	}
 
 	public double calcularSubTotal() {

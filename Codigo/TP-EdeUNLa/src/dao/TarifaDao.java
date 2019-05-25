@@ -112,7 +112,7 @@ public class TarifaDao {
 		return objeto;
 	}
 
-	/*public Tarifa traerDetallesBajaDemanda(long idTarifa) {
+	public Tarifa traerDetallesBajaDemanda(long idTarifa) {
 		Tarifa objeto = null;
 		try {
 			iniciaOperacion();
@@ -123,6 +123,6 @@ public class TarifaDao {
 			session.close();
 		}
 		return objeto;
-	}*/
+	}
 	
 }

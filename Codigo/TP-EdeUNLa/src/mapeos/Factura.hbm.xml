@@ -13,14 +13,13 @@
 		<property column="nroMedidor" name="nroMedidor" type="int" />
 		<property column="observaciones" name="observaciones" type="string" />
 		
+		<many-to-one name="lectura" class="datos.Lectura" column="idLectura" not-null="true"/>
+		<many-to-one name="tarifa" class="datos.Tarifa" column="idTarifa" not-null="true"/>
 		
-		<many-to-one name="tarifa" class="datos.Tarifa"></many-to-one>
 		
-		<one-to-one name="lectura" class="datos.Lectura"></one-to-one>
 
 
-		<set name="lstItem" cascade="save-update" table="itemfactura"
-			inverse="true" lazy="true" fetch="select">
+		<set name="lstItem" table="itemfactura" cascade="save-update" inverse="true" lazy="true" fetch="select">
 			<key column="idFactura" not-null="true" />
 			<one-to-many class="datos.ItemFactura" />
 		</set>
