@@ -40,6 +40,8 @@ public class TestGenerarDetalleYFactura {
 		
 		Lectura lectura =  (LecturaBajaDemanda) LecturaABM.getInstancia().traerLectura(1);
 		
+		System.out.println(lectura);
+		
 		
 	//	TarifaBaja tarifa1YDetalles = (TarifaBaja) TarifaABM.getInstancia().traerDetallesBajaDemanda(1);
 		

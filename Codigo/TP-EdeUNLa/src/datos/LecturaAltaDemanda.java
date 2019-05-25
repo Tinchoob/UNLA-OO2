@@ -3,6 +3,8 @@ package datos;
 
 import java.time.LocalDateTime;
 
+import funciones.Funciones;
+
 public class LecturaAltaDemanda extends Lectura {
 	private String tipoTension;
 	private int potenciaContratada;
@@ -67,8 +69,8 @@ public class LecturaAltaDemanda extends Lectura {
 	public String toString() {
 		return "LecturaAltaDemanda [tipoTension=" + tipoTension +" potenciaContratada="+potenciaContratada+ ", consumoHorasPico=" + consumoHorasPico
 				+ ", consumoHorasValle=" + consumoHorasValle + ", consumoHorasResto=" + consumoHorasResto
-				+ "fechaHoraLectura:" + this.getFechaHoraLectura() + "Inspector:" + this.getInspector() + "Medidor:"
-				+ this.getMedidor() + "]";
+				+ "fechaHoraLectura:" + Funciones.traerFechaCortaHora(this.getFechaHoraLectura()) + "Inspector:" + this.getInspector().getIdInspector() + "Medidor:"
+				+ this.getMedidor().getIdMedidor() + "]";
 	}
 
 }

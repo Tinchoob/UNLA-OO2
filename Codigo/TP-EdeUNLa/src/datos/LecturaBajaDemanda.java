@@ -2,6 +2,8 @@ package datos;
 
 import java.time.LocalDateTime;
 
+import funciones.Funciones;
+
 public class LecturaBajaDemanda extends Lectura {
 	private double consumo;
 
@@ -23,8 +25,8 @@ public class LecturaBajaDemanda extends Lectura {
 
 	@Override
 	public String toString() {
-		return "LecturaBajaDemanda [consummo=" + consumo + "fechaHoraLectura:" + this.getFechaHoraLectura()
-				+ "Inspector:" + this.getInspector() + "Medidor:" + this.getMedidor() + "]";
+		return "LecturaBajaDemanda [consumo=" + consumo + ", fechaHoraLectura:" + Funciones.traerFechaCortaHora(this.getFechaHoraLectura())
+				+ ", Inspector:" + this.getInspector().getIdInspector() + ", Medidor:" + this.getMedidor().getIdMedidor() + "]";
 	}
 
 }
