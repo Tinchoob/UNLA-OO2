@@ -106,6 +106,8 @@ select * from tarifabaja as t
 inner join detallebaja as d on 
 t.idTarifaBaja=d.idTarifaBaja;
 
+-- falta armar el detalle del tarifario de alta
+
 
 
 
