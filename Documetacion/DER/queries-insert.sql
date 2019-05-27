@@ -66,10 +66,8 @@ select * from lectura;
 
 
 /*TARIFA*/ -- ingresar primero la superclase y luego la subclase
-insert into tarifa values(1,"Luz",'2019-1-1');
-insert into tarifa values(2,"Luz",'2019-1-1');
+insert into tarifa values(1,"Luz Baja Demanda",'2019-1-1');
 insert into tarifabaja values(1);
--- insert into tarifaalta values(2);			//no se que van en esos campos
 
 /*tarifabaja*/
 insert into detallebaja values(1,"Cargo fijo","$/mes",0,150,32.82,1);
@@ -106,7 +104,93 @@ select * from tarifabaja as t
 inner join detallebaja as d on 
 t.idTarifaBaja=d.idTarifaBaja;
 
--- falta armar el detalle del tarifario de alta
+-- ****************************************************************************
+-- ******************************* 27/05/2019 *********************************
+-- ****************************************************************************
+
+insert into tarifa values(2,"Luz BT",'2019-1-1');
+-- TARIFA ALTA
+-- necesito 3 tablas de tarifaalta diferentes, una para cada tension (BT,MT,AT) y si supera o no el limite (BT<300, BT>300, MT<300, MT>300, AT<300, AT>300)
+-- ademas cada vez que creo una tarifaalta debo crear una tabla tarifa because herencia
+
+insert into tarifaalta values(2,"BT",300);
+
+-- BT<300
+insert into detallealta values(1,"Cargo Fijo","$/mes",0,3226.41,2);
+insert into detallealta values(2,"Cargo Variable Pico","$/kWh",0,2.260,2);
+insert into detallealta values(3,"Cargo Variable Resto","$/kWh",0,2.160,2);
+insert into detallealta values(4,"Cargo Variable Valle","$/kWh",0,2.061,2);
+
+-- BT>300
+insert into detallealta values(5,"Cargo Fijo","$/mes",1,3226.41,2);
+insert into detallealta values(6,"Cargo Variable Pico","$/kWh",1,3.286,2);
+insert into detallealta values(7,"Cargo Variable Resto","$/kWh",1,3.138,2);
+insert into detallealta values(8,"Cargo Variable Valle","$/kWh",1,2.990,2);
+
+-- hay que crear otra tarifa y su respectiva subclase 
+insert into tarifa values(3,"Luz MT",'2019-1-1');
+insert into tarifaalta values(3,"MT",300);
+
+-- MT<300
+insert into detallealta values(9,"Cargo Fijo","$/mes",0,3226.09,3);
+insert into detallealta values(10,"Cargo Variable Pico","$/kWh",0,2.148,3);
+insert into detallealta values(11,"Cargo Variable Resto","$/kWh",0,2.053,3);
+insert into detallealta values(12,"Cargo Variable Valle","$/kWh",0,1.959,3);
+
+-- MT>300
+insert into detallealta values(13,"Cargo Fijo","$/mes",1,3226.09,3);
+insert into detallealta values(14,"Cargo Variable Pico","$/kWh",1,3.123,3);
+insert into detallealta values(15,"Cargo Variable Resto","$/kWh",1,2.983,3);
+insert into detallealta values(16,"Cargo Variable Valle","$/kWh",1,2.841,3);
+
+
+-- tarifa y subclase alta tension
+insert into tarifa values(4,"Luz AT",'2019-1-1');
+insert into tarifaalta values(4,"AT",300);
+
+-- AT<300
+insert into detallealta values(17,"Cargo Fijo","$/mes",0,3224.11,4);
+insert into detallealta values(18,"Cargo Variable Pico","$/kWh",0,2.060,4);
+insert into detallealta values(19,"Cargo Variable Resto","$/kWh",0,1.969,4);
+insert into detallealta values(20,"Cargo Variable Valle","$/kWh",0,1.879,4);
+
+-- AT>300
+
+insert into detallealta values(21,"Cargo Fijo","$/mes",1,3224.11,4);
+insert into detallealta values(22,"Cargo Variable Pico","$/kWh",1,2.995,4);
+insert into detallealta values(23,"Cargo Variable Resto","$/kWh",1,2.860,4);
+insert into detallealta values(24,"Cargo Variable Valle","$/kWh",1,2.725,4);
+
+
+-- queries para asegurarte de que esta todo bien
+
+-- imprimir detalles baja tension
+select * from tarifaalta as t 
+inner join detallealta as d on 
+t.idTarifaAlta=d.idTarifaAlta
+WHERE t.tensionContratada = "bt";
+
+
+-- imprimir detalles media tension
+select * from tarifaalta as t 
+inner join detallealta as d on 
+t.idTarifaAlta=d.idTarifaAlta
+WHERE t.tensionContratada = "mt";
+
+
+-- imprimir detalles alta tension
+select * from tarifaalta as t 
+inner join detallealta as d on 
+t.idTarifaAlta=d.idTarifaAlta
+WHERE t.tensionContratada = "at";
+
+
+select * from detallealta;
+
+
+
+ 
+ 
 
 
 
