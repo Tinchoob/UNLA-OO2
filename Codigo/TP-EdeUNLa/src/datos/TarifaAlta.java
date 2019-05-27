@@ -44,8 +44,7 @@ public class TarifaAlta extends Tarifa {
 
 	@Override
 	public String toString() {
-		return "TarifaAlta [tensionContratada=" + tensionContratada + ", limite=" + limite + ", detalles=" + detalles
-				+ ", idTarifa=" + idTarifa + ", servicio=" + servicio + "]";
+		return "TarifaAlta [tensionContratada=" + tensionContratada + ", limite=" + limite+ ", idTarifa=" + idTarifa + ", servicio=" + servicio + "]";
 	}
 
 	

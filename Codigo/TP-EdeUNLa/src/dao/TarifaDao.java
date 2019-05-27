@@ -100,7 +100,8 @@ public class TarifaDao {
 		}
 		return objeto;
 	}
-
+	
+	// TODO: crear 2 metodos mas aparte de este que traigan tarifas de at,mt y bt respectivamente
 	public Tarifa traerUltimaTarifaAltaDemanda() {
 		Tarifa objeto = null;
 		try {
@@ -131,7 +132,7 @@ public class TarifaDao {
 		try {
 			iniciaOperacion();
 			String hql = "from Tarifa t where t.idTarifa=" + idTarifa;
-			objeto = (TarifaBaja) session.createQuery(hql).uniqueResult();
+			objeto = (TarifaAlta) session.createQuery(hql).uniqueResult();
 			Hibernate.initialize(((TarifaAlta) objeto).getDetalles());
 		} finally {
 			session.close();

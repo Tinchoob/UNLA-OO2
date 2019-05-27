@@ -3,6 +3,7 @@ package test;
 import java.time.LocalDate;
 
 import datos.Cliente;
+import datos.DetalleAlta;
 import datos.DetalleBaja;
 import datos.Factura;
 import datos.Inspector;
@@ -20,6 +21,7 @@ import datos.Medidor;
 import datos.PersonaFisica;
 import datos.PersonaJuridica;
 import datos.Tarifa;
+import datos.TarifaAlta;
 import datos.TarifaBaja;
 
 public class TestGenerarDetalleYFactura {
@@ -58,10 +60,12 @@ public class TestGenerarDetalleYFactura {
 		
 		Medidor medidorAlta= lecturaAlta.getMedidor();
 		
-		TarifaAlta tarifaAltaConDetalle = (TarifaAlta) TarifaABM.getInstancia().traer
+		TarifaAlta tarifaAltaConDetalle = (TarifaAlta) TarifaABM.getInstancia().traerDetallesAltaDemanda(2);
 		
 		
-		
+		for(DetalleAlta dAlta : tarifaAltaConDetalle.getDetalles()) {
+			System.out.println(dAlta);
+		}
 		
 		
 		
