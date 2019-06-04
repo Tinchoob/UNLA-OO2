@@ -60,16 +60,32 @@ public class TestGenerarDetalleYFactura {
 		
 		Medidor medidorAlta= lecturaAlta.getMedidor();
 		
-		TarifaAlta tarifaAltaConDetalle = (TarifaAlta) TarifaABM.getInstancia().traerDetallesAltaDemanda(2);
+		TarifaAlta tarifaBTAltaConDetalle = (TarifaAlta) TarifaABM.getInstancia().traerDetallesAltaDemanda(2);
+		TarifaAlta tarifaMTAltaConDetalle = (TarifaAlta) TarifaABM.getInstancia().traerDetallesAltaDemanda(3);
+		TarifaAlta tarifaATAltaConDetalle = (TarifaAlta) TarifaABM.getInstancia().traerDetallesAltaDemanda(4);
 		
 		
-		for(DetalleAlta dAlta : tarifaAltaConDetalle.getDetalles()) {
+		System.out.println();
+		System.out.println(tarifaBTAltaConDetalle);
+		for(DetalleAlta dAlta : tarifaBTAltaConDetalle.getDetalles()) {
+			System.out.println(dAlta);
+		}
+		System.out.println();
+		
+		System.out.println(tarifaMTAltaConDetalle);
+		for(DetalleAlta dAlta : tarifaMTAltaConDetalle.getDetalles()) {
+			System.out.println(dAlta);
+		}
+		System.out.println();
+		
+		System.out.println(tarifaATAltaConDetalle);
+		for(DetalleAlta dAlta : tarifaATAltaConDetalle.getDetalles()) {
 			System.out.println(dAlta);
 		}
 		
 		
 		
-		//foreach que imprime la tarifa + su detalle
+		//foreach que imprime la tarifa DE BAJA Y SU DETALLE
 //		for (DetalleBaja detalle : tarifa1YDetalles.getDetalles()) {
 //			System.out.println(detalle);
 //		}
