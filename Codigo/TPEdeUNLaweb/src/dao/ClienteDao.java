@@ -2,6 +2,8 @@ package dao;
 
 import datos.Cliente;
 
+import java.util.List;
+
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -73,8 +75,8 @@ public class ClienteDao {
 		Cliente objeto = null;
 		try {
 			iniciaOperacion();
-			objeto= (Cliente) session.get(Cliente.class, idCliente);
-			Hibernate.initialize(objeto.getMedidores()); //poner esto en caso de que se pida traer medidores
+			objeto = (Cliente) session.get(Cliente.class, idCliente);
+			Hibernate.initialize(objeto.getMedidores()); // poner esto en caso de que se pida traer medidores
 
 		} finally {
 			session.close();
@@ -107,6 +109,18 @@ public class ClienteDao {
 			session.close();
 		}
 		return objeto;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Cliente> traerClientes() {
+		List<Cliente> lista = null;
+		try {
+			iniciaOperacion();
+			lista = session.createQuery("from Cliente c inner join fetch c.contacto").list();
+		} finally {
+			session.close();
+		}
+		return lista;
 	}
 
 }
