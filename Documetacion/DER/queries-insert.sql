@@ -38,6 +38,10 @@ insert into personajuridica values(3,"Universidad de Lanus","2213299");
 insert into cliente values(4,"141");
 insert into personajuridica values(4,"Herreria Martinez","1138721");
 
+insert into contacto values(2,"tinchi@yahoo.com","155133123","4288-1234");
+insert into contacto values(3,"unla@edu.ar","11332213","5088-9012");
+insert into contacto values(4,"hierrosMart@edu.ar","156675563","4255-8811");
+
 
 select * from cliente,personafisica where cliente.idCliente=personaFisica.idPersonaFisica;
 select * from cliente,personajuridica where cliente.idCliente=personajuridica.idPersonaJuridica;
