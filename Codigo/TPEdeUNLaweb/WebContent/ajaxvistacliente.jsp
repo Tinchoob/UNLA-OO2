@@ -1,29 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="datos.Cliente"%>
 <%@page import="datos.PersonaFisica"%>
+<%@page import="datos.PersonaJuridica"%>
 <%@page import="java.util.List"%>
 
 
 
 <%
-	PersonaFisica cliente = (PersonaFisica) request.getAttribute("cliente");
+	Cliente cliente = (Cliente) request.getAttribute("cliente");
 %>
 
-<%
-	// List<Prestamo> prestamos = (List) request.getAttribute("lstPrestamos");
+
+<% if (cliente instanceof PersonaFisica){%>
+
+<% 
+	PersonaFisica persona = (PersonaFisica) cliente;
 %>
 
 <BR>
 Apellido:
-<%=cliente.getApellido()%><BR>
+<%=persona.getApellido()%><BR>
 Nombre :
-<%=cliente.getNombre()%><BR>
+<%=persona.getNombre()%><BR>
 DNI :
-<%=cliente.getDni()%><BR>
+<%=persona.getDni()%><BR>
 ID :
 <%=cliente.getIdCliente()%><BR>
 <BR>
-<input type="hidden" id="idcliente" name="idcliente"
-	value="<%=cliente.getIdCliente()%>" />
-	
-	
+
+<%}%>
+
+<% if (cliente instanceof PersonaJuridica){%>
+<% 
+	PersonaJuridica empresa = (PersonaJuridica) cliente;
+%>
+
+<BR>
+Razon Social:
+<%=empresa.getRazonSocial()%><BR>
+CUIT:
+<%=empresa.getCuit()%><BR>
+ID:
+<%=empresa.getIdCliente()%><BR>
+<%}%>

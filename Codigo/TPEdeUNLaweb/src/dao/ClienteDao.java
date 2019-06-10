@@ -84,6 +84,19 @@ public class ClienteDao {
 
 		return objeto;
 	}
+	
+	public Cliente traerClientePorNro(String nroCliente) {
+		Cliente objeto = null;
+		try {
+			iniciaOperacion();
+			objeto = (Cliente) session.createQuery("from Cliente as c  inner join fetch c.contacto where c.nroCliente="+nroCliente).uniqueResult();
+
+		} finally {
+			session.close();
+		}
+
+		return objeto;
+	}
 
 	public Cliente traerClientePorDni(int dni) {
 		Cliente objeto = null;

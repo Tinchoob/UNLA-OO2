@@ -5,17 +5,17 @@
 <HTML>
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<TITLE>Sistema Francés - Cliente</TITLE>
+<TITLE>TPEdeUNLa - Traer Cliente</TITLE>
 <script src="js/jquery-3.4.1.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#consultar').click(function() {
-			var dni = $('#dni').val();
+			var nroCliente = $('#nroCliente').val();
 			$.ajax({
 				method : "POST",
 				url : "MostrarClienteJSP",
 				data : {
-					dni : dni
+					nroCliente : nroCliente
 				},
 				async : false
 			}).done(function(data) {
@@ -34,36 +34,16 @@
 			<h1>Búsqueda de clientes</h1>
 			<form class="navbar-form navbar-right">
 				<div class="form-group">
-					<label for="dni">DNI:</label> <INPUT id="dni" name="dni">
+					<label for="nroCliente">Numero de Cliente:</label> <INPUT id="nroCliente" name="nroCliente">
 				</div>
 				<INPUT id="consultar" type="button" class="btn btn-success"
 					value="Consultar" />
 			</form>
 		</div>
+		
+		<div id="responsecliente"></div>
 		<BR>
 		<BR>
-
-		<div class="container">
-			<div id="responsecliente"></div>
-			<div id="cuotasavencer">
-				<TABLE border="0">
-					<TR>
-						<TD><INPUT id="btncuotasavencer" type="button"
-							class="btn btn-success" value="Mostrar cuotas a vencer">
-						</TD>
-
-					</TR>
-				</TABLE>
-				<div id="divcuotasavencer"></div>
-			</div>
-			<TABLE border="0">
-				<TR>
-					<TD><INPUT id="listarPrestamos" class="btn btn-success"
-						type="button" value="Mostrar prestamos"></TD>
-				</TR>
-			</TABLE>
-			<div id="divlistarPrestamos"></div>
-		</div>
 	</div>
 </BODY>
 

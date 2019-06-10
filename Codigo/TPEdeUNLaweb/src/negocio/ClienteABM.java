@@ -46,5 +46,9 @@ public class ClienteABM {
 	public List<Cliente> traerClientes() {
 		return ClienteDao.getInstancia().traerClientes();
 	}
+	
+	public Cliente traerClientePorNro(String nroCliente) {
+		return ClienteDao.getInstancia().traerClientePorNro(nroCliente);
+	}
 
 }

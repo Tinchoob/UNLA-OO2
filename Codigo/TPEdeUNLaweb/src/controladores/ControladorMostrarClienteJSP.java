@@ -7,11 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.ws.http.HTTPException;
-
 import negocio.ClienteABM;
 import datos.Cliente;
-import datos.PersonaFisica;
 
 
 public class ControladorMostrarClienteJSP extends HttpServlet {
@@ -35,11 +32,8 @@ public class ControladorMostrarClienteJSP extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		
 		try {
-			int dni = Integer.parseInt(request.getParameter("dni"));
-			PersonaFisica cliente = (PersonaFisica) ClienteABM.getInstancia().traerClientePorDni(dni);
-		
-		//	PrestamoABM prestamoAbm = new PrestamoABM();
-		//	List<Prestamo> lstPrestamos = prestamoAbm.traerPrestamo(cliente);
+			String nroCliente = request.getParameter("nroCliente");
+			Cliente cliente = ClienteABM.getInstancia().traerClientePorNro(nroCliente);
 			request.setAttribute("cliente", cliente);
 		//	request.setAttribute("lstPrestamos", lstPrestamos);
 

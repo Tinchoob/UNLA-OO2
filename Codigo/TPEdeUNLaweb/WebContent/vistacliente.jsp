@@ -18,6 +18,6 @@ DNI : <%= cliente.getDni() %><BR>
 ID : <%= cliente.getIdCliente() %><BR>
 <BR>
 <BR>
-<A href="/SistemaFrances/index.jsp">Volver...</A>
+<A href="/TPEdeUNLaweb/index.jsp">Volver...</A>
 </BODY>
 </html>

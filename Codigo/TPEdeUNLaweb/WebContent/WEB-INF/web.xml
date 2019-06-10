@@ -10,9 +10,11 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>cliente.html</welcome-file>
     <welcome-file>error500.html</welcome-file>
+    <welcome-file>ajaxvistsacliente.jsp</welcome-file>
     <welcome-file>vistalistacliente.jsp</welcome-file>
     <welcome-file>vistalistaclientejstl.jsp</welcome-file>
   </welcome-file-list>
+  
   <servlet>
     <servlet-name>ControladorMostrarCliente</servlet-name>
     <servlet-class>controladores.ControladorMostrarCliente</servlet-class>

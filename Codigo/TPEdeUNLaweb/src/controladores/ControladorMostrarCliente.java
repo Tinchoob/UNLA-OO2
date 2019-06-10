@@ -27,8 +27,8 @@ public class ControladorMostrarCliente extends HttpServlet {
 					response.setContentType("text/html;charset=UTF-8");
 					try {
 					int dni = Integer.parseInt(request.getParameter("dni"));
-					ClienteABM clienteAbm=new ClienteABM();
-					Cliente cliente=clienteAbm.traer(dni);
+				//	ClienteABM clienteAbm=new ClienteABM();
+				//	Cliente cliente=clienteAbm.traer(dni);
 					response.setStatus(200);
 					PrintWriter salida = response.getWriter();
 

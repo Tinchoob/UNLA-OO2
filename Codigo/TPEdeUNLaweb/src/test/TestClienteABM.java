@@ -41,13 +41,15 @@ public class TestClienteABM {
 		
 		//traigo una personaJuridica y le asigno contacto
 		long id=4;
-		Cliente colch = ClienteABM.getInstancia().traerCliente(id);			
+		String nroCliente = "140";
+		Cliente colch = ClienteABM.getInstancia().traerCliente(id);
+		Cliente testNumero = ClienteABM.getInstancia().traerClientePorNro(nroCliente);
 		//ContactoDao.getInstancia().agregar(new Contacto("ggg","1234","1234",colch));
 		//Contacto con4 = ContactoDao.getInstancia().traer(4);
 		//colch.setContacto(con4);
 		//ClienteDao.getInstancia().actualizar(colch);
 		System.out.println("Cliente: "+colch.toString());
-
+		System.out.println("Cliente: "+testNumero.toString());
 		
 		
 		
