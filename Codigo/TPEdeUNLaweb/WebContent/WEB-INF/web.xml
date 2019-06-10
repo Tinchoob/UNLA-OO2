@@ -11,6 +11,7 @@
     <welcome-file>cliente.html</welcome-file>
     <welcome-file>error500.html</welcome-file>
     <welcome-file>ajaxvistsacliente.jsp</welcome-file>
+    <welcome-file>ajaxagregarcliente.jsp</welcome-file>
     <welcome-file>vistalistacliente.jsp</welcome-file>
     <welcome-file>vistalistaclientejstl.jsp</welcome-file>
   </welcome-file-list>
@@ -23,6 +24,17 @@
     <servlet-name>ControladorMostrarCliente</servlet-name>
     <url-pattern>/MostrarCliente</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControladorAgregarCliente</servlet-name>
+    <servlet-class>controladores.ControladorAgregarCliente</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorAgregarCliente</servlet-name>
+    <url-pattern>/AgregarCliente</url-pattern>
+  </servlet-mapping>
+  
+  
   <servlet>
     <servlet-name>ControladorMostrarClienteJSP</servlet-name>
     <servlet-class>controladores.ControladorMostrarClienteJSP</servlet-class>
