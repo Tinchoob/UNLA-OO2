@@ -1,0 +1,126 @@
+.navbar{ background:#6b5b95; position: fixed-top;}
+
+
+.nav-link , .navbar-brand{ color: #f4f4f4; cursor: pointer;}
+
+.nav-link{ margin-right: 1em !important;}
+
+.nav-link:hover{ background: #6b5b95; color: #f97300; }
+
+.navbar-collapse{ justify-content: flex-end;}
+
+.navbar-toggler{  back#6b5b95ground:#fff !important;}
+
+
+/*header style*/
+.header{ 
+ background-image: url("../images/background.jpg");
+ background-size: cover;
+ background-attachment: fixed;
+ background-position: center;
+ height: 750px;
+}
+
+.overlay{
+ position: absolute;
+ min-height: 100%;
+ min-width: 100%;
+ left: 0;
+ top: 0;
+ background: rgba(244, 244, 244, 0.79);
+}
+
+
+.description{
+    position: absolute;
+    top: 30%;
+    margin: auto;
+    padding: 3em;
+    
+}
+.description h1{
+ color:#6b5b95 ;
+}
+.description p{
+ color:#666;
+ font-size: 20px;
+ width: 60%;
+ line-height: 1.5;
+}
+.description button{
+ border:1px  solid #6B5B95;
+ background:#6B5B95;
+ color:#fff;
+}		
+
+
+/********** CSS SERVICIOS****/
+
+.servicios{
+ margin: 3em 0;
+ padding: 1em;
+ position: relative;
+}
+.servicios h1{
+ color:#F97300;
+ margin: 2em;
+}
+.servicios img{
+ height: 100%;
+    width: 100%;
+    border-radius: 50%
+}
+.servicios span{
+ display: block;
+ color: #888;
+ position: absolute;
+ left: 115px;
+}
+.servicios .desc{
+ padding: 1em;
+ border-left:4px solid #10828C;
+}
+.servicios .desc h3{
+ color: #10828C;
+}
+.servicios .desc p{
+ line-height:2;
+ color:#888;
+}
+
+.servicios .desc ul{
+	color:#10828C;
+	font-size: 22;
+}
+
+.itemLista:hover{color: #f97300;}
+
+
+/*manejo de formularios*/
+
+.altaCliente{
+ margin: 5em 0;
+ position: relative;  
+}
+
+.altaCliente h1{
+ padding:2em 1px;
+ color: #3355FF; 
+}
+.altaCliente .right{
+ max-width: 650px;
+}
+.altaCliente .right .btn-secondary{
+ background:  #3355FF;
+ color: #fff;
+ border:0;
+}
+.altaCliente .right .form-control::placeholder{
+ color: #888;
+ font-size: 16px;
+}
+
+
+
+
+

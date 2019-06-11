@@ -1,29 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
-<HTML>
-<HEAD>
+<html>
+<head>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<TITLE>TPEdeUNLa - Traer Cliente</TITLE>
-<script src="js/jquery-3.4.1.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#consultar').click(function() {
-			var nroCliente = $('#nroCliente1').val();
-			$.ajax({
-				method : "POST",
-				url : "MostrarClienteJSP",
-				data : {
-					nroCliente : nroCliente
-				},
-				async : false
-			}).done(function(data) {
-				$("#responsecliente").html(data);
-			})
-		});
-	});
-</script>
+
+<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+<script type="text/javascript" src='js/main.js'></script>
+
+<title>Prueba bootstrap</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+
+<!-- SCRIPTS JQUERY -->
+
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -49,208 +43,110 @@
 	});
 </script>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#agregarJuridico').click(function() {
-			var nroCliente = $('#nroClienteJ').val();
-			var razonSocial = $('#razonSocial').val();
-			var cuit = $('#cuit').val();
-			$.ajax({
-				method : "POST",
-				url : "AgregarClienteJuridico",
-				data : {
-					nroCliente : nroCliente,
-					razonSocial : razonSocial,
-					cuit : cuit
-				},
-				async : false
-			}).done(function(data) {
-				$("#addclientejuridico").html(data);
-			})
-		});
-	});
-</script>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#eliminarCliente').click(function() {
-			var nroCliente = $('#nroClienteBaja').val();
-			$.ajax({
-				method : "POST",
-				url : "BajaCliente",
-				data : {
-					nroCliente : nroCliente
-				},
-				async : false
-			}).done(function(data) {
-				$("#bajacliente").html(data);
-			})
-		});
-	});
-</script>
+<!-- FIN SCRIPTS JQUERY -->
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#actualizarFisico').click(function() {
-			var nroCliente = $('#nroClienteAF').val();
-			var nombre = $('#nombreNew').val();
-			var apellido = $('#apellidoNew').val();
-			
-			$.ajax({
-				method : "POST",
-				url : "ActualizarFisico",
-				data : {
-					nroCliente : nroCliente,
-					nombre : nombre,
-					apellido : apellido
-				},
-				async : false
-			}).done(function(data) {
-				$("#fisicoActualizado").html(data);
-			})
-		});
-	});
-</script>
+</head>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#actualizarJuridico').click(function() {
-			var nroCliente = $('#nroClienteAJ').val();
-			var razonSocial = $('#razonsocialNew').val();
-			var cuit = $('#cuitNew').val();
-			
-			$.ajax({
-				method : "POST",
-				url : "ActualizarJuridico",
-				data : {
-					nroCliente : nroCliente,
-					razonSocial : razonSocial,
-					cuit : cuit
-				},
-				async : false
-			}).done(function(data) {
-				$("#juridicoActualizado").html(data);
-			})
-		});
-	});
-</script>
+<body>
 
-</HEAD>
-<BODY>
-	<%@ include file="/cabecera.jsp"%>
-	<div class="jumbotron">
-		<div class="container">
-			<h1>Búsqueda de clientes</h1>
-			<form class="navbar-form navbar-right">
-				<div class="form-group">
-					<label for="nroCliente">Numero de Cliente:</label> <INPUT id="nroCliente1" name="nroCliente1">
-				</div>
-				<INPUT id="consultar" type="button" class="btn btn-success"
-					value="Consultar" />
-			</form>
-		</div>
-		<div id="responsecliente"></div>
-		<BR>
-		<BR>
-	</div>
-	
-	<div class="jumbotron">
-		<div class="container">
-			<h1>Agregar Cliente Físico</h1>
-			<form class="navbar-form navbar-right">
-				<div class="form-group">
-					<label for="nroCliente">Numero de Cliente: </label> <INPUT id="nroCliente" name="nroCliente"><BR><BR>
-					<label for="apellido">Apellido: </label> <INPUT id="apellido" name="apellido"><BR><BR>
-					<label for="nombre">Nombre: </label> <INPUT id="nombre" name="nombre"><BR><BR>
-					<label for="dni">DNI: </label> <INPUT id="dni" name="dni"><BR><BR>
-				</div>
-				<INPUT id="agregarFisico" type="button" class="btn btn-success"
+
+
+
+
+<!-- navbar -->  
+ <nav class="navbar navbar-expand-lg fixed-top ">  
+ <a class="navbar-brand" href="#">Home</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">  
+ <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse " id="navbarSupportedContent">     <ul class="navbar-nav mr-4">
+ <li class="nav-item">
+     <a class="nav-link" data-value="servicios" href="#">Servicios</a></li>  
+
+</ul> 
+</div></nav>
+
+
+
+
+<header class="header">
+	 <div class="overlay"></div>
+	 <div class="container"> 
+	 	<div class="description ">
+   <h1>    EdeUNLA 
+    <p>    Empresa lider en energía de la Universidad Nacional de Lanús. El café y las medialunas del buffet son carisimos igual.
+</p></h1>  
+</div>
+
+	 </div>
+
+</header>
+
+<!-- SERVICIOS-->
+<div class="servicios" id="servicios">
+<div class="row">
+   <div class="col-lg-4 col-md-4 col-sm-12">
+    <img src="images/services.png" class="img-fluid">
+   </div>
+
+   <div class="col-lg-8 col-md-8 col-sm-12 desc">  
+    <h3>Servicios</h3>
+    <p>
+       Ofrecemos una amplia variedad de servicios:
+
+       <div class="listaServicios" id="listaServicios">
+        <ul>
+            <li><a class="itemLista" href="#"> Alta, Baja y Modificación de Clientes</a></li><br>
+            <li> <a class="itemLista" href="#"> Generación de Facturas</a></li><br>
+            <li> <a class="itemLista" href="#"> Reportes de sistema</a></li>
+      </ul>
+
+       </div>
+    </p>
+   </div>
+  </div>
+</div>
+
+
+
+<!-- ALTA CLIENTE TEST -->
+
+<!-- Contact form -->
+<div class="altaCliente">
+ <div class="container">
+  <form>
+   <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-12">
+      <h1>Agregar Cliente Físico</h1> 
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-12 right">
+       <div class="form-group">
+         <input type="text" class="form-control form-control-lg" placeholder="Numero de Cliente" id="nroCliente">
+         <input type="text" class="form-control form-control-lg" placeholder="Apellido" id="apellido">
+         <input type="text" class="form-control form-control-lg" placeholder="Nombre" id="nombre">
+         <input type="text" class="form-control form-control-lg" placeholder="DNI" id="dni">
+       <INPUT id="agregarFisico" type="button" class="btn btn-secondary btn-block"
 					value="Agregar" />
-			</form>
-		</div>
-		<div id="addclientefisico"></div>
-		<BR>
-		<BR>
-	</div>
-	
-	<div class="jumbotron">
-		<div class="container">
-			<h1>Actualizar Cliente Físico</h1>
-			<form class="navbar-form navbar-right">
-				<div class="form-group">
-					<label for="nroCliente">Numero de Cliente: </label> <INPUT id="nroClienteAF" name="nroClienteAF"><BR><BR>
-					<label for="apellido">Nuevo Apellido: </label> <INPUT id="apellidoNew" name="apellidoNew"><BR><BR>
-					<label for="nombre">Nuevo Nombre: </label> <INPUT id="nombreNew" name="nombreNew"><BR><BR>
-				</div>
-				<INPUT id="actualizarFisico" type="button" class="btn btn-success"
-					value="Actualizar" />
-			</form>
-		</div>
-		<div id="fisicoActualizado"></div>
-		<BR>
-		<BR>
-	</div>
-	
-	
-	
-	<div class="jumbotron">
-		<div class="container">
-			<h1>Agregar Cliente Jurídico</h1>
-			<form class="navbar-form navbar-right">
-				<div class="form-group">
-				<label for="nroClienteJ">Numero de Cliente: </label> <INPUT id="nroClienteJ" name="nroClienteJ"><BR><BR>
-					<label for="razonSocial">Razón Social: </label> <INPUT id="razonSocial" name="razonSocial"><BR><BR>
-					<label for="cuit">CUIT: </label> <INPUT id="cuit" name="cuit"><BR><BR>
-				</div>
-				<INPUT id="agregarJuridico" type="button" class="btn btn-success"
-					value="Agregar" />
-			</form>
-		</div>
-		<div id="addclientejuridico"></div>
-		<BR>
-		<BR>
-	</div>
-	
-	<div class="jumbotron">
-		<div class="container">
-			<h1>Actualizar Cliente Jurídico</h1>
-			<form class="navbar-form navbar-right">
-				<div class="form-group">
-					<label for="nroCliente">Numero de Cliente: </label> <INPUT id="nroClienteAJ" name="nroClienteAJ"><BR><BR>
-					<label for="razonSocial">Nueva Razón Social: </label> <INPUT id="razonsocialNew" name="razonsocialNew"><BR><BR>
-					<label for="razonSocial">Nuevo CUIT: </label> <INPUT id="cuitNew" name="cuitNew"><BR><BR>
-				</div>
-				<INPUT id="actualizarJuridico" type="button" class="btn btn-success"
-					value="Actualizar" />
-			</form>
-		</div>
-		<BR>
-		<div id="juridicoActualizado"></div>
-		<BR>
-		<BR>
-	</div>
-	
-	<div class="jumbotron">
-		<div class="container">
-			<h1>Baja de Cliente</h1>
-			<form class="navbar-form navbar-right">
-				<div class="form-group">
-					<label for="nroClienteBaja">Numero de Cliente: </label> <INPUT id="nroClienteBaja" name="nroClienteBaja"><BR><BR>
-				</div>
-				<INPUT id="eliminarCliente" type="button" class="btn btn-success"
-					value="Eliminar" />
-			</form>
-		</div>
-		<BR>
-		<div id="bajacliente"></div>
-		<BR>
-		<BR>
-	</div>
-	
-	
-	
-</BODY>
+    </div>
+   </div>
+  </form>
+ </div>
+</div>
+ 
+ <div class="col-lg-4 col-md-4 col-sm-12">
+ <div class="col-lg-8 col-md-8 col-sm-12 right">
+<div id="addclientefisico"></div>
+</div>
+</div>
 
 
 
-</HTML>
+
+
+</body>
+
+</html> 
+
+
+
