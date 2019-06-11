@@ -7,7 +7,7 @@
 	int idAgregado = Integer.parseInt(request.getAttribute("idAgregado").toString());
 %>
 
-Persona Agregada correctamente!<BR>
+Persona Fisica Agregada correctamente!<BR>
 Datos del Cliente agregado:
 <BR>
 Apellido:

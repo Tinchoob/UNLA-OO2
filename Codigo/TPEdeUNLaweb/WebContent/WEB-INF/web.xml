@@ -11,7 +11,7 @@
     <welcome-file>cliente.html</welcome-file>
     <welcome-file>error500.html</welcome-file>
     <welcome-file>ajaxvistsacliente.jsp</welcome-file>
-    <welcome-file>ajaxagregarcliente.jsp</welcome-file>
+    <welcome-file>ajaxagregarclienteF.jsp</welcome-file>
     <welcome-file>vistalistacliente.jsp</welcome-file>
     <welcome-file>vistalistaclientejstl.jsp</welcome-file>
   </welcome-file-list>
@@ -26,12 +26,39 @@
   </servlet-mapping>
   
   <servlet>
-    <servlet-name>ControladorAgregarCliente</servlet-name>
-    <servlet-class>controladores.ControladorAgregarCliente</servlet-class>
+    <servlet-name>ControladorAgregarClienteFisico</servlet-name>
+    <servlet-class>controladores.ControladorAgregarClienteFisico</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ControladorAgregarCliente</servlet-name>
-    <url-pattern>/AgregarCliente</url-pattern>
+    <servlet-name>ControladorAgregarClienteFisico</servlet-name>
+    <url-pattern>/AgregarClienteFisico</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControladorAgregarClienteJuridico</servlet-name>
+    <servlet-class>controladores.ControladorAgregarClienteJuridico</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorAgregarClienteJuridico</servlet-name>
+    <url-pattern>/AgregarClienteJuridico</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControladorBajaCliente</servlet-name>
+    <servlet-class>controladores.ControladorBajaCliente</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorBajaCliente</servlet-name>
+    <url-pattern>/BajaCliente</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControladorActualizarFisico</servlet-name>
+    <servlet-class>controladores.ControladorActualizarFisico</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorActualizarFisico</servlet-name>
+    <url-pattern>/ActualizarFisico</url-pattern>
   </servlet-mapping>
   
   

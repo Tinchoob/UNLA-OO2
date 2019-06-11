@@ -7,11 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import datos.Cliente;
 import datos.PersonaFisica;
 import negocio.ClienteABM;
 
-public class ControladorAgregarCliente extends HttpServlet {
+public class ControladorActualizarFisico extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -30,14 +29,14 @@ public class ControladorAgregarCliente extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		
 		try {
-			PersonaFisica personaAgregada = new PersonaFisica(request.getParameter("nroCliente"), null,
-					request.getParameter("nombre"), request.getParameter("apellido"),
-				Integer.parseInt(request.getParameter("dni")));
-			int idAgregado = ClienteABM.getInstancia().agregar(personaAgregada);
-			request.setAttribute("personaAgregada", personaAgregada);
-			request.setAttribute("idAgregado", idAgregado);
+			PersonaFisica personaAModificar = (PersonaFisica) ClienteABM.getInstancia().traerClientePorNro(request.getParameter("nroCliente"));
+			personaAModificar.setApellido(request.getParameter("apellido"));
+			personaAModificar.setNombre(request.getParameter("nombre"));
+			ClienteABM.getInstancia().actualizar(personaAModificar);
 			
-			request.getRequestDispatcher("/ajaxagregarcliente.jsp").forward(request, response);
+			request.setAttribute("cliente",personaAModificar);
+			
+			request.getRequestDispatcher("/ajaxactualizarclienteF.jsp").forward(request, response);
 			
 		
 		
