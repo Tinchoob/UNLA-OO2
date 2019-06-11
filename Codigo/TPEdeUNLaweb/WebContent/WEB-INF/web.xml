@@ -61,6 +61,15 @@
     <url-pattern>/ActualizarFisico</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>ControladorActualizarJuridico</servlet-name>
+    <servlet-class>controladores.ControladorActualizarJuridico</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorActualizarJuridico</servlet-name>
+    <url-pattern>/ActualizarJuridico</url-pattern>
+  </servlet-mapping>
+  
   
   <servlet>
     <servlet-name>ControladorMostrarClienteJSP</servlet-name>

@@ -112,6 +112,29 @@
 	});
 </script>
 
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#actualizarJuridico').click(function() {
+			var nroCliente = $('#nroClienteAJ').val();
+			var razonSocial = $('#razonsocialNew').val();
+			var cuit = $('#cuitNew').val();
+			
+			$.ajax({
+				method : "POST",
+				url : "ActualizarJuridico",
+				data : {
+					nroCliente : nroCliente,
+					razonSocial : razonSocial,
+					cuit : cuit
+				},
+				async : false
+			}).done(function(data) {
+				$("#juridicoActualizado").html(data);
+			})
+		});
+	});
+</script>
+
 </HEAD>
 <BODY>
 	<%@ include file="/cabecera.jsp"%>
@@ -190,6 +213,25 @@
 	
 	<div class="jumbotron">
 		<div class="container">
+			<h1>Actualizar Cliente Jurídico</h1>
+			<form class="navbar-form navbar-right">
+				<div class="form-group">
+					<label for="nroCliente">Numero de Cliente: </label> <INPUT id="nroClienteAJ" name="nroClienteAJ"><BR><BR>
+					<label for="razonSocial">Nueva Razón Social: </label> <INPUT id="razonsocialNew" name="razonsocialNew"><BR><BR>
+					<label for="razonSocial">Nuevo CUIT: </label> <INPUT id="cuitNew" name="cuitNew"><BR><BR>
+				</div>
+				<INPUT id="actualizarJuridico" type="button" class="btn btn-success"
+					value="Actualizar" />
+			</form>
+		</div>
+		<BR>
+		<div id="juridicoActualizado"></div>
+		<BR>
+		<BR>
+	</div>
+	
+	<div class="jumbotron">
+		<div class="container">
 			<h1>Baja de Cliente</h1>
 			<form class="navbar-form navbar-right">
 				<div class="form-group">
@@ -199,6 +241,7 @@
 					value="Eliminar" />
 			</form>
 		</div>
+		<BR>
 		<div id="bajacliente"></div>
 		<BR>
 		<BR>
