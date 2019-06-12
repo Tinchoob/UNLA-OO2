@@ -12,8 +12,8 @@
     <welcome-file>error500.html</welcome-file>
     <welcome-file>ajaxvistsacliente.jsp</welcome-file>
     <welcome-file>ajaxagregarclienteF.jsp</welcome-file>
-    <welcome-file>vistalistacliente.jsp</welcome-file>
-    <welcome-file>vistalistaclientejstl.jsp</welcome-file>
+    <welcome-file>agregarCliente.jsp</welcome-file>
+    <welcome-file>generarFactura.jsp</welcome-file>
   </welcome-file-list>
   
   <servlet>

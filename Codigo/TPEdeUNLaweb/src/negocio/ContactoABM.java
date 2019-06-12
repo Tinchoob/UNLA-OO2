@@ -25,6 +25,10 @@ public class ContactoABM {
 		return ContactoDao.getInstancia().traer(idContacto);
 	}
 	
+	public void eliminar(Contacto objeto) {
+		ContactoDao.getInstancia().eliminar(objeto);
+	}
+	
 	
 	
 

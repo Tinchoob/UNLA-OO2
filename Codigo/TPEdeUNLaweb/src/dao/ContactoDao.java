@@ -55,6 +55,17 @@ public class ContactoDao {
 		return objeto;
 		}
 	
+	public void eliminar(Contacto objeto) {
+		
+		try {
+			iniciaOperacion();
+			session.delete(objeto);
+			tx.commit();
+		}finally {
+			session.close();
+		}
+	}
+	
 
 
 

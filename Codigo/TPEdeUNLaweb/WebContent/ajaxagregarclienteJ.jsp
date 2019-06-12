@@ -9,12 +9,20 @@
 
 Persona Agregada correctamente!<BR>
 Datos del Cliente agregado:
-<BR>
-Razon Social :
-<%=personaJ.getRazonSocial()%><BR>
-CUIT :
-<%=personaJ.getCuit()%><BR>
-Numero de Cliente :
-<%=personaJ.getNroCliente()%><BR>
-ID :
-<%=personaJ.getIdCliente()%><BR>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Numero de Cliente</th>
+      <th scope="col">Razon Social</th>
+      <th scope="col">Cuit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%=personaJ.getNroCliente()%></th>
+      <td><%=personaJ.getRazonSocial()%></td>
+      <td><%=personaJ.getCuit()%></td>
+    </tr>
+  </tbody>
+</table>

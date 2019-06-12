@@ -8,10 +8,20 @@
 
 Cliente Juridico Actualizado Correctamente!<BR>
 Nuevos datos del Cliente:
-<BR>
-Razon Social :
-<%=persona.getRazonSocial()%><BR>
-CUIT :
-<%=persona.getCuit()%><BR>
-Numero de Cliente :
-<%=persona.getNroCliente()%><BR>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Numero de Cliente</th>
+      <th scope="col">Razon Social</th>
+      <th scope="col">CUIT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%=persona.getNroCliente()%></th>
+      <td><%=persona.getRazonSocial()%></td>
+      <td><%=persona.getCuit()%></td>
+    </tr>
+  </tbody>
+</table>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import datos.Cliente;
 import datos.PersonaJuridica;
 import negocio.ClienteABM;
+import negocio.ContactoABM;
 
 public class ControladorBajaCliente extends HttpServlet {
 	
@@ -33,6 +34,7 @@ public class ControladorBajaCliente extends HttpServlet {
 		
 		try {
 			Cliente cliente = ClienteABM.getInstancia().traerClientePorNroSinContacto(request.getParameter("nroCliente"));
+		//	ContactoABM.getInstancia().eliminar(cliente.getContacto());
 			ClienteABM.getInstancia().eliminar(cliente);
 			request.setAttribute("clienteEliminado", cliente);
 			

@@ -20,16 +20,24 @@ Datos del cliente eliminado: <BR>
 	PersonaFisica persona = (PersonaFisica) cliente;
 %>
 
-<BR>
-Apellido:
-<%=persona.getApellido()%><BR>
-Nombre :
-<%=persona.getNombre()%><BR>
-DNI :
-<%=persona.getDni()%><BR>
-ID :
-<%=cliente.getIdCliente()%><BR>
-<BR>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Numero de Cliente</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Dni</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%=persona.getNroCliente()%></th>
+      <td><%=persona.getApellido()%></td>
+      <td><%=persona.getNombre()%></td>
+      <td><%=persona.getDni()%></td>
+    </tr>
+  </tbody>
+</table>
 
 <%}%>
 
@@ -38,11 +46,33 @@ ID :
 	PersonaJuridica empresa = (PersonaJuridica) cliente;
 %>
 
-<BR>
-Razon Social:
-<%=empresa.getRazonSocial()%><BR>
-CUIT:
-<%=empresa.getCuit()%><BR>
-ID:
-<%=empresa.getIdCliente()%><BR>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Numero de Cliente</th>
+      <th scope="col">Razon Social</th>
+      <th scope="col">CUIT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%=empresa.getNroCliente()%></th>
+      <td><%=empresa.getRazonSocial()%></td>
+      <td><%=empresa.getCuit()%></td>
+    </tr>
+  </tbody>
+</table>
 <%}%>
+
+
+
+
+
+
+
+
+
+
+
+
+

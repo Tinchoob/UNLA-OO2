@@ -8,12 +8,22 @@
 
 Cliente Fisico Actualizado Correctamente!<BR>
 Nuevos datos del Cliente:
-<BR>
-Apellido:
-<%=persona.getApellido()%><BR>
-Nombre :
-<%=persona.getNombre()%><BR>
-DNI :
-<%=persona.getDni()%><BR>
-Numero de Cliente :
-<%=persona.getNroCliente()%><BR>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Numero de Cliente</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Dni</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%=persona.getNroCliente()%></th>
+      <td><%=persona.getApellido()%></td>
+      <td><%=persona.getNombre()%></td>
+      <td><%=persona.getDni()%></td>
+    </tr>
+  </tbody>
+</table>
