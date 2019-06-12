@@ -12,6 +12,33 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/main.css">
+
+<!-- AGREGAR FISICO!! -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#generarFactura').click(function() {
+			var cliente = $('#cliente').val();
+			var mes = $('#mes').val();
+			var anio = $('#anio').val();
+			var nroMedidor = $('#nroMedidor').val();
+			$.ajax({
+				method : "POST",
+				url : "GenerarFactura",
+				data : {
+					cliente : cliente,
+					mes : mes,
+					anio : anio,
+					nroMedidor : nroMedidor
+				},
+				async : false
+			}).done(function(data) {
+				$("#mostrarFactura").html(data);
+			})
+		});
+	});
+</script>
+
+
 </head>
 <body>
 
@@ -39,8 +66,8 @@
     <div class="col-lg-8 col-md-8 col-sm-12 right">
        <div class="form-group">
          <input type="text" class="form-control form-control-lg" placeholder="Cliente" id="cliente">
-         <input type="text" class="form-control form-control-lg" placeholder="Mes" id="mesLectura">
-         <input type="text" class="form-control form-control-lg" placeholder="Año" id="anioLectura">
+         <input type="text" class="form-control form-control-lg" placeholder="Mes" id="mes">
+         <input type="text" class="form-control form-control-lg" placeholder="Año" id="anio">
          <input type="text" class="form-control form-control-lg" placeholder="Numero Medidor" id="nroMedidor">
        <INPUT id="generarFactura" type="button" class="btn btn-secondary btn-block"
 					value="Generar" />
@@ -49,6 +76,10 @@
    </div>
   </form>
  </div>
+</div>
+
+<div class="d-flex justify-content-center">
+<div id="mostrarFactura"></div>
 </div>
 
 

@@ -37,4 +37,8 @@ public class LecturaABM {
 	public Lectura traerLecturaEInspector(long idLectura) {
 		return LecturaDao.getInstancia().traerLecturaEInspector(idLectura);
 	}
+	
+	public Lectura traerLecturaPorMesYAnio(int mes, int anio) {
+		return LecturaDao.getInstancia().traerLecturaPorMesYAnio(mes, anio);
+	}
 }

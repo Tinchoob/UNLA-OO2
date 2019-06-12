@@ -26,6 +26,15 @@
   </servlet-mapping>
   
   <servlet>
+    <servlet-name>ControladorGenerarFactura</servlet-name>
+    <servlet-class>controladores.ControladorGenerarFactura</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorGenerarFactura</servlet-name>
+    <url-pattern>/GenerarFactura</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
     <servlet-name>ControladorAgregarClienteFisico</servlet-name>
     <servlet-class>controladores.ControladorAgregarClienteFisico</servlet-class>
   </servlet>

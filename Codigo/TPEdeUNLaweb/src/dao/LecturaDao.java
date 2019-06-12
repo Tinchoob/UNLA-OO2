@@ -92,4 +92,17 @@ public class LecturaDao {
 		}
 		return objeto;
 	}
+	
+	public Lectura traerLecturaPorMesYAnio(int mes, int anio) throws HibernateException {
+        Lectura objeto = null;
+        try {
+            iniciaOperacion();
+            String hql = String.format("from Lectura l where MONTH(l.fechaHoraLectura)=%s AND YEAR(l.fechaHoraLectura)=%s",mes,anio);
+            objeto = (Lectura) session.createQuery(hql).uniqueResult();
+        } finally {
+            session.close();
+        }
+        return objeto;
+    }
+	
 }
