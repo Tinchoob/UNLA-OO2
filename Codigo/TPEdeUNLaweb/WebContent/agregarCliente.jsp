@@ -65,6 +65,8 @@
 </head>
 <body>
 
+<header class="backgroundContainer">
+
 <!-- navbar -->  
  <nav class="navbar navbar-expand-lg fixed-top ">  
  <a class="navbar-brand" href="/TPEdeUNLaweb/index.jsp">Home</a>
@@ -77,14 +79,17 @@
 </ul> 
 </div></nav>
 
-<div class="titleContainer">
-<div class="d-flex justify-content-center">
-<h1>Sistema de Alta de Clientes</h1>
-</div>
-</div>
+
+
 
 <!-- ALTA CLIENTE TEST -->
 <div class="altaCliente">
+<div class="titleContainer">
+<div class="d-flex justify-content-center">
+<h1>Alta de Clientes</h1>
+</div>
+</div>
+
  <div class="container">
   <form>
    <div class="row">
@@ -139,7 +144,7 @@
 <div id="addclienteJuridico"></div>
 </div>
 
-
+</header>
 
 
 </body>

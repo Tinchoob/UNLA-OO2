@@ -1,15 +1,20 @@
-.navbar{ background:#6b5b95; position: fixed-top;}
+.navbar{ background:#6b5b95; 
+position: fixed-top; 
+margin-bottom: 0px;
+}
 
 
 .nav-link , .navbar-brand{ color: #f4f4f4; cursor: pointer;}
 
-.nav-link{ margin-right: 1em !important;}
+.nav-link{ margin-right: 1em 0!important;}
 
 .nav-link:hover{ background: #6b5b95; color: #f97300; }
 
 .navbar-collapse{ justify-content: flex-end;}
 
-.navbar-toggler{  back#6b5b95ground:#fff !important;}
+.navbar-toggler{  back: #6b5b95;
+ground:#fff !important;
+}
 
 
 /*header style*/
@@ -100,10 +105,11 @@
 
 .altaCliente{
  margin: 5em 0;
- position: relative;  
+ position: relative; 
 }
 
 .altaCliente h1{
+-webkit-text-stroke: 1.2px black;
  padding:1em 1px;
  color: #3355FF; 
 }
@@ -120,8 +126,14 @@
  font-size: 16px;
 }
 
-
-
+.backgroundContainer{
+ background-image: url("../images/ultraviolento.jpg");
+ background-size: cover;
+ background-attachment: fixed;
+ background-position: center;
+ height:1000px;
+ padding-top:10px;	/*esto arregla el white space entre el navbar y el background que grande!!!!*/
+}
 
 
 
