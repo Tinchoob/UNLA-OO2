@@ -9,17 +9,48 @@
 
 <% Factura factura = (Factura) request.getAttribute("factura");
 %>
-Cliente:
-<%=factura.getCliente() %><BR>
 
-Medidor:
-<%=factura.getNroMedidor() %><BR>
+<% int i=1;%>
 
-Fecha:
-<%=factura.getFecha() %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Cliente</th>
+      <th scope="col">Medidor</th>
+      <th scope="col">Fecha</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td scope="row"><%=factura.getCliente()%></td>
+      <td><%=factura.getNroMedidor()%></td>
+      <td><%=factura.getFecha()%></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Concepto</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Unidad</th>
+      
+    </tr>
+  </thead>
+
 
 <%for(ItemFactura item : factura.getLstItem()) {%>
 
-<%=item.toString()%>
+  <tbody>
+    <tr>
+      <td scope="row"><%=item.getDetalle()%></td>
+      <td><%=item.getPrecioUnitario()%></td>
+      <td><%=item.getUnidad()%></td>
+    </tr>
 
 <%} %>
+
+  </tbody>
+</table>

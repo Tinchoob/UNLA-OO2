@@ -25,6 +25,3 @@ Nuevos datos del Cliente:
     </tr>
   </tbody>
 </table>
-<div class="d-flex justify-content-center">
-<a href="#"> Agregar otro cliente</a>
-</div>

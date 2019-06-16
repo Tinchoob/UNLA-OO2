@@ -55,7 +55,9 @@
 </ul> 
 </div></nav>
 
-<!-- ALTA CLIENTE TEST -->
+<header class="backgroundContainer">
+
+
 <div class="altaCliente">
  <div class="container">
   <form>
@@ -83,6 +85,13 @@
 </div>
 
 
+<!-- aca va el de generar factura alta y el div para mostrar la factura-->
+
+
+<!--  -->
+
+
+</header>
 
 </body>
 </html>

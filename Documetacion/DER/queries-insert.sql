@@ -26,7 +26,7 @@ select * from inspectorxzona;
 
 /*CLIENTE*/		-- primero se carga en tabla cliente, despues CON EL MISMO ID en personaF o personaJ, sino no se puede.
 insert into cliente values(1,"922",0);
-insert into personafisica values(1,"Ignacio","Montania",4105567);
+insert into personafisica values(1,"Ignacio","Montania",4105567);lectura
 insert into contacto values(1,"igna@gmail.com","1533121","4211-2211");
 
 insert into cliente values(2,"923",0);
@@ -56,9 +56,9 @@ insert into medidor values(4,226,"Avenida Corrientes 112",0,2,3);
 select * from medidor;
 
 /*LECTURAS*/
-insert into lectura values(1,'2019, 3, 1,13,00',1,1);
-insert into lectura values(2,'2019, 5, 1,13,00',1,1);
-insert into lectura values(3,'2019, 7, 1,13,00',1,1);
+insert into lectura values(1,'2019-03-01 13:00',1,1);
+insert into lectura values(2,'2019-05-01 13:00',1,1);
+insert into lectura values(3,'2019-07-01 13:00',1,1);
 
 
 insert into lecturaaltademanda values(3,"AT",150,100,200,300);
