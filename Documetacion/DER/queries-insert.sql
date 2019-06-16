@@ -31,12 +31,15 @@ insert into contacto values(1,"igna@gmail.com","1533121","4211-2211");
 
 insert into cliente values(2,"923",0);
 insert into personafisica values(2,"Martin","Bombara",4133212);
+insert into contacto values(2,"tincho@gmail.com","1533121","4211-2211");
 
 insert into cliente values(3,"140",0);
 insert into personajuridica values(3,"Universidad de Lanus","2213299");
+insert into contacto values(3,"unla@gmail.com","1533121","4211-2211");
 
 insert into cliente values(4,"141",0);
 insert into personajuridica values(4,"Herreria Martinez","1138721");
+insert into contacto values(4,"hierros@gmail.com","1533121","4211-2211");
 
 
 select * from cliente,personafisica where cliente.idCliente=personaFisica.idPersonaFisica;

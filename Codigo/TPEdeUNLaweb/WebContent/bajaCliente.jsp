@@ -73,9 +73,12 @@
  </div>
 </div>
 
+
+
 <div class="d-flex justify-content-center">
 <div id="bajacliente"></div>
 </div>
+
 
 </header>
 

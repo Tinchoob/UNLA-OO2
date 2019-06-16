@@ -16,7 +16,7 @@
 <!-- modificar cliente fisico -->
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#actualizarJuridico').click(function() {
+		$('#actualizarFisico').click(function() {
 			var nroCliente = $('#nroClienteAF').val();
 			var nombre = $('#nombreNew').val();
 			var apellido = $('#apellidoNew').val();
@@ -78,6 +78,8 @@
 </ul> 
 </div></nav>
 
+<header class="backgroundContainer">
+
 
 <!-- MODIFICAR CLIENTE-->
 <div class="altaCliente">
@@ -132,7 +134,7 @@
 <div id="juridicoActualizado"></div>
 </div>
 
-
+</header>
 
 </body>
 </html>
