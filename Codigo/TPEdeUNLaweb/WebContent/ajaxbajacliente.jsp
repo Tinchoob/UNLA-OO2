@@ -12,8 +12,8 @@
 %>
 
 <BR>
-Cliente eliminado Correctamente!<BR>
-Datos del cliente eliminado: <BR>
+El cliente fue dado de baja correctamente!<BR>
+Datos del cliente: <BR>
 <% if (cliente instanceof PersonaFisica){%>
 
 <% 

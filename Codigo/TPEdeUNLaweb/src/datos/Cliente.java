@@ -7,6 +7,7 @@ public class Cliente {
 	protected String nroCliente;
 	protected Set<Medidor> medidores;
 	protected Contacto contacto;
+	protected boolean esBaja;
 	
 	
 	public Cliente() {}
@@ -15,6 +16,7 @@ public class Cliente {
 	public Cliente(String nroCliente,Contacto contacto) {
 		this.nroCliente = nroCliente;
 		this.setContacto(contacto);
+		this.esBaja=false;
 	}
 
 
@@ -55,6 +57,16 @@ public class Cliente {
 
 	public void setContacto(Contacto contacto) {
 		this.contacto = contacto;
+	}
+
+
+	public boolean isEsBaja() {
+		return esBaja;
+	}
+
+
+	public void setEsBaja(boolean esBaja) {
+		this.esBaja = esBaja;
 	}
 
 

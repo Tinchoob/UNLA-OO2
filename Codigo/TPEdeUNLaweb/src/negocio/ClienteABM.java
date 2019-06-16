@@ -54,5 +54,10 @@ public class ClienteABM {
 	public Cliente traerClientePorNroSinContacto(String nroCliente) {
 		return ClienteDao.getInstancia().traerClientePorNroSinContacto(nroCliente);
 	}
+	
+	public void bajaClienteLogica(Cliente cliente) {
+		cliente.setEsBaja(true);
+		actualizar(cliente);
+	}
 
 }

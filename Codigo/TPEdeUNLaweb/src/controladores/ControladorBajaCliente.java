@@ -33,9 +33,8 @@ public class ControladorBajaCliente extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		
 		try {
-			Cliente cliente = ClienteABM.getInstancia().traerClientePorNroSinContacto(request.getParameter("nroCliente"));
-		//	ContactoABM.getInstancia().eliminar(cliente.getContacto());
-			ClienteABM.getInstancia().eliminar(cliente);
+			Cliente cliente = ClienteABM.getInstancia().traerClientePorNro(request.getParameter("nroCliente"));
+			ClienteABM.getInstancia().bajaClienteLogica(cliente);
 			request.setAttribute("clienteEliminado", cliente);
 			
 			request.getRequestDispatcher("/ajaxbajacliente.jsp").forward(request, response);

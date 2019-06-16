@@ -36,6 +36,8 @@
 </head>
 <body>
 
+
+
 <!-- navbar -->  
  <nav class="navbar navbar-expand-lg fixed-top ">  
  <a class="navbar-brand" href="/TPEdeUNLaweb/index.jsp">Home</a>
@@ -48,11 +50,14 @@
 </ul> 
 </div></nav>
 
+<header class="backgroundContainer">
 
 <div class="altaCliente">
+<br>
  <div class="container">
   <form>
    <div class="row">
+   
     <div class="col-lg-4 col-md-4 col-sm-12">
       <h1>Baja de Cliente</h1> 
     </div>
@@ -71,6 +76,8 @@
 <div class="d-flex justify-content-center">
 <div id="bajacliente"></div>
 </div>
+
+</header>
 
 
 </body>
