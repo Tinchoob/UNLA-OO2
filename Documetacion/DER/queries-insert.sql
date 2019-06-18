@@ -8,9 +8,9 @@ select * from inspector;
 
 
 /*ZONA*/
-insert into zona values(1,"Burzaco");
-insert into zona values(2,"Quilmes");
-insert into zona values(3,"Banfield");
+insert into zona values(1,"Burzaco",0);
+insert into zona values(2,"Quilmes",0);
+insert into zona values(3,"Banfield",0);
 
 select * from zona;
 
@@ -26,7 +26,7 @@ select * from inspectorxzona;
 
 /*CLIENTE*/		-- primero se carga en tabla cliente, despues CON EL MISMO ID en personaF o personaJ, sino no se puede.
 insert into cliente values(1,"922",0);
-insert into personafisica values(1,"Ignacio","Montania",4105567);lectura
+insert into personafisica values(1,"Ignacio","Montania",4105567);
 insert into contacto values(1,"igna@gmail.com","1533121","4211-2211");
 
 insert into cliente values(2,"923",0);
