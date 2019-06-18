@@ -7,36 +7,39 @@
 <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
 <script type="text/javascript" src='js/main.js'></script>
 
-<title>Baja de Cliente</title>
+<title>Agregar Zona</title>
 
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/main.css">
 
-<!--  SCRIPT DE BAJA DE CLIENTE -->
+<!-- aca va el  scripts -->
+
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#eliminarCliente').click(function() {
-			var nroCliente = $('#nroClienteBaja').val();
+		$('#agregarZona').click(function() {
+			var nombre = $('#nombreZona').val();
 			$.ajax({
 				method : "POST",
-				url : "BajaCliente",
+				url : "AgregarZona",
 				data : {
-					nroCliente : nroCliente
+					nombre : nombre
+
 				},
 				async : false
 			}).done(function(data) {
-				$("#bajacliente").html(data);
+				$("#addZona").html(data);
 			})
 		});
 	});
 </script>
 
+<!--  fin script -->
 
 </head>
 <body>
 
-
+<header class="backgroundContainer">
 
 <!-- navbar -->  
  <nav class="navbar navbar-expand-lg fixed-top ">  
@@ -50,25 +53,22 @@
 </ul> 
 </div></nav>
 
-<header class="backgroundContainer">
-
+<!-- form para agregar, hay que modificarla -->
 <div class="altaCliente">
 <div class="d-flex justify-content-center">
-<h1>Baja de Clientes</h1>
+<h1>Alta de Zonas</h1>
 </div>
-<br>
  <div class="container">
   <form>
    <div class="row">
-   
     <div class="col-lg-4 col-md-4 col-sm-12">
-      <h1>Baja de Cliente</h1> 
+      <h1>Agregar Zona</h1> 
     </div>
     <div class="col-lg-8 col-md-8 col-sm-12 right">
        <div class="form-group">
-         <input type="text" class="form-control form-control-lg" placeholder="Numero de Cliente" id="nroClienteBaja">
-       <INPUT id="eliminarCliente" type="button" class="btn btn-secondary btn-block"
-					value="Eliminar" />
+         <input type="text" class="form-control form-control-lg" placeholder="Nombre" id="nombreZona">
+       <INPUT id="agregarZona" type="button" class="btn btn-secondary btn-block"
+					value="Agregar" />
     </div>
    </div>
    </div>
@@ -77,11 +77,9 @@
 </div>
 
 
-
 <div class="d-flex justify-content-center">
-<div id="bajacliente"></div>
+<div id="addZona"></div>
 </div>
-
 
 </header>
 

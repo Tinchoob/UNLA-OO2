@@ -5,6 +5,7 @@ import java.util.Set;
 public class Zona {
 	private long idZona;
 	private String nombre;
+	private boolean esBaja;
 	private Set<Inspector> inspectores;
 	private Set<Medidor> medidores;
 	
@@ -13,6 +14,7 @@ public class Zona {
 
 	public Zona(String nombre) {
 		this.nombre = nombre;
+		this.esBaja=false;
 	}
 
 	public long getIdZona() {
@@ -48,10 +50,20 @@ public class Zona {
 		this.inspectores = inspectores;
 	}
 	
+	public boolean isEsBaja() {
+		return esBaja;
+	}
+
+	public void setEsBaja(boolean esBaja) {
+		this.esBaja = esBaja;
+	}
+
 	@Override
 	public String toString() {
-		return "Zona [idZona=" + idZona + ", nombre=" + nombre + "]";
+		return "Zona [idZona=" + idZona + ", nombre=" + nombre + ", esBaja=" + esBaja + "]";
 	}
+
+	
 	
 
 }

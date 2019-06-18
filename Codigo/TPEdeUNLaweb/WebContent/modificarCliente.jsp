@@ -83,6 +83,9 @@
 
 <!-- MODIFICAR CLIENTE-->
 <div class="altaCliente">
+<div class="d-flex justify-content-center">
+<h1>Actualización de Clientes</h1>
+</div>
  <div class="container">
   <form>
    <div class="row">

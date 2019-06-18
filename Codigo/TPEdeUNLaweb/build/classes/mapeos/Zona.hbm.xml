@@ -10,6 +10,7 @@
 		
 		
 		<property column="nombre" name="nombre" type="string" />
+		<property column="esBaja" name="esBaja" type="boolean" />
 		
 		
 		<set name="inspectores" table="inspectorxzona" outer-join="true">

@@ -72,9 +72,15 @@
 
        <div class="listaServicios" id="listaServicios">
         <ul>
-            <li><a class="itemLista" href="/TPEdeUNLaweb/agregarCliente.jsp"> Alta de Clientes</a></li><br>
-            <li><a class="itemLista" href="/TPEdeUNLaweb/modificarCliente.jsp"> Modificacion de Clientes</a></li><br>
-            <li><a class="itemLista" href="/TPEdeUNLaweb/bajaCliente.jsp"> Baja de Clientes</a></li><br>
+        		<!-- lista clientes -->
+            <li><a class="itemLista" href="/TPEdeUNLaweb/agregarCliente.jsp"> Alta, </a>
+            	<a class="itemLista" href="/TPEdeUNLaweb/bajaCliente.jsp"> Baja </a><a>y</a>
+           		<a class="itemLista" href="/TPEdeUNLaweb/modificarCliente.jsp"> Modificacion de Clientes</a></li><br>
+           		<!-- lista zona -->
+           	<li><a class="itemLista" href="/TPEdeUNLaweb/agregarZona.jsp"> Alta, </a>
+           		<a class="itemLista" href="/TPEdeUNLaweb/agregarZona.jsp"> Baja, </a><a>y</a>
+           		<a class="itemLista" href="/TPEdeUNLaweb/agregarZona.jsp"> Modificacion de Zonas </a></li><br>
+            
             <li> <a class="itemLista" href="/TPEdeUNLaweb/generarFactura.jsp"> Generación de Facturas</a></li><br>
             <li> <a class="itemLista" href="#"> Reportes de sistema</a></li>
       </ul>
