@@ -1,5 +1,6 @@
 package dao;
 
+import datos.Cliente;
 import datos.Zona;
 
 import org.hibernate.Hibernate;
@@ -72,4 +73,17 @@ public class ZonaDao {
 		}
 		return objeto;
 	}
+	
+	public Zona traerZonaPorNombre(String nombre) throws HibernateException{
+		Zona objeto = null;
+		
+		try {
+			iniciaOperacion();
+			// objeto = (Zona) session.createQuery("from Zona as z  where z.nombre= '"+nombre+"'").uniqueResult();
+			objeto = (Zona) session.createQuery(String.format("from Zona as z where z.nombre='%s'", nombre)).uniqueResult();
+		}finally {session.close();
+		}
+		return objeto;
+	}
+	
 }

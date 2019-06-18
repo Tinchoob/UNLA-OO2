@@ -34,4 +34,13 @@ public class ZonaABM {
 	public Zona traerZona(long idZona) {
 		return zonaDao.traerZona(idZona);
 	}
+	
+	public Zona traerZonaPorNombre(String nombre) {
+		return zonaDao.traerZonaPorNombre(nombre);
+	}
+	
+	public void bajaZonaLogica(Zona objeto) {
+		objeto.setEsBaja(true);
+		actualizar(objeto);
+	}
 }

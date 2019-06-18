@@ -34,6 +34,24 @@
     <url-pattern>/AgregarZona</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>ControladorBajaZona</servlet-name>
+    <servlet-class>controladores.ControladorBajaZona</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorBajaZona</servlet-name>
+    <url-pattern>/BajaZona</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControladorActualizarZona</servlet-name>
+    <servlet-class>controladores.ControladorActualizarZona</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorActualizarZona</servlet-name>
+    <url-pattern>/ActualizarZona</url-pattern>
+  </servlet-mapping>
+  
   
   <servlet>
     <servlet-name>ControladorGenerarFactura</servlet-name>
