@@ -59,9 +59,13 @@ select * from medidor;
 insert into lectura values(1,'2019-03-01 13:00',1,1);
 insert into lectura values(2,'2019-05-01 13:00',1,1);
 insert into lectura values(3,'2019-07-01 13:00',1,1);
+insert into lectura values(4,'2019-04-01 13:00',2,3);
+insert into lectura values(5,'2019-06-01 13:00',2,3);
+insert into lectura values(6,'2019-08-01 13:00',2,3);
 
-
-insert into lecturaaltademanda values(3,"AT",150,100,200,300);
+insert into lecturaaltademanda values(4,"AT",150,100,200,300);
+insert into lecturaaltademanda values(5,"AT",350,300,300,400);
+insert into lecturaaltademanda values(6,"AT",550,400,500,700);
 
 insert into lecturabajademanda values(1,200);
 insert into lecturabajademanda values(2,500);
