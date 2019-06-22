@@ -26,6 +26,15 @@
   </servlet-mapping>
   
   <servlet>
+    <servlet-name>ControladorTraerConsumo</servlet-name>
+    <servlet-class>controladores.ControladorTraerConsumo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorTraerConsumo</servlet-name>
+    <url-pattern>/TraerConsumo</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
     <servlet-name>ControladorAgregarZona</servlet-name>
     <servlet-class>controladores.ControladorAgregarZona</servlet-class>
   </servlet>
