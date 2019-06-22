@@ -1,5 +1,8 @@
 package negocio;
 
+import java.time.LocalDate;
+import java.util.List;
+
 import dao.ClienteDao;
 import dao.LecturaDao;
 import datos.Cliente;
@@ -41,4 +44,13 @@ public class LecturaABM {
 	public Lectura traerLecturaPorMesYAnio(int mes, int anio) {
 		return LecturaDao.getInstancia().traerLecturaPorMesYAnio(mes, anio);
 	}
+	
+	public List<Lectura> traerLecturaPorClienteEntreFechas(String nroCliente,LocalDate fechaDesde,LocalDate fechaHasta){
+		return LecturaDao.getInstancia().traerLecturasPorClienteEntreFechas(nroCliente, fechaDesde, fechaHasta);	
+		}
+	
+	
+	
+	
+	
 }

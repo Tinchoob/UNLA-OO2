@@ -69,7 +69,7 @@ public class LecturaAltaDemanda extends Lectura {
 	public String toString() {
 		return "LecturaAltaDemanda [tipoTension=" + tipoTension +" potenciaContratada="+potenciaContratada+ ", consumoHorasPico=" + consumoHorasPico
 				+ ", consumoHorasValle=" + consumoHorasValle + ", consumoHorasResto=" + consumoHorasResto
-				+ "fechaHoraLectura:" + Funciones.traerFechaCortaHora(this.getFechaHoraLectura()) + "Inspector:" + this.getInspector().getIdInspector() + "Medidor:"
+				+ ", fechaHoraLectura: " + Funciones.traerFechaCortaHora(this.getFechaHoraLectura()) + ", Inspector: " + this.getInspector().getIdInspector() + ", Medidor: "
 				+ this.getMedidor().getIdMedidor() + "]";
 	}
 

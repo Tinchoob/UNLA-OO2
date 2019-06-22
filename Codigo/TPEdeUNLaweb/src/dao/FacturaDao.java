@@ -4,6 +4,7 @@ import datos.Cliente;
 import datos.Factura;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
@@ -97,6 +98,24 @@ public class FacturaDao {
 		return objeto;
 		
 	}
+	
+	//REPORTE 8 : Emitir Reporte de Facturas emitidas entre fechas
+
+		@SuppressWarnings("unchecked")
+	    public List<Factura> traerFacturasEntreFechas(LocalDate fechaDesde,LocalDate fechaHasta){
+	        List<Factura> lista = null;
+	        try {
+	            iniciaOperacion();
+	            String hQL=String.format("from Factura as f where f.fecha >=%s and f.fecha <=%s",fechaDesde,fechaHasta );
+	            lista = session.createQuery(hQL).list();
+	        }
+	        finally {
+	            session.close();
+	        }
+	        return lista;
+	    }
+	
+	
 	
 
 }

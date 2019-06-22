@@ -1,5 +1,8 @@
 package dao;
 
+import java.time.LocalDate;
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -104,5 +107,24 @@ public class LecturaDao {
         }
         return objeto;
     }
+	
+	//REPORTE 7: Emitir reporte de consumos de un cliente entre fechas
+	
+	@SuppressWarnings("unchecked")
+	public List<Lectura> traerLecturasPorClienteEntreFechas (String nroCliente,LocalDate fechaDesde,LocalDate fechaHasta) throws HibernateException {
+		List<Lectura> lista = null;
+		double consumo = 0;
+		try {
+			iniciaOperacion();
+			String hql = String.format("from Lectura as l inner join fetch l.medidor as med inner join fetch med.cliente as cli where cli.nroCliente = %s and l.fechaHoraLectura >= '%s' and l.fechaHoraLectura <= '%s'",nroCliente,fechaDesde,fechaHasta);
+			lista = session.createQuery(hql).list();
+		} finally {
+			session.close();
+		}
+
+		return lista;
+	}
+	
+	
 	
 }
