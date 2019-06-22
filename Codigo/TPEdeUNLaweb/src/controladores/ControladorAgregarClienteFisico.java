@@ -8,8 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import datos.Cliente;
+import datos.Contacto;
 import datos.PersonaFisica;
 import negocio.ClienteABM;
+import negocio.ContactoABM;
 
 public class ControladorAgregarClienteFisico extends HttpServlet {
 	
@@ -34,6 +36,9 @@ public class ControladorAgregarClienteFisico extends HttpServlet {
 					request.getParameter("nombre"), request.getParameter("apellido"),
 				Integer.parseInt(request.getParameter("dni")));
 			int idAgregado = ClienteABM.getInstancia().agregar(personaAgregada);
+			Cliente clienteAgregado = ClienteABM.getInstancia().traerCliente(idAgregado);
+			Contacto contacto = new Contacto(request.getParameter("mail"), request.getParameter("telefono"), request.getParameter("movil"), clienteAgregado);
+			ContactoABM.getInstancia().agregar(contacto);
 			request.setAttribute("personaAgregada", personaAgregada);
 			request.setAttribute("idAgregado", idAgregado);
 			

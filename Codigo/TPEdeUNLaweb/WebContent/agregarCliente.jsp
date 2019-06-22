@@ -21,6 +21,9 @@
 			var apellido = $('#apellido').val();
 			var nombre = $('#nombre').val();
 			var dni = $('#dni').val();
+			var mail = $('#mailF').val();
+			var telefono = $('#telefonoF').val();
+			var movil = $('#movilF').val();
 			$.ajax({
 				method : "POST",
 				url : "AgregarClienteFisico",
@@ -28,7 +31,10 @@
 					nroCliente : nroCliente,
 					apellido : apellido,
 					nombre : nombre,
-					dni : dni
+					dni : dni,
+					mail : mail,
+					telefono : telefono,
+					movil : movil
 				},
 				async : false
 			}).done(function(data) {
@@ -45,13 +51,19 @@
 			var nroCliente = $('#nroClienteJ').val();
 			var razonSocial = $('#razonSocial').val();
 			var cuit = $('#cuit').val();
+			var mail = $('#mailJ').val();
+			var telefono = $('#telefonoJ').val();
+			var movil = $('#movilJ').val();
 			$.ajax({
 				method : "POST",
 				url : "AgregarClienteJuridico",
 				data : {
 					nroCliente : nroCliente,
 					razonSocial : razonSocial,
-					cuit : cuit
+					cuit : cuit,
+					mail : mail,
+					telefono : telefono,
+					movil : movil
 				},
 				async : false
 			}).done(function(data) {
@@ -102,6 +114,13 @@
          <input type="text" class="form-control form-control-lg" placeholder="Apellido" id="apellido">
          <input type="text" class="form-control form-control-lg" placeholder="Nombre" id="nombre">
          <input type="text" class="form-control form-control-lg" placeholder="DNI" id="dni">
+         <div class="d-flex justify-content-center">
+         <p>Información de Contacto</p>
+         </div>
+         <input type="text" class="form-control form-control-lg" placeholder="E-Mail" id="mailF">
+         <input type="text" class="form-control form-control-lg" placeholder="Telefono" id="telefonoF">
+         <input type="text" class="form-control form-control-lg" placeholder="Movil" id="movilF">
+         
        <INPUT id="agregarFisico" type="button" class="btn btn-secondary btn-block"
 					value="Agregar" />
     </div>
@@ -130,6 +149,12 @@
          <input type="text" class="form-control form-control-lg" placeholder="Numero de Cliente" id="nroClienteJ">
          <input type="text" class="form-control form-control-lg" placeholder="Razon Social" id="razonSocial">
          <input type="text" class="form-control form-control-lg" placeholder="CUIT" id="cuit">
+         <div class="d-flex justify-content-center">
+         <p>Información de Contacto</p>
+         </div>
+         <input type="text" class="form-control form-control-lg" placeholder="E-Mail" id="mailJ">
+         <input type="text" class="form-control form-control-lg" placeholder="Telefono" id="telefonoJ">
+         <input type="text" class="form-control form-control-lg" placeholder="Movil" id="movilJ">
        <INPUT id="agregarJuridico" type="button" class="btn btn-secondary btn-block"
 					value="Agregar" />
     </div>
