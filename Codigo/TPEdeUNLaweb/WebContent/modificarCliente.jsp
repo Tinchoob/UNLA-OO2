@@ -95,8 +95,8 @@
     <div class="col-lg-8 col-md-8 col-sm-12 right">
        <div class="form-group">
          <input type="text" class="form-control form-control-lg" placeholder="Numero de Cliente" id="nroClienteAF">
-         <input type="text" class="form-control form-control-lg" placeholder="Apellido" id="apellidoNew">
-         <input type="text" class="form-control form-control-lg" placeholder="Nombre" id="nombreNew">
+         <input type="text" class="form-control form-control-lg" placeholder="Nuevo Apellido" id="apellidoNew">
+         <input type="text" class="form-control form-control-lg" placeholder="Nuevo Nombre" id="nombreNew">
        <INPUT id="actualizarFisico" type="button" class="btn btn-secondary btn-block"
 					value="Modificar" />
     </div>
@@ -122,8 +122,8 @@
     <div class="col-lg-8 col-md-8 col-sm-12 right">
        <div class="form-group">
          <input type="text" class="form-control form-control-lg" placeholder="Numero de Cliente" id="nroClienteAJ">
-         <input type="text" class="form-control form-control-lg" placeholder="Razon Social" id="razonSocialNew">
-         <input type="text" class="form-control form-control-lg" placeholder="CUIT" id="cuitNew">
+         <input type="text" class="form-control form-control-lg" placeholder="Nueva Razon Social" id="razonSocialNew">
+         <input type="text" class="form-control form-control-lg" placeholder="Nuevo CUIT" id="cuitNew">
        <INPUT id="actualizarJuridico" type="button" class="btn btn-secondary btn-block"
 					value="Modificar" />
     </div>
