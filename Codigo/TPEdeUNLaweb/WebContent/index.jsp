@@ -83,7 +83,7 @@
             
             <li> <a class="itemLista" href="/TPEdeUNLaweb/generarFactura.jsp"> Generación de Facturas</a></li><br>
             <li> <a class="itemLista" href="/TPEdeUNLaweb/reporteConsumo.jsp"> Reporte de Consumo de Cliente </a><a>y</a>
-            	 <a class="itemLista" href="#"> Reporte de Facturas entre Fechas Determinadas </a></li>
+            	 <a class="itemLista" href="/TPEdeUNLaweb/mostrarFacturas.jsp"> Reporte de Facturas entre Fechas Determinadas </a></li>
             
       </ul>
 

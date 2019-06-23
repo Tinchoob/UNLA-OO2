@@ -7,7 +7,7 @@
 <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
 <script type="text/javascript" src='js/main.js'></script>
 
-<title>Consumo de Cliente</title>
+<title>Mostrar Facturas</title>
 
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -16,21 +16,19 @@
 <!-- AGREGAR FISICO!! -->
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#traerConsumo').click(function() {
-			var nroCliente = $('#nroCliente').val();
+		$('#buscarFacturas').click(function() {
 			var fechaDesde = $('#fechaDesde').val();
 			var fechaHasta = $('#fechaHasta').val();
 			$.ajax({
 				method : "POST",
-				url : "TraerConsumo",
+				url : "BuscarFacturas",
 				data : {
-					nroCliente : nroCliente,
 					fechaDesde : fechaDesde,
 					fechaHasta : fechaHasta
 				},
 				async : false
 			}).done(function(data) {
-				$("#mostrarConsumo").html(data);
+				$("#mostrarFacturas").html(data);
 			})
 		});
 	});
@@ -61,15 +59,14 @@
   <form>
    <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-12">
-      <h1>Consumo de Cliente</h1> 
+      <h1>Mostrar Facturas entre Fechas</h1> 
     </div>
     <div class="col-lg-8 col-md-8 col-sm-12 right">
        <div class="form-group">
-         <input type="text" class="form-control form-control-lg" placeholder="Numero de Cliente" id="nroCliente">
          <input type="text" class="form-control form-control-lg" placeholder="Fecha de Inicio : dd/mm/aaaa" id="fechaDesde">
          <input type="text" class="form-control form-control-lg" placeholder="Fecha de Fin : dd/mm/aaaa" id="fechaHasta">
-       <INPUT id="traerConsumo" type="button" class="btn btn-secondary btn-block"
-					value="Traer Consumo" />
+       <INPUT id="buscarFacturas" type="button" class="btn btn-secondary btn-block"
+					value="Traer Facturas" />
     </div>
    </div>
    </div>
@@ -78,14 +75,8 @@
 </div>
 
 <div class="d-flex justify-content-center">
-<div id="mostrarConsumo"></div>
+<div id="mostrarFacturas"></div>
 </div>
-
-
-<!-- aca va el de generar factura alta y el div para mostrar la factura-->
-
-
-<!--  -->
 
 
 </header>
