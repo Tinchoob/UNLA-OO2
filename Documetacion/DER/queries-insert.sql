@@ -228,11 +228,11 @@ select * from detallealta;
 
 
 /*FACTURAS*/
-insert into factura values(1,"Ignacio Montania",1,'2019, 3, 1,13,00',123,"Mes 1 Cargo fijo: 56.11 , Cargo Variable : 265.1 // Mes 2: Cargo Fijo: 56.11, Cargo variable: 265.1",1);
+insert into factura values(1,"Ignacio Montania",1,'2019-03-01,14:00',123,"Mes 1 Cargo fijo: 56.11 , Cargo Variable : 265.1 // Mes 2: Cargo Fijo: 56.11, Cargo variable: 265.1",1);
  
-insert into factura values(2,"Ignacio Montania",1,'2019, 5, 1,13,00',123,"Mes 1 Cargo fijo: 56.11 , Cargo Variable : 397.65 // Mes 2: Cargo Fijo: 56.11, Cargo variable: 397.65",1);
+insert into factura values(2,"Ignacio Montania",1,'2019-05-01 16:21',123,"Mes 1 Cargo fijo: 56.11 , Cargo Variable : 397.65 // Mes 2: Cargo Fijo: 56.11, Cargo variable: 397.65",1);
 
-insert into factura values(3,"Ignacio Montania",1,'2019, 7, 1,13,00',123,"Mes 1 Cargo fijo: 850.24 , Cargo Variable : 1158.15 // Mes 2: Cargo Fijo: 850.24, Cargo variable: 1158.15",1);
+insert into factura values(3,"Ignacio Montania",1,'2019-07-01 12:32',123,"Mes 1 Cargo fijo: 850.24 , Cargo Variable : 1158.15 // Mes 2: Cargo Fijo: 850.24, Cargo variable: 1158.15",1);
 
 /*ITEMFACTURA*/
 insert into itemfactura values(1,"Cargo Fijo",56.11,1,"$/mes",1);

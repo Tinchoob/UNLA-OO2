@@ -106,7 +106,7 @@ public class FacturaDao {
 	        List<Factura> lista = null;
 	        try {
 	            iniciaOperacion();
-	            String hQL=String.format("from Factura as f where f.fecha >=%s and f.fecha <=%s",fechaDesde,fechaHasta );
+	            String hQL=String.format("from Factura as f where f.fecha >= '%s' and f.fecha <= '%s'",fechaDesde,fechaHasta );
 	            lista = session.createQuery(hQL).list();
 	        }
 	        finally {

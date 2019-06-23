@@ -1,6 +1,7 @@
 package negocio;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import dao.FacturaDao;
 import datos.Factura;
@@ -46,17 +47,9 @@ public class FacturaABM {
 		return ((LecturaBajaDemanda) traerFacturaPeriodoAnterior(fecha).getLectura()).getConsumo();
 	}
 	
-	
-	
-	/*METODOS*/
-	
-	
-	//public Factura generarFactura(Medidor medidor, int mes, int anio){}
-	
-	
-	
-	
-	//public Pago pagarFactura(Factura f,Localdate fechaPago, double interes){}
+	public List<Factura> traerFacturasEntreFechas(LocalDate fechaDesde,LocalDate fechaHasta){
+		return FacturaDao.getInstancia().traerFacturasEntreFechas(fechaDesde, fechaHasta);
+	}
 	
 	
 	
