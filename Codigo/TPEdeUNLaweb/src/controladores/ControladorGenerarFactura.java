@@ -42,7 +42,7 @@ public class ControladorGenerarFactura extends HttpServlet {
 			String cliente = request.getParameter("cliente");
 			Lectura lectura = LecturaABM.getInstancia().traerLecturaPorMesYAnio(Integer.parseInt(request.getParameter("mes")), 
 					Integer.parseInt(request.getParameter("anio")));
-			Factura ultimaFactura = FacturaABM.getInstancia().traerUltimaFactura();
+		//	Factura ultimaFactura = FacturaABM.getInstancia().traerUltimaFactura();
 
 
 
