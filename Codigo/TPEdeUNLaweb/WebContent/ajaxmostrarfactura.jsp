@@ -8,13 +8,9 @@
 
 
 <% Factura factura = (Factura) request.getAttribute("factura");
-	Boolean esValido = (Boolean) request.getAttribute("esValido");
 %>
 
 <% int i=1;%>
-
-<%if (esValido) {%>
-
 
 <table class="table">
   <thead>
@@ -59,10 +55,6 @@
   </tbody>
 </table>
 
-<%}else{%>
 
-ERROR: LA CONCHA DE TU MADRE!!!!!!!!!!!!
-
-<%} %>
 
 

@@ -246,9 +246,9 @@ insert into itemfactura values(3,"Cargo Fijo",56.11,1,"$/mes",1);
 insert into itemfactura values(4,"Cargo Variable",265.1,1,"$/kWh",1);
 
 insert into itemfactura values(5,"Cargo Fijo",56.11,1,"$/mes",2);
-insert into itemfactura values(6,"Cargo Variable",397,65,"$/kWh",2);
+insert into itemfactura values(6,"Cargo Variable",397,1,"$/kWh",2);
 insert into itemfactura values(7,"Cargo Fijo",56.11,1,"$/mes",2);
-insert into itemfactura values(8,"Cargo Variable",397,65,"$/kWh",2);
+insert into itemfactura values(8,"Cargo Variable",397,1,"$/kWh",2);
 
 insert into itemfactura values(9,"Cargo Fijo",850.24,1,"$/mes",3);
 insert into itemfactura values(10,"Cargo Variable",1158.15,1,"$/kWh",3);

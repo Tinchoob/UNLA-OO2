@@ -39,19 +39,13 @@ public class ControladorGenerarFactura extends HttpServlet {
 		
 		try {
 			Tarifa tarifa = null;
-			boolean esValida=true;
 			String cliente = request.getParameter("cliente");
 			Lectura lectura = LecturaABM.getInstancia().traerLecturaPorMesYAnio(Integer.parseInt(request.getParameter("mes")), 
 					Integer.parseInt(request.getParameter("anio")));
 			Factura ultimaFactura = FacturaABM.getInstancia().traerUltimaFactura();
-			request.setAttribute("factura", ultimaFactura);
-			if ((ultimaFactura.getFecha().getMonthValue() + 2) >= Integer.parseInt(request.getParameter("mes"))) {
-				esValida = false;
-				request.setAttribute("esValida", esValida);
-				request.setAttribute("factura", ultimaFactura);
-			}
-			else {
-				request.setAttribute("esValida", esValida);
+
+
+
 			
 			if (lectura instanceof LecturaBajaDemanda) {
 				tarifa = TarifaABM.getInstancia().traerDetallesTarifaBajaDemanda(1);
@@ -61,7 +55,7 @@ public class ControladorGenerarFactura extends HttpServlet {
 				}
 
 			
-			LocalDate fecha = LocalDate.now();
+			LocalDate fecha = LocalDate.of(2019,Integer.parseInt(request.getParameter("mes")),1);
 			int nroMedidor = Integer.parseInt(request.getParameter("nroMedidor"));
 			Factura factura = new Factura(cliente, lectura, fecha, nroMedidor, "", tarifa);
 			int idFactura= FacturaABM.getInstancia().agregar(factura);
@@ -69,7 +63,6 @@ public class ControladorGenerarFactura extends HttpServlet {
 			request.setAttribute("factura", factura);
 			request.setAttribute("idFactura", idFactura);
 			
-			}
 			
 			request.getRequestDispatcher("/ajaxmostrarfactura.jsp").forward(request, response);
 			

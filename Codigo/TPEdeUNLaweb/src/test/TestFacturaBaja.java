@@ -70,7 +70,7 @@ public class TestFacturaBaja {
 //		LocalDateTime fechaLectura5= LocalDateTime.of(2019, 11, 2,12,00);
 //		LocalDateTime fechaLectura6= LocalDateTime.of(2020, 1, 2,12,00);
 //		
-		Lectura l4 = (LecturaBajaDemanda) LecturaABM.getInstancia().traerLectura(3);
+		Lectura l4 = (LecturaBajaDemanda) LecturaABM.getInstancia().traerLectura(2);
 		System.out.println(l4.toString());
 		
 //		Lectura l5= new LecturaAltaDemanda(fechaLectura5,is2,m3,250,"BT",200,300,400);
@@ -96,10 +96,11 @@ public class TestFacturaBaja {
 		//long id= LecturaABM.getInstancia().agregar(l5);
 		//long id=LecturaABM.getInstancia().agregar(l5);
 		Lectura l6= LecturaABM.getInstancia().traerLectura(7);
-		LocalDate fechaFactura1= LocalDate.of(2019, 9, 1);
-		Factura f1 = new Factura("Ignacio Montania", l6, fechaFactura1, 222, "", t1);
+		System.out.println("ESTOY USANDO LA LECTURA: "+l6);
+		LocalDate fechaFactura1= LocalDate.of(2019, 5, 1);
+		Factura f1 = new Factura("Ignacio Montania", l6, LocalDate.of(2019, 9, 1), 222, "", t1);
 		long id= FacturaABM.getInstancia().agregar(f1);
-		Factura f2 = FacturaABM.getInstancia().traerFacturaYLstItem(9);
+		Factura f2 = FacturaABM.getInstancia().traerFacturaYLstItem(id);
 		//System.out.println(t1.toString());
 		//FacturaABM.getInstancia().eliminar(f2);
 		// TRAER FACTURA

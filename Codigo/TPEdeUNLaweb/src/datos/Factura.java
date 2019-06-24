@@ -106,6 +106,7 @@ public class Factura {
 
 	public void generarDetalle() {
 		int i = 0, j = 0;
+		int indexMes=0;
 		// datos ItemFactura
 		String detalle = "";
 		double precioUnitario = 0;
@@ -114,8 +115,8 @@ public class Factura {
 		// this para la factura
 		lstItem = new HashSet<ItemFactura>();
 		for (j = 0; j < 2; j++) {
-
-			observaciones = "Mes: " + i;
+			indexMes+=1;
+			observaciones+= "Mes: " + indexMes+": ";
 			if (lectura instanceof LecturaBajaDemanda) {
 				if (tarifa instanceof TarifaBaja) {
 
@@ -123,22 +124,22 @@ public class Factura {
 						switch (i) {
 						case 0:
 							detalle = "Cargo Fijo";
-							precioUnitario = asignacionDeCargoFijo(tarifa, this.lectura); // valor placeholder falta
-																								// metodo
+							precioUnitario = asignacionDeCargoFijo(tarifa, this.lectura);
 							cantidad = 1;
 							unidad = "$/mes";
+							observaciones+=" "+detalle+": "+precioUnitario+", ";
 							break;
 
 						case 1:
 							detalle = "Cargo Variable";
-							precioUnitario = asignacionDeCargoVariable(tarifa, this.lectura) / 2; // valor placeholder
-																									// falta
-							cantidad = 1;
+							precioUnitario = asignacionDeCargoVariable(tarifa, this.lectura) / 2;
+							observaciones+=" "+detalle+": "+precioUnitario+" // ";
 							unidad = "$/kWh";
 							break;
 						}
 						// aca poner el create item + add del tp de cuotas
 						ItemFactura item = new ItemFactura(detalle, precioUnitario, cantidad, unidad, this);
+						
 						lstItem.add(item);
 					}
 
