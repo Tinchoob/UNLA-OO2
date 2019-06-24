@@ -36,6 +36,10 @@
 			})
 		});
 	});
+	
+	function alertaFactura(){
+		alert("Carballo viejo puto!!");
+		}
 </script>
 
 
@@ -73,6 +77,7 @@
          <input type="text" class="form-control form-control-lg" placeholder="Numero Medidor" id="nroMedidor">
        <INPUT id="generarFactura" type="button" class="btn btn-secondary btn-block"
 					value="Generar" />
+					
     </div>
    </div>
    </div>

@@ -8,6 +8,8 @@ import java.util.List;
 
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -90,14 +92,41 @@ public class FacturaDao {
 		fecha = fecha.minusMonths(2);
 		try {
 			iniciaOperacion();
-			String hQL="from Factura as f where f.fecha="+fecha;
+			String hQL = "from Factura as f inner join fetch f.lectura inner join fetch f.tarifa where f.fecha='"
+					+ fecha.toString() + "'";
 			objeto = (Factura) session.createQuery(hQL).uniqueResult();
-		}finally {
+		} finally {
 			session.close();
-			}
+		}
 		return objeto;
-		
+
 	}
+
+	public Factura traerFacturaYLstItem(long idFactura) {
+		Factura objeto = null;
+		try {
+			iniciaOperacion();
+			String hql = "from Factura f where f.idFactura=" + idFactura;
+			objeto = (Factura) session.createQuery(hql).uniqueResult();
+			Hibernate.initialize(((Factura) objeto).getLstItem());
+		} finally {
+			session.close();
+		}
+		return objeto;
+	}
+	
+	public Factura traerUltimaFactura() {
+		Factura objeto = null;
+		try {
+			iniciaOperacion();
+			Query query = session.createQuery("from Factura order by idFactura DESC");
+			query.setMaxResults(1);
+			objeto = (Factura) query.uniqueResult();
+		}finally {session.close();}
+		return objeto;
+	}
+	
+	
 	
 	//REPORTE 8 : Emitir Reporte de Facturas emitidas entre fechas
 

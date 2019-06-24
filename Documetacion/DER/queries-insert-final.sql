@@ -59,10 +59,13 @@ select * from medidor;
 insert into lectura values(1,'2019-03-01 13:00',1,1);
 insert into lectura values(2,'2019-05-01 13:00',1,1);
 insert into lectura values(3,'2019-07-01 13:00',1,1);
+insert into lectura values(7,'2019-09-01 13:00',1,1);
 
 insert into lectura values(4,'2019-04-01 13:00',2,3);
 insert into lectura values(5,'2019-06-01 13:00',2,3);
 insert into lectura values(6,'2019-08-01 13:00',2,3);
+
+
 
 insert into lecturaaltademanda values(4,"BT",150,100,200,300);
 insert into lecturaaltademanda values(5,"BT",250,200,300,400);
@@ -71,6 +74,7 @@ insert into lecturaaltademanda values(6,"BT",350,300,400,500);
 insert into lecturabajademanda values(1,200);
 insert into lecturabajademanda values(2,500);
 insert into lecturabajademanda values(3,1200);
+insert into lecturabajademanda values(7,1900);
 
 select * from lectura;
 
@@ -231,9 +235,9 @@ select * from detallealta;
 /*FACTURAS*/
 insert into factura values(1,"Ignacio Montania",1,'2019-03-01,14:00',123,"Mes 1 Cargo fijo: 56.11 , Cargo Variable : 265.1 // Mes 2: Cargo Fijo: 56.11, Cargo variable: 265.1",1);
  
-insert into factura values(2,"Ignacio Montania",1,'2019-05-01 16:21',123,"Mes 1 Cargo fijo: 56.11 , Cargo Variable : 397.65 // Mes 2: Cargo Fijo: 56.11, Cargo variable: 397.65",1);
+insert into factura values(2,"Ignacio Montania",2,'2019-05-01 16:21',123,"Mes 1 Cargo fijo: 56.11 , Cargo Variable : 397.65 // Mes 2: Cargo Fijo: 56.11, Cargo variable: 397.65",1);
 
-insert into factura values(3,"Ignacio Montania",1,'2019-07-01 12:32',123,"Mes 1 Cargo fijo: 850.24 , Cargo Variable : 1158.15 // Mes 2: Cargo Fijo: 850.24, Cargo variable: 1158.15",1);
+insert into factura values(3,"Ignacio Montania",3,'2019-07-01 12:32',123,"Mes 1 Cargo fijo: 850.24 , Cargo Variable : 1158.15 // Mes 2: Cargo Fijo: 850.24, Cargo variable: 1158.15",1);
 
 /*ITEMFACTURA*/
 insert into itemfactura values(1,"Cargo Fijo",56.11,1,"$/mes",1);

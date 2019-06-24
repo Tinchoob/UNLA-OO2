@@ -1,8 +1,7 @@
 package negocio;
 
-import dao.ClienteDao;
+
 import dao.TarifaDao;
-import datos.Cliente;
 import datos.Tarifa;
 
 public class TarifaABM {
@@ -43,12 +42,12 @@ public class TarifaABM {
 		return TarifaDao.getInstancia().traerUltimaTarifaAltaDemanda();
 	}
 	
-	public Tarifa traerDetallesBajaDemanda(long idTarifa){
-		return TarifaDao.getInstancia().traerDetallesBajaDemanda(idTarifa);
+	public Tarifa traerDetallesTarifaBajaDemanda(long idTarifa){
+		return TarifaDao.getInstancia().traerDetallesTarifaBajaDemanda(idTarifa);
 	}
 	
-	public Tarifa traerDetallesAltaDemanda(long idTarifa){
-		return TarifaDao.getInstancia().traerDetallesAltaDemanda(idTarifa);
+	public Tarifa traerDetallesTarifaAltaDemanda(long idTarifa){
+		return TarifaDao.getInstancia().traerDetallesTarifaAltaDemanda(idTarifa);
 	}
 	
 }

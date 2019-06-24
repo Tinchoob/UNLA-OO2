@@ -114,7 +114,7 @@ public class TarifaDao {
 		return objeto;
 	}
 
-	public Tarifa traerDetallesBajaDemanda(long idTarifa) {
+	public Tarifa traerDetallesTarifaBajaDemanda(long idTarifa) {
 		Tarifa objeto = null;
 		try {
 			iniciaOperacion();
@@ -127,7 +127,7 @@ public class TarifaDao {
 		return objeto;
 	}
 	
-	public Tarifa traerDetallesAltaDemanda(long idTarifa) {
+	public Tarifa traerDetallesTarifaAltaDemanda(long idTarifa) {
 		Tarifa objeto = null;
 		try {
 			iniciaOperacion();

@@ -5,6 +5,7 @@ import java.util.List;
 
 import dao.FacturaDao;
 import datos.Factura;
+import datos.LecturaAltaDemanda;
 import datos.LecturaBajaDemanda;
 
 public class FacturaABM {
@@ -47,6 +48,28 @@ public class FacturaABM {
 		return ((LecturaBajaDemanda) traerFacturaPeriodoAnterior(fecha).getLectura()).getConsumo();
 	}
 	
+	public double traerConsumoHorasPicoAnteriorAltaDemanda(LocalDate fecha) {
+		return ((LecturaAltaDemanda) traerFacturaPeriodoAnterior(fecha).getLectura()).getConsumoHorasPico();
+	}
+
+	public double traerConsumoHorasValleAnteriorAltaDemanda(LocalDate fecha) {
+		return ((LecturaAltaDemanda) traerFacturaPeriodoAnterior(fecha).getLectura()).getConsumoHorasValle();
+	}
+
+	public double traerConsumoHorasRestoAnteriorAltaDemanda(LocalDate fecha) {
+		return ((LecturaAltaDemanda) traerFacturaPeriodoAnterior(fecha).getLectura()).getConsumoHorasResto();
+	}
+
+	public Factura traerFacturaYLstItem(long idFactura) {
+		return FacturaDao.getInstancia().traerFacturaYLstItem(idFactura);
+	}
+	
+	public Factura traerUltimaFactura() {
+		return FacturaDao.getInstancia().traerUltimaFactura();
+	}
+	
+	
+	//REPORTE 8 TRAER FACTURAS ENTRE FECHAS
 	public List<Factura> traerFacturasEntreFechas(LocalDate fechaDesde,LocalDate fechaHasta){
 		return FacturaDao.getInstancia().traerFacturasEntreFechas(fechaDesde, fechaHasta);
 	}
