@@ -59,13 +59,14 @@ select * from medidor;
 insert into lectura values(1,'2019-03-01 13:00',1,1);
 insert into lectura values(2,'2019-05-01 13:00',1,1);
 insert into lectura values(3,'2019-07-01 13:00',1,1);
+
 insert into lectura values(4,'2019-04-01 13:00',2,3);
 insert into lectura values(5,'2019-06-01 13:00',2,3);
 insert into lectura values(6,'2019-08-01 13:00',2,3);
 
-insert into lecturaaltademanda values(4,"AT",150,100,200,300);
-insert into lecturaaltademanda values(5,"AT",350,300,300,400);
-insert into lecturaaltademanda values(6,"AT",550,400,500,700);
+insert into lecturaaltademanda values(4,"BT",150,100,200,300);
+insert into lecturaaltademanda values(5,"BT",250,200,300,400);
+insert into lecturaaltademanda values(6,"BT",350,300,400,500);
 
 insert into lecturabajademanda values(1,200);
 insert into lecturabajademanda values(2,500);
@@ -249,6 +250,41 @@ insert into itemfactura values(9,"Cargo Fijo",850.24,1,"$/mes",3);
 insert into itemfactura values(10,"Cargo Variable",1158.15,1,"$/kWh",3);
 insert into itemfactura values(11,"Cargo Fijo",850.24,1,"$/mes",3);
 insert into itemfactura values(12,"Cargo Variable",1158.15,1,"$/kWh",3);
+
+/*FACTURAS ALTA DEMANDA*/
+insert into factura values(4,"Herreria Martinez",1,'2019-09-02 12:00:00',123,"Mes 1 Cargo fijo: 3266.41 , Cargo Variable Pico : 260.2, Cargo Variable Valle : 432.2, Cargo Variable Resto : 618.1 // Mes 2: Cargo fijo: 56.11, Cargo Variable Pico : 265.1, Cargo Variable Valle :432.2, Cargo Variable Resto : 618.1",3);
+ 
+insert into factura values(5,"Herreria Martinez",1,'2019-11-02 12:00:00',123,"Mes 1 Cargo fijo: 3266.41 , Cargo Variable Pico : 565.2, Cargo Variable Valle : 648.2, Cargo Variable Resto : 824.1 // Mes 2: Cargo fijo: 3266.41 , Cargo Variable Pico : 565.2, Cargo Variable Valle :648.2, Cargo Variable Resto : 824.1",3);
+																												--  ,565,648,824
+insert into factura values(6,"Herreria Martinez",1,'2020-01-02 12:00:00',123,"Mes 1 Cargo fijo: 3266.41 , Cargo Variable Pico : 678.2, Cargo Variable Valle : 864.2, Cargo Variable Resto : 1030.1 // Mes 2: Cargo fijo: 3266.41 , Cargo Variable Pico : 678.2, Cargo Variable Valle : 864.2, Cargo Variable Resto : 1030.1",3);
+																												--  ,678,864,1030			
+/*ITEMFACTURA*/
+insert into itemfactura values(13,"Cargo Fijo",3266.41,1,"$/mes",1);
+insert into itemfactura values(14,"Cargo Variable Pico",260.2,1,"$/kWh",1);
+insert into itemfactura values(15,"Cargo Variable Valle",432.2,1,"$/kWh",1);
+insert into itemfactura values(16,"Cargo Variable Resto",618.1,1,"$/kWh",1);
+insert into itemfactura values(17,"Cargo Fijo",56.11,1,"$/mes",1);
+insert into itemfactura values(18,"Cargo Variable Pico",265.1,1,"$/kWh",1);
+insert into itemfactura values(19,"Cargo Variable Valle",432.2,1,"$/kWh",1);
+insert into itemfactura values(20,"Cargo Variable Resto",618.1,1,"$/kWh",1);
+
+insert into itemfactura values(21,"Cargo Fijo",3266.41,1,"$/mes",2);
+insert into itemfactura values(22,"Cargo Variable Pico",565.2,1,"$/kWh",2);
+insert into itemfactura values(23,"Cargo Variable Valle",648.2,1,"$/kWh",2);
+insert into itemfactura values(24,"Cargo Variable Resto",824.1,1,"$/kWh",2);
+insert into itemfactura values(25,"Cargo Fijo",3266.41,1,"$/mes",2);
+insert into itemfactura values(26,"Cargo Variable Pico",565.2,1,"$/kWh",2);
+insert into itemfactura values(27,"Cargo Variable Valle",648.2,1,"$/kWh",2);
+insert into itemfactura values(28,"Cargo Variable Resto",824.1,1,"$/kWh",2);
+
+insert into itemfactura values(29,"Cargo Fijo",3266.41,1,"$/mes",3);
+insert into itemfactura values(30,"Cargo Variable Pico",678.2,1,"$/kWh",3);
+insert into itemfactura values(31,"Cargo Variable Valle",864.2,1,"$/kWh",3);
+insert into itemfactura values(32,"Cargo Variable Resto",1030.1,1,"$/kWh",3);
+insert into itemfactura values(33,"Cargo Fijo",3266.41,1,"$/mes",3);
+insert into itemfactura values(34,"Cargo Variable Pico",678.2,1,"$/kWh",3);
+insert into itemfactura values(35,"Cargo Variable Valle",864.2,1,"$/kWh",3);
+insert into itemfactura values(36,"Cargo Variable Resto",1030.1,1,"$/kWh",3);
 
 
 
