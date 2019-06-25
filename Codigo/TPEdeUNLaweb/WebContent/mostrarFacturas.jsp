@@ -63,8 +63,8 @@
     </div>
     <div class="col-lg-8 col-md-8 col-sm-12 right">
        <div class="form-group">
-         <input type="text" class="form-control form-control-lg" placeholder="Fecha de Inicio : dd/mm/aaaa" id="fechaDesde">
-         <input type="text" class="form-control form-control-lg" placeholder="Fecha de Fin : dd/mm/aaaa" id="fechaHasta">
+         <input type="date" class="form-control form-control-lg" placeholder="Fecha de Inicio : dd/mm/aaaa" id="fechaDesde">
+         <input type="date" class="form-control form-control-lg" placeholder="Fecha de Fin : dd/mm/aaaa" id="fechaHasta">
        <INPUT id="buscarFacturas" type="button" class="btn btn-secondary btn-block"
 					value="Traer Facturas" />
     </div>

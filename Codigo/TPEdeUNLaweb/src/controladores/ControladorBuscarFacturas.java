@@ -31,8 +31,8 @@ public class ControladorBuscarFacturas extends HttpServlet {
 			throws ServletException, IOException {
 		
 		try {
-			LocalDate fechaDesde = Funciones.traerFecha(request.getParameter("fechaDesde"));
-			LocalDate fechaHasta = Funciones.traerFecha(request.getParameter("fechaHasta"));
+			LocalDate fechaDesde = Funciones.traerFechaGuion(request.getParameter("fechaDesde"));
+			LocalDate fechaHasta = Funciones.traerFechaGuion(request.getParameter("fechaHasta"));
 		
 			List<Factura> facturas = FacturaABM.getInstancia().traerFacturasEntreFechas(fechaDesde, fechaHasta);
 			

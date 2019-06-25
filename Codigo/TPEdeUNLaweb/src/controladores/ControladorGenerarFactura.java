@@ -39,10 +39,10 @@ public class ControladorGenerarFactura extends HttpServlet {
 		
 		try {
 			Tarifa tarifa = null;
+			
 			String cliente = request.getParameter("cliente");
 			Lectura lectura = LecturaABM.getInstancia().traerLecturaPorMesYAnio(Integer.parseInt(request.getParameter("mes")), 
 					Integer.parseInt(request.getParameter("anio")));
-		//	Factura ultimaFactura = FacturaABM.getInstancia().traerUltimaFactura();
 
 
 
@@ -51,7 +51,13 @@ public class ControladorGenerarFactura extends HttpServlet {
 				tarifa = TarifaABM.getInstancia().traerDetallesTarifaBajaDemanda(1);
 				}
 			if (lectura instanceof LecturaAltaDemanda) {
-				tarifa = TarifaABM.getInstancia().traerDetallesTarifaAltaDemanda(3);
+				if (((LecturaAltaDemanda) lectura).getTipoTension().equals("BT")) {
+				tarifa = TarifaABM.getInstancia().traerDetallesTarifaAltaDemanda(3);}
+				if (((LecturaAltaDemanda) lectura).getTipoTension().equals("MT")) {
+				tarifa = TarifaABM.getInstancia().traerDetallesTarifaAltaDemanda(4);}
+				if (((LecturaAltaDemanda) lectura).getTipoTension().equals("AT")) {
+				tarifa = TarifaABM.getInstancia().traerDetallesTarifaAltaDemanda(5);}
+				
 				}
 
 			

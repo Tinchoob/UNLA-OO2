@@ -31,8 +31,9 @@ public class ControladorTraerConsumo extends HttpServlet {
 			throws ServletException, IOException {
 		
 		try {
-			LocalDate fechaDesde = Funciones.traerFecha(request.getParameter("fechaDesde"));
-			LocalDate fechaHasta = Funciones.traerFecha(request.getParameter("fechaHasta"));
+			
+			LocalDate fechaDesde = Funciones.traerFechaGuion(request.getParameter("fechaDesde"));
+			LocalDate fechaHasta = Funciones.traerFechaGuion(request.getParameter("fechaHasta"));
 			String nroCliente = request.getParameter("nroCliente");
 			List<Lectura> lecturas = LecturaABM.getInstancia().traerLecturaPorClienteEntreFechas(nroCliente, fechaDesde, fechaHasta);
 			

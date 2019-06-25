@@ -1,5 +1,6 @@
 package datos;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -125,6 +126,7 @@ public class Factura {
 						case 0:
 							detalle = "Cargo Fijo";
 							precioUnitario = asignacionDeCargoFijo(tarifa, this.lectura);
+							precioUnitario =  Math.round(precioUnitario * 100.0)/100.0;
 							cantidad = 1;
 							unidad = "$/mes";
 							observaciones+=" "+detalle+": "+precioUnitario+", ";
@@ -133,6 +135,7 @@ public class Factura {
 						case 1:
 							detalle = "Cargo Variable";
 							precioUnitario = asignacionDeCargoVariable(tarifa, this.lectura) / 2;
+							precioUnitario =  Math.round(precioUnitario * 100.0)/100.0;
 							observaciones+=" "+detalle+": "+precioUnitario+" // ";
 							unidad = "$/kWh";
 							break;
@@ -154,37 +157,38 @@ public class Factura {
 
 						case 0:
 							detalle = "Cargo Fijo";
-							precioUnitario = asignacionDeCargoFijoAltaDemanda(tarifa, this.lectura) / 2; // valor
-																											// placeholder
-																											// falta
-																											// metodo
+							precioUnitario = asignacionDeCargoFijoAltaDemanda(tarifa, this.lectura);
+							precioUnitario =  Math.round(precioUnitario * 100.0)/100.0;
 							cantidad = 1;
 							unidad = "$/mes";
+							observaciones+=" "+detalle+": "+precioUnitario+", ";
 							break;
 
 						case 1:
 							detalle = "Cargo Variable Pico";
-							precioUnitario = asignacionDeCargoVariableHorasPico(tarifa, this.lectura); // valor
-																										// placeholder
-																										// falta metodo
+							precioUnitario = asignacionDeCargoVariableHorasPico(tarifa, this.lectura) / 2; 
+							precioUnitario =  Math.round(precioUnitario * 100.0)/100.0;																																
 							cantidad = 1;
-							unidad = "$/mes";
+							unidad = "$/kWh";
+							observaciones+=" "+detalle+": "+precioUnitario+", ";
 							break;
 
 						case 2:
 							detalle = "Cargo Variable Resto";
-							precioUnitario = asignacionDeCargoVariableHorasValle(tarifa, this.lectura);
-							;
+							precioUnitario = asignacionDeCargoVariableHorasResto(tarifa, this.lectura) / 2;
+							precioUnitario =  Math.round(precioUnitario * 100.0)/100.0;
 							cantidad = 1;
 							unidad = "$/kWh";
+							observaciones+=" "+detalle+": "+precioUnitario+", ";
 							break;
 
 						case 3:
 							detalle = "Cargo Variable Valle";
-							precioUnitario = asignacionDeCargoVariableHorasResto(tarifa, this.lectura);
-							;
+							precioUnitario = asignacionDeCargoVariableHorasValle(tarifa, this.lectura) / 2;
+							precioUnitario =  Math.round(precioUnitario * 100.0)/100.0;
 							cantidad = 1;
 							unidad = "$/kWh";
+							observaciones+=" "+detalle+": "+precioUnitario+" // ";
 							break;
 						}
 
@@ -224,7 +228,7 @@ public class Factura {
 			consumoPeriodoAnteriorHorasValle = FacturaABM.getInstancia()
 					.traerConsumoHorasValleAnteriorAltaDemanda(fecha);
 		}
-		consumoHorasValle = ((LecturaAltaDemanda) this.lectura).getConsumoHorasPico();
+		consumoHorasValle = ((LecturaAltaDemanda) this.lectura).getConsumoHorasValle();
 		consumoHorasValle = consumoHorasValle - consumoPeriodoAnteriorHorasValle;
 		return consumoHorasValle;
 	}
@@ -236,7 +240,7 @@ public class Factura {
 			consumoPeriodoAnteriorHorasResto = FacturaABM.getInstancia()
 					.traerConsumoHorasRestoAnteriorAltaDemanda(fecha);
 		}
-		consumoHorasResto = ((LecturaAltaDemanda) this.lectura).getConsumoHorasPico();
+		consumoHorasResto = ((LecturaAltaDemanda) this.lectura).getConsumoHorasResto();
 		consumoHorasResto = consumoHorasResto - consumoPeriodoAnteriorHorasResto;
 		return consumoHorasResto;
 	}
@@ -263,17 +267,17 @@ public class Factura {
 
 	public double asignacionDeCargoFijoAltaDemanda(Tarifa tarifa, Lectura lectura) {
 		double cargoFijo = 0;
-		String detalleCargo = "Cargo fijo";
+		String detalleCargo = "Cargo Fijo";
 		if (((TarifaAlta) tarifa).getTensionContratada().equals(((LecturaAltaDemanda) lectura).getTipoTension())) {
 			for (DetalleAlta d : ((TarifaAlta) tarifa).getDetalles()) {
 				if (d.getDetalleConcepto().equals(detalleCargo)) {
-					if (((TarifaAlta) tarifa).getTensionContratada() == "BT") {
+					if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("BT")) {
 						cargoFijo = d.getValor();
 					}
-					if (((TarifaAlta) tarifa).getTensionContratada() == "MT") {
+					if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("MT")) {
 						cargoFijo = d.getValor();
 					}
-					if (((TarifaAlta) tarifa).getTensionContratada() == "AT") {
+					if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("AT")) {
 						cargoFijo = d.getValor();
 					}
 				}
@@ -283,8 +287,8 @@ public class Factura {
 	}
 
 	public double asignacionDeCargoVariable(Tarifa tarifa, Lectura lectura) {
-		double consumo = calcularConsumoBajaDemanda(), valor = 0, cargoVariable = 0;
-		String detalleCargo = "Cargo variable";
+		double consumo = ((LecturaBajaDemanda) this.lectura).getConsumo(), valor = 0, cargoVariable = 0;
+		String detalleCargo = "Cargo Variable";
 		for (DetalleBaja d : ((TarifaBaja) tarifa).getDetalles()) {
 			if (d.getDesde() <= consumo && d.getHasta() >= consumo) {
 				if (d.getDetalleConcepto().equals(detalleCargo)) {
@@ -299,38 +303,42 @@ public class Factura {
 	public double asignacionDeCargoVariableHorasPico(Tarifa tarifa, Lectura lectura) {
 		double consumoHorasPico = ((LecturaAltaDemanda) this.lectura).getConsumoHorasPico(), valor = 0,
 				cargoVariable = 0;
-		String detalleCargo = "Cargo variable Pico";
+		String detalleCargo = "Cargo Variable Pico";
 		for (DetalleAlta d : ((TarifaAlta) tarifa).getDetalles()) {
 			if (d.getDetalleConcepto().equals(detalleCargo)) {
-				if (d.isSuperaLimite() == false) {
-					if (((TarifaAlta) tarifa).getTensionContratada() == "BT") {
-						valor = d.getValor();
-						cargoVariable = consumoHorasPico * valor;
-					}
-					if (((TarifaAlta) tarifa).getTensionContratada() == "MT") {
-						valor = d.getValor();
-						cargoVariable = consumoHorasPico * valor;
-					}
-					if (((TarifaAlta) tarifa).getTensionContratada() == "AT") {
-						valor = d.getValor();
-						cargoVariable = consumoHorasPico * valor;
+				if (consumoHorasPico <= 300) {
+					if (d.isSuperaLimite() == false) {
+						if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("BT")) {
+							valor = d.getValor();
+							cargoVariable = consumoHorasPico * valor;
+						}
+						if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("MT")) {
+							valor = d.getValor();
+							cargoVariable = consumoHorasPico * valor;
+						}
+						if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("AT")) {
+							valor = d.getValor();
+							cargoVariable = consumoHorasPico * valor;
+						}
 					}
 				} else {
-					if (((TarifaAlta) tarifa).getTensionContratada() == "BT") {
-						valor = d.getValor();
-						cargoVariable = consumoHorasPico * valor;
-					}
-					if (((TarifaAlta) tarifa).getTensionContratada() == "MT") {
-						valor = d.getValor();
-						cargoVariable = consumoHorasPico * valor;
-					}
-					if (((TarifaAlta) tarifa).getTensionContratada() == "AT") {
-						valor = d.getValor();
-						cargoVariable = consumoHorasPico * valor;
+					if (consumoHorasPico > 300) {
+						if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("BT")) {
+							valor = d.getValor();
+							cargoVariable = consumoHorasPico * valor;
+						}
+						if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("MT")) {
+							valor = d.getValor();
+							cargoVariable = consumoHorasPico * valor;
+						}
+						if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("AT")) {
+							valor = d.getValor();
+							cargoVariable = consumoHorasPico * valor;
+						}
 					}
 				}
-
 			}
+
 		}
 		return cargoVariable;
 	}
@@ -338,34 +346,38 @@ public class Factura {
 	public double asignacionDeCargoVariableHorasValle(Tarifa tarifa, Lectura lectura) {
 		double consumoHorasValle = ((LecturaAltaDemanda) this.lectura).getConsumoHorasValle(), valor = 0,
 				cargoVariable = 0;
-		String detalleCargo = "Cargo variable Valle";
+		String detalleCargo = "Cargo Variable Valle";
 		for (DetalleAlta d : ((TarifaAlta) tarifa).getDetalles()) {
 			if (d.getDetalleConcepto().equals(detalleCargo)) {
-				if (d.isSuperaLimite() == false) {
-					if (((TarifaAlta) tarifa).getTensionContratada() == "BT") {
-						valor = d.getValor();
-						cargoVariable = consumoHorasValle * valor;
-					}
-					if (((TarifaAlta) tarifa).getTensionContratada() == "MT") {
-						valor = d.getValor();
-						cargoVariable = consumoHorasValle * valor;
-					}
-					if (((TarifaAlta) tarifa).getTensionContratada() == "AT") {
-						valor = d.getValor();
-						cargoVariable = consumoHorasValle * valor;
+				if (consumoHorasValle <= 300) {
+					if (d.isSuperaLimite() == false) {
+						if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("BT")) {
+							valor = d.getValor();
+							cargoVariable = consumoHorasValle * valor;
+						}
+						if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("MT")) {
+							valor = d.getValor();
+							cargoVariable = consumoHorasValle * valor;
+						}
+						if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("AT")) {
+							valor = d.getValor();
+							cargoVariable = consumoHorasValle * valor;
+						}
 					}
 				} else {
-					if (((TarifaAlta) tarifa).getTensionContratada() == "BT") {
-						valor = d.getValor();
-						cargoVariable = consumoHorasValle * valor;
-					}
-					if (((TarifaAlta) tarifa).getTensionContratada() == "MT") {
-						valor = d.getValor();
-						cargoVariable = consumoHorasValle * valor;
-					}
-					if (((TarifaAlta) tarifa).getTensionContratada() == "AT") {
-						valor = d.getValor();
-						cargoVariable = consumoHorasValle * valor;
+					if (consumoHorasValle > 300) {
+						if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("BT")) {
+							valor = d.getValor();
+							cargoVariable = consumoHorasValle * valor;
+						}
+						if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("MT")) {
+							valor = d.getValor();
+							cargoVariable = consumoHorasValle * valor;
+						}
+						if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("AT")) {
+							valor = d.getValor();
+							cargoVariable = consumoHorasValle * valor;
+						}
 					}
 				}
 
@@ -377,34 +389,38 @@ public class Factura {
 	public double asignacionDeCargoVariableHorasResto(Tarifa tarifa, Lectura lectura) {
 		double consumoHorasResto = ((LecturaAltaDemanda) this.lectura).getConsumoHorasResto(), valor = 0,
 				cargoVariable = 0;
-		String detalleCargo = "Cargo variable Pico";
+		String detalleCargo = "Cargo Variable Resto";
 		for (DetalleAlta d : ((TarifaAlta) tarifa).getDetalles()) {
 			if (d.getDetalleConcepto().equals(detalleCargo)) {
-				if (d.isSuperaLimite() == false) {
-					if (((TarifaAlta) tarifa).getTensionContratada() == "BT") {
-						valor = d.getValor();
-						cargoVariable = consumoHorasResto * valor;
-					}
-					if (((TarifaAlta) tarifa).getTensionContratada() == "MT") {
-						valor = d.getValor();
-						cargoVariable = consumoHorasResto * valor;
-					}
-					if (((TarifaAlta) tarifa).getTensionContratada() == "AT") {
-						valor = d.getValor();
-						cargoVariable = consumoHorasResto * valor;
+				if (consumoHorasResto <= 300) {
+					if (d.isSuperaLimite() == false) {
+						if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("BT")) {
+							valor = d.getValor();
+							cargoVariable = consumoHorasResto * valor;
+						}
+						if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("MT")) {
+							valor = d.getValor();
+							cargoVariable = consumoHorasResto * valor;
+						}
+						if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("AT")) {
+							valor = d.getValor();
+							cargoVariable = consumoHorasResto * valor;
+						}
 					}
 				} else {
-					if (((TarifaAlta) tarifa).getTensionContratada() == "BT") {
-						valor = d.getValor();
-						cargoVariable = consumoHorasResto * valor;
-					}
-					if (((TarifaAlta) tarifa).getTensionContratada() == "MT") {
-						valor = d.getValor();
-						cargoVariable = consumoHorasResto * valor;
-					}
-					if (((TarifaAlta) tarifa).getTensionContratada() == "AT") {
-						valor = d.getValor();
-						cargoVariable = consumoHorasResto * valor;
+					if (consumoHorasResto > 300) {
+						if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("BT")) {
+							valor = d.getValor();
+							cargoVariable = consumoHorasResto * valor;
+						}
+						if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("MT")) {
+							valor = d.getValor();
+							cargoVariable = consumoHorasResto * valor;
+						}
+						if (((TarifaAlta) tarifa).getTensionContratada().equalsIgnoreCase("AT")) {
+							valor = d.getValor();
+							cargoVariable = consumoHorasResto * valor;
+						}
 					}
 				}
 
@@ -422,5 +438,3 @@ public class Factura {
 // public LocalDate calcularVencimiento() {
 
 // }
-
-

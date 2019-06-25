@@ -113,6 +113,23 @@ public class Funciones {
 
 		return f;
 	}
+	
+	public static LocalDate traerFechaGuion(String fecha) {
+		String diaS, mesS, anioS;
+		int dia = 0, mes = 0, anio = 0;
+		String dias[] = fecha.split("-");
+		diaS = dias[2];
+		mesS = dias[1];
+		anioS = dias[0];
+
+		dia = Integer.parseInt(diaS);
+		mes = Integer.parseInt(mesS);
+		anio = Integer.parseInt(anioS);
+
+		LocalDate f = LocalDate.of(anio, mes, dia);
+
+		return f;
+	}
 
 	public static String traerFechaCorta(LocalDate fecha) {
 		int dia = 0, mes = 0, anio = 0;

@@ -32,7 +32,7 @@
       <td scope="row"><%=factura.getCliente()%></td>
       <td><%=factura.getNroMedidor()%></td>
       <td><%=factura.getFecha()%></td>
-      <td><%=factura.getObservaciones()%></td>
+      <td class="tablerow"><%=factura.getObservaciones()%></td>
     </tr>
   </tbody>
 </table>

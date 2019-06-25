@@ -13,7 +13,7 @@
 
 
 <% List<Lectura> lecturas = (List<Lectura>) request.getAttribute("lecturas");
-	Cliente cliente = lecturas.get(1).getMedidor().getCliente();
+	Cliente cliente = lecturas.get(0).getMedidor().getCliente();
 	List<LecturaBajaDemanda> lecturasBaja = new ArrayList<LecturaBajaDemanda>();
 	List<LecturaAltaDemanda> lecturasAlta = new ArrayList<LecturaAltaDemanda>();
 	PersonaFisica persona = null;
@@ -40,7 +40,7 @@
       <%if (cliente instanceof PersonaJuridica) {
       	empresa = (PersonaJuridica) cliente;%>
       	<td scope="row"><%=empresa.getRazonSocial()%> </td><%}%>	
-      <td scope="row"><%=lecturas.get(1).getMedidor().getNroSerie()%></td>
+      <td scope="row"><%=lecturas.get(0).getMedidor().getNroSerie()%></td>
       
 
     </tr>
@@ -49,7 +49,7 @@
 
 
 
-<%if (lecturas.get(1) instanceof LecturaBajaDemanda){%>
+<%if (lecturas.get(0) instanceof LecturaBajaDemanda){%>
 
 <table class="table">
   <thead>
@@ -77,7 +77,7 @@
   </tbody>
 
 
-<%if (lecturas.get(1) instanceof LecturaAltaDemanda){%>
+<%if (lecturas.get(0) instanceof LecturaAltaDemanda){%>
 <table class="table">
   <thead>
     <tr>
