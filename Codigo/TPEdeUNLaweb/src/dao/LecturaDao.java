@@ -96,12 +96,16 @@ public class LecturaDao {
 		return objeto;
 	}
 	
-	public Lectura traerLecturaPorMesYAnio(int mes, int anio) throws HibernateException {
+	public Lectura traerLecturaPorMesYAnio(int mes, int anio,int nroMedidor) throws HibernateException {
         Lectura objeto = null;
         try {
             iniciaOperacion();
-            String hql = String.format("from Lectura l where MONTH(l.fechaHoraLectura)=%s AND YEAR(l.fechaHoraLectura)=%s",mes,anio);
+            String hql = String.format("from Lectura l inner join fetch l.medidor as med where MONTH(l.fechaHoraLectura)=%s AND YEAR(l.fechaHoraLectura)=%s AND med.nroSerie = %03d",mes,anio,nroMedidor);
+            System.out.println(hql);
             objeto = (Lectura) session.createQuery(hql).uniqueResult();
+        }catch(HibernateException he) {
+        	manejaExcepcion(he);
+        	throw he;
         } finally {
             session.close();
         }

@@ -87,13 +87,13 @@ public class FacturaDao {
 	}
 	
 	
-	public Factura traerFacturaPeriodoAnterior(LocalDate fecha) {
+	public Factura traerFacturaPeriodoAnterior(LocalDate fecha, int nroMedidor) {
 		Factura objeto = null;
 		fecha = fecha.minusMonths(2);
 		try {
 			iniciaOperacion();
 			String hQL = "from Factura as f inner join fetch f.lectura inner join fetch f.tarifa where f.fecha='"
-					+ fecha.toString() + "'";
+					+ fecha.toString() + "' AND f.nroMedidor = "+nroMedidor;
 			objeto = (Factura) session.createQuery(hQL).uniqueResult();
 		} finally {
 			session.close();

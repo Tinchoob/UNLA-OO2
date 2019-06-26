@@ -37,9 +37,6 @@
 		});
 	});
 	
-	function alertaFactura(){
-		alert("Carballo viejo puto!!");
-		}
 </script>
 
 

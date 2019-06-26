@@ -202,8 +202,8 @@ public class Factura {
 
 	public double calcularConsumoBajaDemanda() {
 		double consumo = 0, consumoPeriodoAnterior = 0;
-		if (FacturaABM.getInstancia().traerFacturaPeriodoAnterior(fecha) != null) {
-			consumoPeriodoAnterior = FacturaABM.getInstancia().traerConsumoAnteriorBajaDemanda(fecha);
+		if (FacturaABM.getInstancia().traerFacturaPeriodoAnterior(fecha,this.nroMedidor) != null) {
+			consumoPeriodoAnterior = FacturaABM.getInstancia().traerConsumoAnteriorBajaDemanda(fecha, this.nroMedidor);
 		}
 		consumo = ((LecturaBajaDemanda) this.lectura).getConsumo();
 		consumo = consumo - consumoPeriodoAnterior;
@@ -213,8 +213,8 @@ public class Factura {
 	public double calcularConsumoHorasPicoAltaDemanda() {
 		double consumoHorasPico = 0, consumoPeriodoAnteriorHorasPico = 0;
 
-		if (FacturaABM.getInstancia().traerFacturaPeriodoAnterior(fecha) != null) {
-			consumoPeriodoAnteriorHorasPico = FacturaABM.getInstancia().traerConsumoHorasPicoAnteriorAltaDemanda(fecha);
+		if (FacturaABM.getInstancia().traerFacturaPeriodoAnterior(fecha, this.nroMedidor) != null) {
+			consumoPeriodoAnteriorHorasPico = FacturaABM.getInstancia().traerConsumoHorasPicoAnteriorAltaDemanda(fecha,this.nroMedidor);
 		}
 		consumoHorasPico = ((LecturaAltaDemanda) this.lectura).getConsumoHorasPico();
 		consumoHorasPico = consumoHorasPico - consumoPeriodoAnteriorHorasPico;
@@ -224,9 +224,9 @@ public class Factura {
 	public double calcularConsumoHorasValleAltaDemanda() {
 		double consumoHorasValle = 0, consumoPeriodoAnteriorHorasValle = 0;
 
-		if (FacturaABM.getInstancia().traerFacturaPeriodoAnterior(fecha) != null) {
+		if (FacturaABM.getInstancia().traerFacturaPeriodoAnterior(fecha,this.nroMedidor) != null) {
 			consumoPeriodoAnteriorHorasValle = FacturaABM.getInstancia()
-					.traerConsumoHorasValleAnteriorAltaDemanda(fecha);
+					.traerConsumoHorasValleAnteriorAltaDemanda(fecha,this.nroMedidor);
 		}
 		consumoHorasValle = ((LecturaAltaDemanda) this.lectura).getConsumoHorasValle();
 		consumoHorasValle = consumoHorasValle - consumoPeriodoAnteriorHorasValle;
@@ -236,9 +236,9 @@ public class Factura {
 	public double calcularConsumoHorasRestoAltaDemanda() {
 		double consumoHorasResto = 0, consumoPeriodoAnteriorHorasResto = 0;
 
-		if (FacturaABM.getInstancia().traerFacturaPeriodoAnterior(fecha) != null) {
+		if (FacturaABM.getInstancia().traerFacturaPeriodoAnterior(fecha,this.nroMedidor) != null) {
 			consumoPeriodoAnteriorHorasResto = FacturaABM.getInstancia()
-					.traerConsumoHorasRestoAnteriorAltaDemanda(fecha);
+					.traerConsumoHorasRestoAnteriorAltaDemanda(fecha,this.nroMedidor);
 		}
 		consumoHorasResto = ((LecturaAltaDemanda) this.lectura).getConsumoHorasResto();
 		consumoHorasResto = consumoHorasResto - consumoPeriodoAnteriorHorasResto;
@@ -287,8 +287,8 @@ public class Factura {
 	}
 
 	public double asignacionDeCargoVariable(Tarifa tarifa, Lectura lectura) {
-		double consumo = ((LecturaBajaDemanda) this.lectura).getConsumo(), valor = 0, cargoVariable = 0;
-		String detalleCargo = "Cargo Variable";
+		double consumo = calcularConsumoBajaDemanda(), valor = 0, cargoVariable = 0;
+		String detalleCargo = "Cargo variable";
 		for (DetalleBaja d : ((TarifaBaja) tarifa).getDetalles()) {
 			if (d.getDesde() <= consumo && d.getHasta() >= consumo) {
 				if (d.getDetalleConcepto().equals(detalleCargo)) {

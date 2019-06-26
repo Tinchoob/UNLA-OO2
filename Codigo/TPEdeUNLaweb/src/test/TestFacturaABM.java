@@ -28,7 +28,7 @@ public class TestFacturaABM {
 		
 		
 		//long id1= LecturaABM.getInstancia().agregar(l3);
-		Tarifa t1= TarifaDao.getInstancia().traerDetallesBajaDemanda(1);
+		Tarifa t1= TarifaDao.getInstancia().traerDetallesTarifaBajaDemanda(1);
 		//Factura f1= new Factura();
 		//Factura f2= new Factura("Contento Guido",l3,fechaFactura,421,"asd",t1);
 		//System.out.println(((TarifaBaja)t1).toString());
@@ -82,7 +82,7 @@ public class TestFacturaABM {
 		String cliente = "Ignacio Montagne";
 		Lectura lectura = LecturaABM.getInstancia().traerLecturaPorMesYAnio(5,2019);
 		
-		Tarifa tarifa = TarifaABM.getInstancia().traerDetallesBajaDemanda(1);
+		Tarifa tarifa = TarifaABM.getInstancia().traerDetallesTarifaBajaDemanda(1);
 		LocalDate fecha = LocalDate.now();
 		int nroMedidor = 123;
 		Factura factura = new Factura(cliente, lectura, fecha, nroMedidor, "", tarifa);

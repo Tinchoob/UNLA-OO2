@@ -40,24 +40,24 @@ public class FacturaABM {
 	}
 	
 	
-	public Factura traerFacturaPeriodoAnterior(LocalDate fecha) {
-		return FacturaDao.getInstancia().traerFacturaPeriodoAnterior(fecha);
+	public Factura traerFacturaPeriodoAnterior(LocalDate fecha, int nroMedidor) {
+		return FacturaDao.getInstancia().traerFacturaPeriodoAnterior(fecha, nroMedidor);
 	}
 	
-	public double traerConsumoAnteriorBajaDemanda(LocalDate fecha) {
-		return ((LecturaBajaDemanda) traerFacturaPeriodoAnterior(fecha).getLectura()).getConsumo();
+	public double traerConsumoAnteriorBajaDemanda(LocalDate fecha, int nroMedidor) {
+		return ((LecturaBajaDemanda) traerFacturaPeriodoAnterior(fecha,nroMedidor).getLectura()).getConsumo();
 	}
 	
-	public double traerConsumoHorasPicoAnteriorAltaDemanda(LocalDate fecha) {
-		return ((LecturaAltaDemanda) traerFacturaPeriodoAnterior(fecha).getLectura()).getConsumoHorasPico();
+	public double traerConsumoHorasPicoAnteriorAltaDemanda(LocalDate fecha,int nroMedidor) {
+		return ((LecturaAltaDemanda) traerFacturaPeriodoAnterior(fecha, nroMedidor).getLectura()).getConsumoHorasPico();
 	}
 
-	public double traerConsumoHorasValleAnteriorAltaDemanda(LocalDate fecha) {
-		return ((LecturaAltaDemanda) traerFacturaPeriodoAnterior(fecha).getLectura()).getConsumoHorasValle();
+	public double traerConsumoHorasValleAnteriorAltaDemanda(LocalDate fecha, int nroMedidor) {
+		return ((LecturaAltaDemanda) traerFacturaPeriodoAnterior(fecha, nroMedidor).getLectura()).getConsumoHorasValle();
 	}
 
-	public double traerConsumoHorasRestoAnteriorAltaDemanda(LocalDate fecha) {
-		return ((LecturaAltaDemanda) traerFacturaPeriodoAnterior(fecha).getLectura()).getConsumoHorasResto();
+	public double traerConsumoHorasRestoAnteriorAltaDemanda(LocalDate fecha, int nroMedidor) {
+		return ((LecturaAltaDemanda) traerFacturaPeriodoAnterior(fecha, nroMedidor).getLectura()).getConsumoHorasResto();
 	}
 
 	public Factura traerFacturaYLstItem(long idFactura) {

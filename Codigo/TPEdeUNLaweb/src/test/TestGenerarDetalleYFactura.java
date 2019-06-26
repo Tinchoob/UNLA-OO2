@@ -46,7 +46,7 @@ public class TestGenerarDetalleYFactura {
 		System.out.println(lectura);
 		
 		
-		TarifaBaja tarifa1YDetalles = (TarifaBaja) TarifaABM.getInstancia().traerDetallesBajaDemanda(1);
+		TarifaBaja tarifa1YDetalles = (TarifaBaja) TarifaABM.getInstancia().traerDetallesTarifaBajaDemanda(1);
 		
 		Factura facturaTest = new Factura(cliente.getNombre()+" "+cliente.getApellido(), lectura, fecha, medidor.getNroSerie(), "no se que va aca", tarifa1YDetalles);
 		
@@ -60,9 +60,9 @@ public class TestGenerarDetalleYFactura {
 		
 		Medidor medidorAlta= lecturaAlta.getMedidor();
 		
-		TarifaAlta tarifaBTAltaConDetalle = (TarifaAlta) TarifaABM.getInstancia().traerDetallesAltaDemanda(3);
-		TarifaAlta tarifaMTAltaConDetalle = (TarifaAlta) TarifaABM.getInstancia().traerDetallesAltaDemanda(4);
-		TarifaAlta tarifaATAltaConDetalle = (TarifaAlta) TarifaABM.getInstancia().traerDetallesAltaDemanda(5);
+		TarifaAlta tarifaBTAltaConDetalle = (TarifaAlta) TarifaABM.getInstancia().traerDetallesTarifaAltaDemanda(3);
+		TarifaAlta tarifaMTAltaConDetalle = (TarifaAlta) TarifaABM.getInstancia().traerDetallesTarifaAltaDemanda(4);
+		TarifaAlta tarifaATAltaConDetalle = (TarifaAlta) TarifaABM.getInstancia().traerDetallesTarifaAltaDemanda(5);
 		
 		
 		System.out.println();

@@ -41,8 +41,8 @@ public class LecturaABM {
 		return LecturaDao.getInstancia().traerLecturaEInspector(idLectura);
 	}
 	
-	public Lectura traerLecturaPorMesYAnio(int mes, int anio) {
-		return LecturaDao.getInstancia().traerLecturaPorMesYAnio(mes, anio);
+	public Lectura traerLecturaPorMesYAnio(int mes, int anio, int nroMedidor) {
+		return LecturaDao.getInstancia().traerLecturaPorMesYAnio(mes, anio, nroMedidor);
 	}
 	
 	public List<Lectura> traerLecturaPorClienteEntreFechas(String nroCliente,LocalDate fechaDesde,LocalDate fechaHasta){
