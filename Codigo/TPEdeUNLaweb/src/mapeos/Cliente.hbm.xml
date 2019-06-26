@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration">
+
+<hibernate-mapping>
+	<class name="datos.Cliente" table="cliente">
+		<id column="idCliente" name="idCliente">
+			<generator class="identity" />
+		</id>
+		<property column="nroCliente" name="nroCliente" type="string" />
+		<property column="esBaja" name="esBaja" type="boolean" />
+
+
+		<one-to-one name="contacto" class="datos.Contacto"></one-to-one>
+
+		<set name="medidores" table="medidor" cascade="delete" order-by="idMedidor asc"
+			inverse="true" lazy="true" fetch="select">
+			<key column="idCliente" not-null="true" />
+			<one-to-many class="datos.Medidor" />
+		</set>
+
+		<!-- EL SET VA DESPUES DE LAS PROPERTIES Y ANTES DEL JOINED SUBCLASS PORQUE 
+			SINO NO ANDA!! -->
+
+
+		<joined-subclass name="datos.PersonaJuridica"
+			table="personajuridica">
+			<key column="idPersonaJuridica" />
+			<property column="razonSocial" name="razonSocial"
+				type="string" />
+			<property column="cuit" name="cuit" type="string" />
+		</joined-subclass>
+
+
+		<joined-subclass name="datos.PersonaFisica"
+			table="personafisica">
+			<key column="idPersonaFisica" />
+			<property column="nombre" name="nombre" type="string" />
+			<property column="apellido" name="apellido" type="string" />
+			<property column="dni" name="dni" type="int" />
+		</joined-subclass>
+
+
+	</class>
+</hibernate-mapping>

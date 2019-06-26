@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration">
+<hibernate-mapping>
+	<class name="datos.Lectura" table="lectura">
+		<id column="idLectura" name="idLectura">
+			<generator class="identity" />
+		</id>
+		<property column="fechaHoraLectura" name="fechaHoraLectura"
+			type="LocalDateTime" />
+
+
+		<many-to-one name="inspector" class="datos.Inspector" column="idInspector" not-null="true"/>
+
+		<many-to-one name="medidor" class="datos.Medidor" column="idMedidor" not-null="true"/>
+
+
+		<joined-subclass name="datos.LecturaAltaDemanda"
+			table="lecturaaltademanda">
+			<key column="idLecturaAltaDemanda" />
+			<property column="tipoTension" name="tipoTension"
+				type="string" />
+			<property column="potenciaContratada"
+				name="potenciaContratada" type="int" />
+			<property column="consumoHorasPico" name="consumoHorasPico"
+				type="double" />
+			<property column="consumoHorasValle"
+				name="consumoHorasValle" type="double" />
+			<property column="consumoHorasResto"
+				name="consumoHorasResto" type="double" />
+		</joined-subclass>
+
+		<joined-subclass name="datos.LecturaBajaDemanda"
+			table="lecturabajademanda">
+			<key column="idLecturaBajaDemanda" />
+			<property column="consumo" name="consumo" type="double" />
+		</joined-subclass>
+
+
+	</class>
+</hibernate-mapping>	

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration">
+
+<hibernate-mapping>
+	<class name="datos.Zona" table="zona">
+		<id column="idZona" name="idZona">
+			<generator class="identity" />
+		</id>
+		
+		
+		<property column="nombre" name="nombre" type="string" />
+		<property column="esBaja" name="esBaja" type="boolean" />
+		
+		
+		<set name="inspectores" table="inspectorxzona" outer-join="true">
+			<key column="idZona" not-null="true" />
+			<many-to-many column="idInspector" class="datos.Inspector" />
+		</set>
+		
+		
+		<set name="medidores" table="medidor" order-by="idMedidor asc"
+			inverse="true" lazy="true" fetch="select">
+			<key column="idZona" not-null="true" />
+			<one-to-many class="datos.Medidor" />
+		</set>
+	
+	
+	</class>
+</hibernate-mapping>

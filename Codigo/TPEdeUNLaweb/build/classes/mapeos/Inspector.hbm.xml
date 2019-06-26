@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration">
+<hibernate-mapping>
+	<class name="datos.Inspector" table="inspector">
+		<id column="idInspector" name="idInspector">
+			<generator class="identity" />
+		</id>
+
+		<property column="nombre" name="nombre" type="string" />
+		<property column="apellido" name="apellido" type="string" />
+		<property column="dni" name="dni" type="int" />
+		
+		<set name="zonas" table="inspectorxzona" outer-join="true">
+			<key column="idInspector" not-null="true" />
+			<many-to-many column="idZona" class="datos.Zona" />
+		</set>
+		
+		
+		<set name="lecturas" table="lectura" order-by="idLectura asc"
+			inverse="true" lazy="true" fetch="select">
+			<key column="idInspector" not-null="true" />
+			<one-to-many class="datos.Lectura" />
+		</set>
+		
+		
+		
+	</class>
+</hibernate-mapping>
